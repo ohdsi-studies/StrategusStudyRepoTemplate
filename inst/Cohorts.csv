@@ -1,0 +1,4 @@
+atlas_id,cohort_id,cohort_name,logic_description,generate_stats
+3909,1,celecoxib,NA,TRUE
+5903,2,diclofenac,{EUNOMIA] Diclofenac,TRUE
+5904,3,GI Bleed,NA,TRUE
