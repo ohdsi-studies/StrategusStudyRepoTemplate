@@ -216,8 +216,8 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "53c83d1897d6cdaff9499b36af279b0f7f75406b",
-      "RemoteSha": "53c83d1897d6cdaff9499b36af279b0f7f75406b"
+      "RemoteRef": "46f97a0dcf750834e1b55e5a1c63ed61cdca5bb2",
+      "RemoteSha": "46f97a0dcf750834e1b55e5a1c63ed61cdca5bb2"
     },
     "askpass": {
       "Package": "askpass",
