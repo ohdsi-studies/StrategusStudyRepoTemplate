@@ -7,21 +7,21 @@ ROhdsiWebApi::authorizeWebApi(
 cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
   baseUrl = baseUrl,
   cohortIds = c(
-    3909, # New users of Celecoxib
-    5903, # New users of Diclofenac
+    18323, # All exposures - celecoxib
+    18324, # All exposures - diclofenac
     5904 # GI Bleed
   ),
   generateStats = TRUE
 )
 
 # Rename cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 3909,]$cohortName <- "celecoxib"
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 5903,]$cohortName <- "diclofenac"
+cohortDefinitionSet[cohortDefinitionSet$cohortId == 18323,]$cohortName <- "celecoxib"
+cohortDefinitionSet[cohortDefinitionSet$cohortId == 18324,]$cohortName <- "diclofenac"
 cohortDefinitionSet[cohortDefinitionSet$cohortId == 5904,]$cohortName <- "GI Bleed"
 
 # Re-number cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 3909,]$cohortId <- 1
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 5903,]$cohortId <- 2
+cohortDefinitionSet[cohortDefinitionSet$cohortId == 18323,]$cohortId <- 1
+cohortDefinitionSet[cohortDefinitionSet$cohortId == 18324,]$cohortId <- 2
 cohortDefinitionSet[cohortDefinitionSet$cohortId == 5904,]$cohortId <- 3
 
 # Save the cohort definition set
