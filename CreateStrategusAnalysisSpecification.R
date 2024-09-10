@@ -8,6 +8,14 @@ timeAtRisks <- tibble(
   riskWindowEnd  = c(0),
   endAnchor = c("cohort end")
 )
+# Try to use fixed-time TARs for patient-level prediction:
+plpTimeAtRisks <- tibble(
+  riskWindowStart  = c(1),
+  startAnchor = c("cohort start"),
+  riskWindowEnd  = c(365),
+  endAnchor = c("cohort start"),
+)
+
 studyStartDate <- '20171201' #YYYYMMDD
 studyEndDate <- '20231231'   #YYYYMMDD
 # This is lame but has to be done
@@ -466,6 +474,61 @@ selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpec
   )
 )
 
+# PatientLevelPredictionModule -------------------------------------------------
+plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
+
+modelDesignList <- list()
+for (cohortId in tcIds) {
+  for (j in seq_len(nrow(plpTimeAtRisks))) {
+    for (k in seq_len(nrow(oList))) {
+      if (useCleanWindowForPriorOutcomeLookback) {
+        priorOutcomeLookback <- oList$cleanWindow[k]
+      } else {
+        priorOutcomeLookback <- 99999
+      }
+      modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
+        targetId = cohortId,
+        outcomeId = oList$outcomeCohortId[k],
+        restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
+          sampleSize = 1000000,
+          studyStartDate = studyStartDate,
+          studyEndDate = studyEndDate,
+          firstExposureOnly = FALSE,
+          washoutPeriod = 0
+        ),
+        populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
+          riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
+          startAnchor = plpTimeAtRisks$startAnchor[j],
+          riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
+          endAnchor = plpTimeAtRisks$endAnchor[j],
+          removeSubjectsWithPriorOutcome = TRUE,
+          priorOutcomeLookback = priorOutcomeLookback,
+          requireTimeAtRisk = FALSE,
+          binary = TRUE,
+          includeAllOutcomes = TRUE,
+          firstExposureOnly = FALSE,
+          washoutPeriod = 0,
+          minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
+          restrictTarToCohortEnd = FALSE
+        ),
+        covariateSettings = FeatureExtraction::createCovariateSettings(
+          useDemographicsGender = TRUE,
+          useDemographicsAgeGroup = TRUE,
+          useConditionGroupEraLongTerm = TRUE,
+          useDrugGroupEraLongTerm = TRUE,
+          useVisitConceptCountLongTerm = TRUE
+        ),
+        preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
+        modelSettings = PatientLevelPrediction::setLassoLogisticRegression()
+      )
+    }
+  }
+}
+plpModuleSpecifications <- plpModuleSettingsCreator$createModuleSpecifications(
+  modelDesignList = modelDesignList
+)
+
+
 # Combine across modules -------------------------------------------------------
 analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
@@ -474,6 +537,7 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addModuleSpecifications(characterizationModuleSpecifications) %>%
   Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) %>%
   Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) %>%
-  Strategus::addModuleSpecifications(selfControlledModuleSpecifications)
+  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) %>%
+  Strategus::addModuleSpecifications(plpModuleSpecifications)
 
 ParallelLogger::saveSettingsToJson(analysisSpecifications, file.path("inst", "sampleStudyAnalysisSpecification.json"))
