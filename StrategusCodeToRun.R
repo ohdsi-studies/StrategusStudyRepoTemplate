@@ -19,7 +19,7 @@ Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadloc
 ##=========== START OF INPUTS ==========
 cdmDatabaseSchema <- "merative_mdcr.cdm_merative_mdcr_v3045"
 workDatabaseSchema <- "scratch.scratch_asena5"
-outputLocation <- '~/results'
+outputLocation <- file.path(getwd(), "results")
 databaseName <- "merative_mdcr_v3045" # Only used as a folder name for results from the study
 minCellCount <- 5
 cohortTableName <- "strategus_repo_test_merative_mdcr_v3045"
@@ -47,17 +47,17 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   workDatabaseSchema = workDatabaseSchema,
   cdmDatabaseSchema = cdmDatabaseSchema,
   cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = cohortTableName),
-  workFolder = file.path(outputLocation, "results", databaseName, "strategusWork"),
-  resultsFolder = file.path(outputLocation, "results", databaseName, "strategusOutput"),
+  workFolder = file.path(outputLocation, databaseName, "strategusWork"),
+  resultsFolder = file.path(outputLocation, databaseName, "strategusOutput"),
   minCellCount = minCellCount
 )
 
-if (!dir.exists(file.path(outputLocation, "results", databaseName))) {
-  dir.create(file.path(outputLocation, "results", databaseName), recursive = T)
+if (!dir.exists(file.path(outputLocation, databaseName))) {
+  dir.create(file.path(outputLocation, databaseName), recursive = T)
 }
 ParallelLogger::saveSettingsToJson(
   object = executionSettings,
-  fileName = file.path(outputLocation, "results", databaseName, "executionSettings.json")
+  fileName = file.path(outputLocation, databaseName, "executionSettings.json")
 )
 
 Strategus::execute(

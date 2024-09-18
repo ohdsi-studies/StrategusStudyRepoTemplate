@@ -50,14 +50,8 @@
     },
     "CohortGenerator": {
       "Package": "CohortGenerator",
-      "Version": "0.11.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "CohortGenerator",
-      "RemoteRef": "v0.11.0",
-      "RemoteSha": "78c74637edfdc37a163c95ccea6cb84276e168b1"
+      "Version": "0.11.1",
+      "Source": "Repository"
     },
     "CohortIncidence": {
       "Package": "CohortIncidence",
@@ -237,8 +231,8 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "46f97a0dcf750834e1b55e5a1c63ed61cdca5bb2",
-      "RemoteSha": "46f97a0dcf750834e1b55e5a1c63ed61cdca5bb2"
+      "RemoteRef": "4a3505a864651146b16c4c4951499a5418016771",
+      "RemoteSha": "4a3505a864651146b16c4c4951499a5418016771"
     },
     "askpass": {
       "Package": "askpass",

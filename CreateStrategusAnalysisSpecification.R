@@ -43,7 +43,6 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 subset1 <- CohortGenerator::createCohortSubsetDefinition(
   name = "New Users",
   definitionId = 1,
-  identifierExpression = "targetId * 10 + definitionId",
   subsetOperators = list(
     CohortGenerator::createLimitSubset(
       priorTime = 365,
@@ -69,13 +68,13 @@ oList <- cohortDefinitionSet %>%
   filter(.data$cohortId == 3) %>%
   mutate(outcomeCohortId = cohortId, outcomeCohortName = cohortName) %>%
   select(outcomeCohortId, outcomeCohortName) %>%
-  mutate(cleanWindow = 9999)
+  mutate(cleanWindow = 365)
 
 # For the CohortMethod analysis we'll use the subsetted cohorts
 cmTcList <- data.frame(
-  targetCohortId = 11,
+  targetCohortId = 1001,
   targetCohortName = "celecoxib new users",
-  comparatorCohortId = 21,
+  comparatorCohortId = 2001,
   comparatorCohortName = "diclofenac new users"
 )
 
@@ -106,7 +105,7 @@ cohortGeneratorModuleSpecifications <- cgModuleSettingsCreator$createModuleSpeci
 
 # CohortDiagnoticsModule Settings ---------------------------------------------
 cdModuleSettingsCreator <- CohortDiagnosticsModule$new()
-cdModuleSpecifications <- cdModuleSettingsCreator$createModuleSpecifications(
+cohortDiagnosticsModuleSpecifications <- cdModuleSettingsCreator$createModuleSpecifications(
   cohortIds = cohortDefinitionSet$cohortId,
   runInclusionStatistics = TRUE,
   runIncludedSourceConcepts = TRUE,
@@ -178,16 +177,16 @@ analysis1 <- CohortIncidence::createIncidenceAnalysis(
   outcomes = seq_len(nrow(oList)),
   tars = seq_along(tars)
 )
-irStudyWindow <- CohortIncidence::createDateRange(
-  startDate = studyStartDateWithHyphens,
-  endDate = studyEndDateWithHyphens
-)
+# irStudyWindow <- CohortIncidence::createDateRange(
+#   startDate = studyStartDateWithHyphens,
+#   endDate = studyEndDateWithHyphens
+# )
 irDesign <- CohortIncidence::createIncidenceDesign(
   targetDefs = targetList,
   outcomeDefs = outcomeList,
   tars = tars,
   analysisList = list(analysis1),
-  studyWindow = irStudyWindow,
+  #studyWindow = irStudyWindow,
   strataSettings = CohortIncidence::createStrataSettings(
     byYear = TRUE,
     byGender = TRUE,
@@ -477,6 +476,10 @@ selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpec
 # PatientLevelPredictionModule -------------------------------------------------
 plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
 
+modelSettings <- list(
+  lassoLogisticRegression = PatientLevelPrediction::setLassoLogisticRegression(),
+  randomForest = PatientLevelPrediction::setRandomForest()
+)
 modelDesignList <- list()
 for (cohortId in tcIds) {
   for (j in seq_len(nrow(plpTimeAtRisks))) {
@@ -486,41 +489,43 @@ for (cohortId in tcIds) {
       } else {
         priorOutcomeLookback <- 99999
       }
-      modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
-        targetId = cohortId,
-        outcomeId = oList$outcomeCohortId[k],
-        restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
-          sampleSize = 1000000,
-          studyStartDate = studyStartDate,
-          studyEndDate = studyEndDate,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0
-        ),
-        populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
-          riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
-          startAnchor = plpTimeAtRisks$startAnchor[j],
-          riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
-          endAnchor = plpTimeAtRisks$endAnchor[j],
-          removeSubjectsWithPriorOutcome = TRUE,
-          priorOutcomeLookback = priorOutcomeLookback,
-          requireTimeAtRisk = FALSE,
-          binary = TRUE,
-          includeAllOutcomes = TRUE,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0,
-          minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
-          restrictTarToCohortEnd = FALSE
-        ),
-        covariateSettings = FeatureExtraction::createCovariateSettings(
-          useDemographicsGender = TRUE,
-          useDemographicsAgeGroup = TRUE,
-          useConditionGroupEraLongTerm = TRUE,
-          useDrugGroupEraLongTerm = TRUE,
-          useVisitConceptCountLongTerm = TRUE
-        ),
-        preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
-        modelSettings = PatientLevelPrediction::setLassoLogisticRegression()
-      )
+      for (mSetting in modelSettings) {
+        modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
+          targetId = cohortId,
+          outcomeId = oList$outcomeCohortId[k],
+          restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
+            sampleSize = 1000000,
+            studyStartDate = studyStartDate,
+            studyEndDate = studyEndDate,
+            firstExposureOnly = FALSE,
+            washoutPeriod = 0
+          ),
+          populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
+            riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
+            startAnchor = plpTimeAtRisks$startAnchor[j],
+            riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
+            endAnchor = plpTimeAtRisks$endAnchor[j],
+            removeSubjectsWithPriorOutcome = TRUE,
+            priorOutcomeLookback = priorOutcomeLookback,
+            requireTimeAtRisk = FALSE,
+            binary = TRUE,
+            includeAllOutcomes = TRUE,
+            firstExposureOnly = FALSE,
+            washoutPeriod = 0,
+            minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
+            restrictTarToCohortEnd = FALSE
+          ),
+          covariateSettings = FeatureExtraction::createCovariateSettings(
+            useDemographicsGender = TRUE,
+            useDemographicsAgeGroup = TRUE,
+            useConditionGroupEraLongTerm = TRUE,
+            useDrugGroupEraLongTerm = TRUE,
+            useVisitConceptCountLongTerm = TRUE
+          ),
+          preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
+          modelSettings = mSetting
+        )
+      }
     }
   }
 }
@@ -534,10 +539,11 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  Strategus::addModuleSpecifications(characterizationModuleSpecifications) %>%
-  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) %>%
-  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) %>%
-  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) %>%
+  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
   Strategus::addModuleSpecifications(plpModuleSpecifications)
 
 ParallelLogger::saveSettingsToJson(analysisSpecifications, file.path("inst", "sampleStudyAnalysisSpecification.json"))
