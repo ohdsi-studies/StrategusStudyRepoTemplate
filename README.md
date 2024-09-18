@@ -4,11 +4,24 @@ StrategusStudyRepoTemplate
 **PLEASE NOTE THIS IS UNDER DEVELOPMENT AND SHOULD NOT BE USED YET**
 
 
+Notes to self on installing Python
 
-
-
-
-
+- renv::deactivate() to do this in base R
+- Install and later renv::record `reticulate`
+- Helpful: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/
+- reticulate::install_miniconda(path = "e:/miniconda", update = TRUE)
+- reticulate::conda_list()
+- reticulate::use_condaenv(condaenv = "r-reticulate", conda = "E:/miniconda/_conda.exe")
+   - NOTE: Got warnings: 
+         Warning messages:
+      1: In conda_binary(conda) :
+        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
+      2: In conda_binary(conda) :
+        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
+      3: In conda_binary(conda) :
+        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
+- Reactivate renv
+- renv::use_python(type = "conda")
 
 
 
