@@ -22,6 +22,18 @@ Notes to self on installing Python
         Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
 - Reactivate renv
 - renv::use_python(type = "conda")
+- Used conda directly to set up the environment using cmd: conda env update --file /e/git/ohdsi/PatientLevelPredictionModule/environment.yml. THIS DID NOT WORK SINCE IT COULD NOT FIND THE PACKAGES USING CONFIGURED CHANNELS!
+- Manually installed: conda install scipy
+
+
+Leaving this hear after installing scikit-learn:
+Windows 64-bit packages of scikit-learn can be accelerated using sciki.    More deetails are available here: https://intel.github.io/scikit-learn-x
+    For example:
+
+        $ conda install scikit-learn-intelex
+        $ python -m sklearnex my_application.py
+
+
 
 
 
