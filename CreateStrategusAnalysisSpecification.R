@@ -139,7 +139,7 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
 # CohortIncidenceModule --------------------------------------------------------
 ciModuleSettingsCreator <- CohortIncidenceModule$new()
 tcIds <- cohortDefinitionSet %>%
-  filter(!cohortId %in% outcomeCohortId & isSubset) %>%
+  filter(!cohortId %in% oList$outcomeCohortId & isSubset) %>%
   pull(cohortId)
 targetList <- lapply(
   tcIds,
@@ -539,11 +539,11 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
+  Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
+  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
   Strategus::addModuleSpecifications(plpModuleSpecifications)
 
 ParallelLogger::saveSettingsToJson(analysisSpecifications, file.path("inst", "sampleStudyAnalysisSpecification.json"))

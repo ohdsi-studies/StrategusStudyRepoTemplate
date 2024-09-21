@@ -234,6 +234,1676 @@
       "attr_class": ["ModuleSpecifications", "CohortGeneratorModuleSpecifications"]
     },
     {
+      "module": "CohortDiagnosticsModule",
+      "settings": {
+        "cohortIds": [1, 2, 3, 1001, 2001],
+        "runInclusionStatistics": true,
+        "runIncludedSourceConcepts": true,
+        "runOrphanConcepts": true,
+        "runTimeSeries": false,
+        "runVisitContext": true,
+        "runBreakdownIndexEvents": true,
+        "runIncidenceRate": true,
+        "runCohortRelationship": true,
+        "runTemporalCohortCharacterization": true,
+        "temporalCovariateSettings": {
+          "temporal": true,
+          "temporalSequence": false,
+          "DemographicsGender": true,
+          "DemographicsAge": true,
+          "DemographicsAgeGroup": true,
+          "DemographicsRace": true,
+          "DemographicsEthnicity": true,
+          "DemographicsIndexYear": true,
+          "DemographicsIndexMonth": true,
+          "DemographicsPriorObservationTime": true,
+          "DemographicsPostObservationTime": true,
+          "DemographicsTimeInCohort": true,
+          "DemographicsIndexYearMonth": true,
+          "ConditionOccurrence": true,
+          "ConditionEraStart": true,
+          "ConditionEraOverlap": true,
+          "ConditionEraGroupOverlap": true,
+          "DrugEraStart": true,
+          "DrugEraGroupOverlap": true,
+          "ProcedureOccurrence": true,
+          "DeviceExposure": true,
+          "Measurement": true,
+          "Observation": true,
+          "CharlsonIndex": true,
+          "Dcsi": true,
+          "Chads2": true,
+          "Chads2Vasc": true,
+          "temporalStartDays": [-9999, -365, -180, -30, -365, -30, 0, 1, 31, -9999],
+          "temporalEndDays": [0, 0, 0, 0, -31, -1, 0, 30, 365, 9999],
+          "includedCovariateConceptIds": [],
+          "addDescendantsToInclude": false,
+          "excludedCovariateConceptIds": [],
+          "addDescendantsToExclude": false,
+          "includedCovariateIds": [],
+          "attr_class": "covariateSettings",
+          "attr_fun": "getDbDefaultCovariateData"
+        },
+        "minCharacterizationMean": 0.01,
+        "irWashoutPeriod": 0
+      },
+      "attr_class": ["ModuleSpecifications", "CohortDiagnosticsModuleSpecifications"]
+    },
+    {
+      "module": "CharacterizationModule",
+      "settings": {
+        "analysis": {
+          "timeToEventSettings": [
+            {
+              "targetIds": [1, 2, 3, 1001, 2001],
+              "outcomeIds": 3,
+              "attr_class": "timeToEventSettings"
+            }
+          ],
+          "dechallengeRechallengeSettings": [
+            {
+              "targetCohortDefinitionIds": [1, 2, 3, 1001, 2001],
+              "outcomeCohortDefinitionIds": 3,
+              "dechallengeStopInterval": 30,
+              "dechallengeEvaluationWindow": 30,
+              "attr_class": "dechallengeRechallengeSettings"
+            }
+          ],
+          "aggregateCovariateSettings": [
+            {
+              "targetIds": [1, 2, 3, 1001, 2001],
+              "minPriorObservation": 365,
+              "outcomeIds": 3,
+              "outcomeWashoutDays": 365,
+              "riskWindowStart": 1,
+              "startAnchor": "cohort start",
+              "riskWindowEnd": 0,
+              "endAnchor": "cohort end",
+              "covariateSettings": [
+                {
+                  "temporal": false,
+                  "temporalSequence": false,
+                  "DemographicsGender": true,
+                  "DemographicsAgeGroup": true,
+                  "DemographicsRace": true,
+                  "DemographicsEthnicity": true,
+                  "DemographicsIndexYear": true,
+                  "DemographicsIndexMonth": true,
+                  "ConditionGroupEraLongTerm": true,
+                  "ConditionGroupEraShortTerm": true,
+                  "DrugGroupEraLongTerm": true,
+                  "DrugGroupEraShortTerm": true,
+                  "DrugGroupEraOverlapping": true,
+                  "ProcedureOccurrenceLongTerm": true,
+                  "ProcedureOccurrenceShortTerm": true,
+                  "DeviceExposureLongTerm": true,
+                  "DeviceExposureShortTerm": true,
+                  "MeasurementLongTerm": true,
+                  "MeasurementShortTerm": true,
+                  "MeasurementRangeGroupLongTerm": true,
+                  "MeasurementRangeGroupShortTerm": true,
+                  "MeasurementValueAsConceptLongTerm": true,
+                  "MeasurementValueAsConceptShortTerm": true,
+                  "ObservationLongTerm": true,
+                  "ObservationShortTerm": true,
+                  "ObservationValueAsConceptLongTerm": true,
+                  "ObservationValueAsConceptShortTerm": true,
+                  "CharlsonIndex": true,
+                  "Dcsi": true,
+                  "Chads2": true,
+                  "Chads2Vasc": true,
+                  "includedCovariateConceptIds": [],
+                  "includedCovariateIds": [],
+                  "addDescendantsToInclude": false,
+                  "excludedCovariateConceptIds": [],
+                  "addDescendantsToExclude": false,
+                  "shortTermStartDays": -30,
+                  "mediumTermStartDays": -180,
+                  "endDays": 0,
+                  "longTermStartDays": -365,
+                  "attr_class": "covariateSettings",
+                  "attr_fun": "getDbDefaultCovariateData"
+                }
+              ],
+              "caseCovariateSettings": {
+                "temporal": false,
+                "temporalSequence": false,
+                "ConditionGroupEraDuring": true,
+                "DrugGroupEraDuring": true,
+                "ProcedureOccurrenceDuring": true,
+                "DeviceExposureDuring": true,
+                "MeasurementDuring": true,
+                "ObservationDuring": true,
+                "VisitConceptCountDuring": true,
+                "includedCovariateConceptIds": [],
+                "addDescendantsToInclude": false,
+                "excludedCovariateConceptIds": [],
+                "addDescendantsToExclude": false,
+                "includedCovariateIds": [],
+                "attr_class": "covariateSettings",
+                "attr_fun": "Characterization::getDbDuringCovariateData"
+              },
+              "casePreTargetDuration": 365,
+              "casePostOutcomeDuration": 365,
+              "extractNonCaseCovariates": true,
+              "attr_class": "aggregateCovariateSettings"
+            }
+          ],
+          "attr_class": "characterizationSettings"
+        },
+        "minCharacterizationMean": 0.01
+      },
+      "attr_class": ["ModuleSpecifications", "CharacterizationModuleSpecifications"]
+    },
+    {
+      "module": "CohortIncidenceModule",
+      "settings": {
+        "irDesign": {
+          "targetDefs": [
+            {
+              "id": 1001,
+              "name": "celecoxib - New Users first ever occurence with at least 365 days prior observation"
+            },
+            {
+              "id": 2001,
+              "name": "diclofenac - New Users first ever occurence with at least 365 days prior observation"
+            }
+          ],
+          "outcomeDefs": [
+            {
+              "id": 1,
+              "name": "GI Bleed",
+              "cohortId": 3,
+              "cleanWindow": 365
+            }
+          ],
+          "timeAtRiskDefs": [
+            {
+              "id": 1,
+              "start": {
+                "dateField": "start",
+                "offset": 1
+              },
+              "end": {
+                "dateField": "end",
+                "offset": 0
+              }
+            }
+          ],
+          "analysisList": [
+            {
+              "targets": [1001, 2001],
+              "outcomes": 1,
+              "tars": 1
+            }
+          ],
+          "strataSettings": {
+            "byAge": true,
+            "byGender": true,
+            "byYear": true,
+            "ageBreaks": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+          }
+        }
+      },
+      "attr_class": ["ModuleSpecifications", "CohortIncidenceModuleSpecifications"]
+    },
+    {
+      "module": "CohortMethodModule",
+      "settings": {
+        "cmAnalysisList": [
+          {
+            "analysisId": 1,
+            "description": "Cohort method, On treatment",
+            "getDbCohortMethodDataArgs": {
+              "studyStartDate": "20171201",
+              "studyEndDate": "20231231",
+              "firstExposureOnly": false,
+              "removeDuplicateSubjects": "keep all",
+              "restrictToCommonPeriod": true,
+              "washoutPeriod": 0,
+              "maxCohortSize": 0,
+              "covariateSettings": {
+                "temporal": false,
+                "temporalSequence": false,
+                "DemographicsGender": true,
+                "DemographicsAgeGroup": true,
+                "DemographicsRace": true,
+                "DemographicsEthnicity": true,
+                "DemographicsIndexYear": true,
+                "DemographicsIndexMonth": true,
+                "ConditionGroupEraLongTerm": true,
+                "ConditionGroupEraShortTerm": true,
+                "DrugGroupEraLongTerm": true,
+                "DrugGroupEraShortTerm": true,
+                "DrugGroupEraOverlapping": true,
+                "ProcedureOccurrenceLongTerm": true,
+                "ProcedureOccurrenceShortTerm": true,
+                "DeviceExposureLongTerm": true,
+                "DeviceExposureShortTerm": true,
+                "MeasurementLongTerm": true,
+                "MeasurementShortTerm": true,
+                "MeasurementRangeGroupLongTerm": true,
+                "MeasurementRangeGroupShortTerm": true,
+                "MeasurementValueAsConceptLongTerm": true,
+                "MeasurementValueAsConceptShortTerm": true,
+                "ObservationLongTerm": true,
+                "ObservationShortTerm": true,
+                "ObservationValueAsConceptLongTerm": true,
+                "ObservationValueAsConceptShortTerm": true,
+                "CharlsonIndex": true,
+                "Dcsi": true,
+                "Chads2": true,
+                "Chads2Vasc": true,
+                "includedCovariateConceptIds": [],
+                "includedCovariateIds": [],
+                "addDescendantsToInclude": false,
+                "excludedCovariateConceptIds": [],
+                "addDescendantsToExclude": true,
+                "shortTermStartDays": -30,
+                "mediumTermStartDays": -180,
+                "endDays": 0,
+                "longTermStartDays": -365,
+                "attr_class": "covariateSettings",
+                "attr_fun": "getDbDefaultCovariateData"
+              },
+              "attr_class": "args"
+            },
+            "createStudyPopArgs": {
+              "firstExposureOnly": false,
+              "restrictToCommonPeriod": false,
+              "washoutPeriod": 0,
+              "removeDuplicateSubjects": "keep first",
+              "removeSubjectsWithPriorOutcome": true,
+              "priorOutcomeLookback": 99999,
+              "minDaysAtRisk": 1,
+              "maxDaysAtRisk": 99999,
+              "riskWindowStart": 1,
+              "startAnchor": "cohort start",
+              "riskWindowEnd": 0,
+              "endAnchor": "cohort end",
+              "censorAtNewRiskWindow": true,
+              "attr_class": "args"
+            },
+            "createPsArgs": {
+              "maxCohortSizeForFitting": 250000,
+              "errorOnHighCorrelation": true,
+              "stopOnError": false,
+              "prior": {
+                "priorType": "laplace",
+                "variance": 1,
+                "exclude": 0,
+                "graph": null,
+                "neighborhood": null,
+                "useCrossValidation": true,
+                "forceIntercept": false,
+                "attr_class": "cyclopsPrior"
+              },
+              "control": {
+                "maxIterations": 1000,
+                "tolerance": 2e-07,
+                "convergenceType": "gradient",
+                "autoSearch": true,
+                "fold": 10,
+                "lowerLimit": 0.01,
+                "upperLimit": 20,
+                "gridSteps": 10,
+                "minCVData": 100,
+                "cvRepetitions": 1,
+                "noiseLevel": "silent",
+                "threads": 1,
+                "seed": 1,
+                "resetCoefficients": true,
+                "startingVariance": 0.01,
+                "useKKTSwindle": false,
+                "tuneSwindle": 10,
+                "selectorType": "auto",
+                "initialBound": 2,
+                "maxBoundCount": 5,
+                "algorithm": "ccd",
+                "doItAll": true,
+                "syncCV": false,
+                "attr_class": "cyclopsControl"
+              },
+              "estimator": "att",
+              "attr_class": "args"
+            },
+            "matchOnPsArgs": {
+              "caliper": 0.2,
+              "caliperScale": "standardized logit",
+              "maxRatio": 1,
+              "allowReverseMatch": false,
+              "attr_class": "args"
+            },
+            "computeSharedCovariateBalanceArgs": {
+              "maxCohortSize": 250000,
+              "attr_class": "args"
+            },
+            "computeCovariateBalanceArgs": {
+              "maxCohortSize": 250000,
+              "covariateFilter": {
+                "label": ["Age group", "Gender: female", "Race", "Ethnicity", "Medical history: General", "Medical history: Cardiovascular disease", "Medical history: Neoplasms", "Medication use", "Charlson comorbidity index", "CHADS2Vasc", "DCSI"],
+                "analysisId": [3, 1, 4, 5, 210, 210, 210, 410, 901, 904, 902],
+                "covariateIds": [null, "8532001", null, null, "4006969210,438409210,4212540210,255573210,201606210,4182210210,440383210,201820210,318800210,192671210,439727210,432867210,316866210,4104000210,433736210,80180210,255848210,140168210,4030518210,80809210,435783210,4279309210,81893210,81902210,197494210,4134440210", "313217210,381591210,317576210,321588210,316139210,4185932210,321052210,440417210,444247210", "4044013210,432571210,40481902210,443392210,4112853210,4180790210,443388210,197508210,200962210", "21601782410,21602796410,21604686410,21604389410,21603932410,21601387410,21602028410,21600960410,21601664410,21601744410,21601461410,21600046410,21603248410,21600712410,21603890410,21601853410,21604254410,21604489410,21604752410", "1901", "1904", "1902"],
+                "attr_class": ["spec_tbl_df", "tbl_df", "tbl", "data.frame"],
+                "attr_row.names": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                "attr_spec": {
+                  "cols": {
+                    "label": [],
+                    "analysisId": [],
+                    "covariateIds": []
+                  },
+                  "default": [],
+                  "skip": 1
+                }
+              },
+              "attr_class": "args"
+            },
+            "fitOutcomeModelArgs": {
+              "modelType": "cox",
+              "stratified": false,
+              "useCovariates": false,
+              "inversePtWeighting": false,
+              "profileBounds": [-2.3026, 2.3026],
+              "prior": {
+                "priorType": "laplace",
+                "variance": 1,
+                "exclude": null,
+                "graph": null,
+                "neighborhood": null,
+                "useCrossValidation": true,
+                "forceIntercept": false,
+                "attr_class": "cyclopsPrior"
+              },
+              "control": {
+                "maxIterations": 1000,
+                "tolerance": 2e-07,
+                "convergenceType": "gradient",
+                "autoSearch": true,
+                "fold": 10,
+                "lowerLimit": 0.01,
+                "upperLimit": 20,
+                "gridSteps": 10,
+                "minCVData": 100,
+                "cvRepetitions": 1,
+                "noiseLevel": "quiet",
+                "threads": 1,
+                "seed": 1,
+                "resetCoefficients": true,
+                "startingVariance": 0.01,
+                "useKKTSwindle": false,
+                "tuneSwindle": 10,
+                "selectorType": "auto",
+                "initialBound": 2,
+                "maxBoundCount": 5,
+                "algorithm": "ccd",
+                "doItAll": true,
+                "syncCV": false,
+                "attr_class": "cyclopsControl"
+              },
+              "attr_class": "args"
+            },
+            "attr_class": "cmAnalysis"
+          }
+        ],
+        "targetComparatorOutcomesList": [
+          {
+            "targetId": 1001,
+            "comparatorId": 2001,
+            "outcomes": [
+              {
+                "outcomeId": 3,
+                "outcomeOfInterest": true,
+                "trueEffectSize": null,
+                "priorOutcomeLookback": 99999,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 101,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 102,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 103,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 104,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 105,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 106,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 107,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 108,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 109,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 110,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 111,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 112,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 113,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 114,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 115,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 116,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 117,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 118,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 119,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 120,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 121,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 122,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 123,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 124,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 125,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 126,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 127,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 128,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 129,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 130,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 131,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 132,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 133,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 134,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 135,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              },
+              {
+                "outcomeId": 136,
+                "outcomeOfInterest": false,
+                "trueEffectSize": 1,
+                "attr_class": "outcome"
+              }
+            ],
+            "excludedCovariateConceptIds": [1118084, 1124300],
+            "attr_class": "targetComparatorOutcomes"
+          }
+        ],
+        "refitPsForEveryOutcome": false,
+        "refitPsForEveryStudyPopulation": false,
+        "cmDiagnosticThresholds": {
+          "mdrrThreshold": "Inf",
+          "easeThreshold": 0.25,
+          "sdmThreshold": 0.1,
+          "equipoiseThreshold": 0.2,
+          "generalizabilitySdmThreshold": 1,
+          "attr_class": "CmDiagnosticThresholds"
+        }
+      },
+      "attr_class": ["ModuleSpecifications", "CohortMethodModuleSpecifications"]
+    },
+    {
+      "module": "SelfControlledCaseSeriesModule",
+      "settings": {
+        "sccsAnalysisList": [
+          {
+            "analysisId": 1,
+            "description": "SCCS, male, female, age >= 18, On treatment",
+            "getDbSccsDataArgs": {
+              "useCustomCovariates": false,
+              "useNestingCohort": false,
+              "deleteCovariatesSmallCount": 0,
+              "studyStartDate": "20171201",
+              "studyEndDate": "20231231",
+              "maxCasesPerOutcome": 1000000,
+              "exposureIds": "exposureId",
+              "customCovariateIds": "",
+              "attr_class": "args"
+            },
+            "createStudyPopulationArgs": {
+              "firstOutcomeOnly": true,
+              "naivePeriod": 365,
+              "minAge": 18,
+              "genderConceptIds": [8507, 8532],
+              "attr_class": "args"
+            },
+            "createIntervalDataArgs": {
+              "eraCovariateSettings": [
+                {
+                  "includeEraIds": "exposureId",
+                  "label": "Pre-exposure",
+                  "stratifyById": false,
+                  "start": -30,
+                  "startAnchor": "era start",
+                  "end": -1,
+                  "endAnchor": "era start",
+                  "firstOccurrenceOnly": false,
+                  "allowRegularization": false,
+                  "profileLikelihood": false,
+                  "exposureOfInterest": false,
+                  "isControlInterval": false,
+                  "attr_class": "EraCovariateSettings"
+                },
+                {
+                  "includeEraIds": "exposureId",
+                  "label": "Main",
+                  "stratifyById": false,
+                  "start": 1,
+                  "startAnchor": "era start",
+                  "end": 0,
+                  "endAnchor": "era end",
+                  "firstOccurrenceOnly": false,
+                  "allowRegularization": false,
+                  "profileLikelihood": true,
+                  "exposureOfInterest": true,
+                  "isControlInterval": false,
+                  "attr_class": "EraCovariateSettings"
+                }
+              ],
+              "calendarTimeCovariateSettings": {
+                "calendarTimeKnots": 5,
+                "allowRegularization": true,
+                "computeConfidenceIntervals": false,
+                "attr_class": "CalendarTimeCovariateSettings"
+              },
+              "minCasesForTimeCovariates": 10000,
+              "eventDependentObservation": false,
+              "attr_class": "args"
+            },
+            "fitSccsModelArgs": {
+              "prior": {
+                "priorType": "laplace",
+                "variance": 1,
+                "exclude": null,
+                "graph": null,
+                "neighborhood": null,
+                "useCrossValidation": true,
+                "forceIntercept": false,
+                "attr_class": "cyclopsPrior"
+              },
+              "control": {
+                "maxIterations": 1000,
+                "tolerance": 1e-06,
+                "convergenceType": "gradient",
+                "autoSearch": true,
+                "fold": 10,
+                "lowerLimit": 0.01,
+                "upperLimit": 20,
+                "gridSteps": 10,
+                "minCVData": 100,
+                "cvRepetitions": 1,
+                "noiseLevel": "quiet",
+                "threads": 1,
+                "seed": 1,
+                "resetCoefficients": true,
+                "startingVariance": 0.1,
+                "useKKTSwindle": false,
+                "tuneSwindle": 10,
+                "selectorType": "byPid",
+                "initialBound": 2,
+                "maxBoundCount": 5,
+                "algorithm": "ccd",
+                "doItAll": true,
+                "syncCV": false,
+                "attr_class": "cyclopsControl"
+              },
+              "profileBounds": [-2.3026, 2.3026],
+              "attr_class": "args"
+            },
+            "attr_class": "SccsAnalysis"
+          }
+        ],
+        "exposuresOutcomeList": [
+          {
+            "outcomeId": 3,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": null,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 101,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 102,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 103,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 104,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 105,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 106,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 107,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 108,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 109,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 110,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 111,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 112,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 113,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 114,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 115,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 116,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 117,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 118,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 119,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 120,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 121,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 122,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 123,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 124,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 125,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 126,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 127,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 128,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 129,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 130,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 131,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 132,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 133,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 134,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 135,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 136,
+            "exposures": [
+              {
+                "exposureId": 1,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 3,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": null,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 101,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 102,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 103,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 104,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 105,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 106,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 107,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 108,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 109,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 110,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 111,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 112,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 113,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 114,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 115,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 116,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 117,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 118,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 119,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 120,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 121,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 122,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 123,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 124,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 125,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 126,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 127,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 128,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 129,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 130,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 131,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 132,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 133,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 134,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 135,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          },
+          {
+            "outcomeId": 136,
+            "exposures": [
+              {
+                "exposureId": 2,
+                "exposureIdRef": "exposureId",
+                "trueEffectSize": 1,
+                "attr_class": "Exposure"
+              }
+            ],
+            "attr_class": "ExposuresOutcome"
+          }
+        ],
+        "combineDataFetchAcrossOutcomes": false,
+        "sccsDiagnosticThresholds": {
+          "mdrrThreshold": "Inf",
+          "easeThreshold": 0.25,
+          "timeTrendPThreshold": 0.05,
+          "preExposurePThreshold": 0.05,
+          "attr_class": "SccsDiagnosticThresholds"
+        }
+      },
+      "attr_class": ["ModuleSpecifications", "SelfControlledCaseSeriesModuleSpecifications"]
+    },
+    {
       "module": "PatientLevelPredictionModule",
       "settings": {
         "modelDesignList": [
@@ -324,7 +1994,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 52185220,
+                  "seed": 54646610,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -438,7 +2108,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -455,7 +2125,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -472,7 +2142,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -489,7 +2159,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -506,7 +2176,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -523,7 +2193,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -540,7 +2210,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -557,7 +2227,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -574,7 +2244,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -591,7 +2261,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -608,7 +2278,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -625,7 +2295,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -642,7 +2312,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -659,7 +2329,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -676,7 +2346,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -693,7 +2363,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -710,7 +2380,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -727,7 +2397,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -744,7 +2414,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -761,7 +2431,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -778,7 +2448,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -795,7 +2465,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -812,7 +2482,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -829,7 +2499,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -846,7 +2516,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -863,7 +2533,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -880,7 +2550,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -897,7 +2567,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -914,7 +2584,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -931,7 +2601,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -948,7 +2618,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -965,7 +2635,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -982,7 +2652,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -999,7 +2669,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1016,7 +2686,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1033,7 +2703,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1050,7 +2720,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1067,7 +2737,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1084,7 +2754,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1101,7 +2771,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1118,7 +2788,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1135,7 +2805,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1152,7 +2822,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1169,7 +2839,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1186,7 +2856,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1203,7 +2873,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1220,7 +2890,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1237,7 +2907,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -1254,7 +2924,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1271,7 +2941,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1288,7 +2958,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1305,7 +2975,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1322,7 +2992,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1339,7 +3009,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1356,7 +3026,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1373,7 +3043,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1390,7 +3060,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1407,7 +3077,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1424,7 +3094,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1441,7 +3111,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1458,7 +3128,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1475,7 +3145,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1492,7 +3162,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1509,7 +3179,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1526,7 +3196,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1543,7 +3213,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1560,7 +3230,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1577,7 +3247,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1594,7 +3264,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1611,7 +3281,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1628,7 +3298,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1645,7 +3315,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1662,7 +3332,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1679,7 +3349,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1696,7 +3366,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1713,7 +3383,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1730,7 +3400,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1747,7 +3417,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1764,7 +3434,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1781,7 +3451,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1798,7 +3468,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1815,7 +3485,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1832,7 +3502,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1849,7 +3519,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1866,7 +3536,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1883,7 +3553,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1900,7 +3570,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1917,7 +3587,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1934,7 +3604,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1951,7 +3621,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1968,7 +3638,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -1985,7 +3655,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2002,7 +3672,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2019,7 +3689,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2036,7 +3706,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2053,13 +3723,13 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
                 "attr_settings": {
                   "modelType": "randomForest",
-                  "seed": 60483,
+                  "seed": 96907,
                   "paramNames": ["ntrees", "criterion", "maxDepth", "minSamplesSplit", "minSamplesLeaf", "minWeightFractionLeaf", "mtries", "maxLeafNodes", "minImpurityDecrease", "bootstrap", "oobScore", "nJobs", "seed", "classWeight", "maxSamples"],
                   "requiresDenseMatrix": false,
                   "name": "Random forest",
@@ -2177,7 +3847,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 52185220,
+                  "seed": 54646610,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2291,7 +3961,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2308,7 +3978,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2325,7 +3995,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2342,7 +4012,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2359,7 +4029,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2376,7 +4046,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2393,7 +4063,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2410,7 +4080,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2427,7 +4097,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2444,7 +4114,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2461,7 +4131,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2478,7 +4148,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2495,7 +4165,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2512,7 +4182,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2529,7 +4199,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2546,7 +4216,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2563,7 +4233,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2580,7 +4250,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2597,7 +4267,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2614,7 +4284,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2631,7 +4301,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2648,7 +4318,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2665,7 +4335,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2682,7 +4352,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2699,7 +4369,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2716,7 +4386,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2733,7 +4403,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2750,7 +4420,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2767,7 +4437,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2784,7 +4454,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2801,7 +4471,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2818,7 +4488,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2835,7 +4505,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2852,7 +4522,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2869,7 +4539,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2886,7 +4556,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2903,7 +4573,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2920,7 +4590,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2937,7 +4607,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2954,7 +4624,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2971,7 +4641,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2988,7 +4658,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3005,7 +4675,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3022,7 +4692,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3039,7 +4709,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3056,7 +4726,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3073,7 +4743,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3090,7 +4760,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3107,7 +4777,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3124,7 +4794,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3141,7 +4811,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3158,7 +4828,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3175,7 +4845,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3192,7 +4862,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3209,7 +4879,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3226,7 +4896,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3243,7 +4913,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3260,7 +4930,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3277,7 +4947,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3294,7 +4964,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3311,7 +4981,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3328,7 +4998,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3345,7 +5015,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3362,7 +5032,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3379,7 +5049,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3396,7 +5066,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3413,7 +5083,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3430,7 +5100,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3447,7 +5117,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3464,7 +5134,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3481,7 +5151,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3498,7 +5168,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3515,7 +5185,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3532,7 +5202,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3549,7 +5219,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3566,7 +5236,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3583,7 +5253,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3600,7 +5270,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3617,7 +5287,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3634,7 +5304,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3651,7 +5321,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3668,7 +5338,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3685,7 +5355,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3702,7 +5372,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3719,7 +5389,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3736,7 +5406,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3753,7 +5423,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3770,7 +5440,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3787,7 +5457,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3804,7 +5474,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3821,7 +5491,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3838,7 +5508,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3855,7 +5525,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3872,7 +5542,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3889,7 +5559,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3906,13 +5576,13 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 60483,
+                  "seed": 96907,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
                 "attr_settings": {
                   "modelType": "randomForest",
-                  "seed": 60483,
+                  "seed": 96907,
                   "paramNames": ["ntrees", "criterion", "maxDepth", "minSamplesSplit", "minSamplesLeaf", "minWeightFractionLeaf", "mtries", "maxLeafNodes", "minImpurityDecrease", "bootstrap", "oobScore", "nJobs", "seed", "classWeight", "maxSamples"],
                   "requiresDenseMatrix": false,
                   "name": "Random forest",

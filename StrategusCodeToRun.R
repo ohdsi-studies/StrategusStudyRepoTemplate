@@ -17,12 +17,12 @@ Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
 Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadlocks on file system
 
 ##=========== START OF INPUTS ==========
-cdmDatabaseSchema <- "merative_mdcr.cdm_merative_mdcr_v3045"
+cdmDatabaseSchema <- "merative_mdcd.cdm_merative_mdcd_v3038"
 workDatabaseSchema <- "scratch.scratch_asena5"
 outputLocation <- file.path(getwd(), "results")
-databaseName <- "merative_mdcr_v3045" # Only used as a folder name for results from the study
+databaseName <- "merative_mdcd_v3038" # Only used as a folder name for results from the study
 minCellCount <- 5
-cohortTableName <- "strategus_repo_test_merative_mdcr_v3045"
+cohortTableName <- "strategus_repo_test_cdm_merative_mdcd_v3038"
 
 # Create the connection details for your CDM
 # More details on how to do this are found here:
@@ -59,6 +59,9 @@ ParallelLogger::saveSettingsToJson(
   object = executionSettings,
   fileName = file.path(outputLocation, databaseName, "executionSettings.json")
 )
+
+# CM Only
+analysisSpecifications$moduleSpecifications <- analysisSpecifications$moduleSpecifications[5]
 
 Strategus::execute(
   analysisSpecifications = analysisSpecifications,
