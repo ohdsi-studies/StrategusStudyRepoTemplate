@@ -56,7 +56,13 @@
     "CohortGenerator": {
       "Package": "CohortGenerator",
       "Version": "0.11.1",
-      "Source": "Repository"
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "CohortGenerator",
+      "RemoteRef": "3fb33c4492a92dbe7c16ad90a4ddd92859dfd3ca",
+      "RemoteSha": "3fb33c4492a92dbe7c16ad90a4ddd92859dfd3ca"
     },
     "CohortIncidence": {
       "Package": "CohortIncidence",
@@ -224,9 +230,14 @@
     },
     "SqlRender": {
       "Package": "SqlRender",
-      "Version": "1.18.1",
-      "Source": "Repository",
-      "Repository": "CRAN"
+      "Version": "1.19.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "SqlRender",
+      "RemoteRef": "28cb10c2aed277f859dbee022dd1afebf7bc69be",
+      "RemoteSha": "28cb10c2aed277f859dbee022dd1afebf7bc69be"
     },
     "Strategus": {
       "Package": "Strategus",
@@ -236,8 +247,8 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "4a3505a864651146b16c4c4951499a5418016771",
-      "RemoteSha": "4a3505a864651146b16c4c4951499a5418016771"
+      "RemoteRef": "45223f6092408fac92d6e071307528111834ba0a",
+      "RemoteSha": "45223f6092408fac92d6e071307528111834ba0a"
     },
     "askpass": {
       "Package": "askpass",
