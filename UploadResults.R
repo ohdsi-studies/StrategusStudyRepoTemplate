@@ -1,4 +1,4 @@
-# Code for creating the result schema and tables in a Postgres database
+# Code for uploading results to a Postgres database
 resultsDatabaseSchema <- "strategus_repo_test"
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
   fileName = "inst/sampleStudyAnalysisSpecification.json"
