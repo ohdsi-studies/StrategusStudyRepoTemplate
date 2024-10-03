@@ -49,25 +49,20 @@
     },
     "CohortDiagnostics": {
       "Package": "CohortDiagnostics",
-      "Version": "3.2.5",
+      "Version": "3.3.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "CohortDiagnostics",
-      "RemoteRef": "v3.2.5",
-      "RemoteSha": "03c40ab06832a329f2c904fbd686a0596ea9af6f"
+      "RemoteRef": "v3.3.0",
+      "RemoteSha": "c7a94306596a506d3f9a3fabc70d59a2d1e66cd4"
     },
     "CohortGenerator": {
       "Package": "CohortGenerator",
-      "Version": "0.11.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "CohortGenerator",
-      "RemoteRef": "3fb33c4492a92dbe7c16ad90a4ddd92859dfd3ca",
-      "RemoteSha": "3fb33c4492a92dbe7c16ad90a4ddd92859dfd3ca"
+      "Version": "0.11.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "CohortIncidence": {
       "Package": "CohortIncidence",
@@ -82,14 +77,14 @@
     },
     "CohortMethod": {
       "Package": "CohortMethod",
-      "Version": "5.3.0",
+      "Version": "5.4.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "CohortMethod",
-      "RemoteRef": "v5.3.0",
-      "RemoteSha": "5b70d20f15b1525ce45d9f69389a99753967b396"
+      "RemoteRef": "v5.4.0",
+      "RemoteSha": "893b5445e8a92c3a118db1b9cf92db8dbccdee39"
     },
     "CompQuadForm": {
       "Package": "CompQuadForm",
@@ -137,7 +132,7 @@
     },
     "FeatureExtraction": {
       "Package": "FeatureExtraction",
-      "Version": "3.6.0",
+      "Version": "3.7.1",
       "Source": "Repository"
     },
     "Formula": {
@@ -270,14 +265,9 @@
     },
     "ResultModelManager": {
       "Package": "ResultModelManager",
-      "Version": "0.5.10",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "ResultModelManager",
-      "RemoteRef": "v0.5.10",
-      "RemoteSha": "c734b7e55a851f8e1eba0d2a0f78f4a1603641ff"
+      "Version": "0.5.11",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "SelfControlledCaseSeries": {
       "Package": "SelfControlledCaseSeries",
@@ -371,13 +361,13 @@
     },
     "bit": {
       "Package": "bit",
-      "Version": "4.0.5",
+      "Version": "4.5.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
     "bit64": {
       "Package": "bit64",
-      "Version": "4.0.5",
+      "Version": "4.5.2",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -487,7 +477,7 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "5.2.2",
+      "Version": "5.2.3",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -673,7 +663,7 @@
     },
     "jsonlite": {
       "Package": "jsonlite",
-      "Version": "1.8.8",
+      "Version": "1.8.9",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -826,7 +816,7 @@
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "2.2.1",
+      "Version": "2.2.2",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -983,7 +973,7 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.0.7",
+      "Version": "1.0.9",
       "OS_type": null,
       "Repository": "CRAN",
       "Source": "Repository"
