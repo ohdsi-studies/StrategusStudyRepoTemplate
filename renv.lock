@@ -170,19 +170,19 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "OhdsiSharing",
-      "RemoteRef": "main",
-      "RemoteSha": "6fada2156ac78bfcd6ccea8ec4d6972e3bafa24f"
+      "RemoteRef": "v0.2.2",
+      "RemoteSha": "89cfe7c63d4c35cde4f3662a7493ce1670c78c6e"
     },
     "OhdsiShinyModules": {
       "Package": "OhdsiShinyModules",
-      "Version": "3.0.2",
+      "Version": "3.1.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "OhdsiShinyModules",
-      "RemoteRef": "main",
-      "RemoteSha": "4d5dafc36c4db2e8b531d316c7672920f7e03a80"
+      "RemoteRef": "v3.1.0",
+      "RemoteSha": "7502b6319ad135ff4827da63b16a3ed4b8865d8d"
     },
     "PRROC": {
       "Package": "PRROC",
@@ -260,7 +260,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "ReportGenerator",
-      "RemoteRef": "main",
+      "RemoteRef": "v0.0.0.9000",
       "RemoteSha": "9cda6de87b71bf76ed6b1a80fdec59cc94b079a9"
     },
     "ResultModelManager": {
@@ -288,7 +288,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "ShinyAppBuilder",
-      "RemoteRef": "main",
+      "RemoteRef": "v3.1.0",
       "RemoteSha": "9360b5f794e137b300b1cf6aa824fead6a780391"
     },
     "SparseM": {
@@ -315,8 +315,8 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "45223f6092408fac92d6e071307528111834ba0a",
-      "RemoteSha": "45223f6092408fac92d6e071307528111834ba0a"
+      "RemoteRef": "v1.0.0",
+      "RemoteSha": "f01bd49b9a25a1d863d47b64e07420b60996b96b"
     },
     "abind": {
       "Package": "abind",
