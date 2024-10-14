@@ -299,13 +299,8 @@
     "SqlRender": {
       "Package": "SqlRender",
       "Version": "1.19.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "SqlRender",
-      "RemoteRef": "28cb10c2aed277f859dbee022dd1afebf7bc69be",
-      "RemoteSha": "28cb10c2aed277f859dbee022dd1afebf7bc69be"
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "Strategus": {
       "Package": "Strategus",
