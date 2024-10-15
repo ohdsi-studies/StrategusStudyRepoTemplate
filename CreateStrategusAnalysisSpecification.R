@@ -1,6 +1,19 @@
+################################################################################
+# INSTRUCTIONS: Make sure you have downloaded your cohorts using 
+# DownloadCohorts.R and that those cohorts are stored in the "inst" folder
+# of the project. This script is written to use the sample study cohorts
+# located in "inst/sampleStudy" so you will need to modify this in the code 
+# below. 
+# 
+# More information about Strategus HADES modules can be found at:
+# https://ohdsi.github.io/Strategus/reference/index.html#omop-cdm-hades-modules.
+# This help page also contains links to the cooresponding HADES package that
+# further details.
+# ##############################################################################
 library(dplyr)
 library(Strategus)
 
+# Time-at-risks (TARs) for the outcomes of interest in your study
 timeAtRisks <- tibble(
   label = c("On treatment"),
   riskWindowStart  = c(1),
@@ -8,7 +21,8 @@ timeAtRisks <- tibble(
   riskWindowEnd  = c(0),
   endAnchor = c("cohort end")
 )
-# Try to use fixed-time TARs for patient-level prediction:
+
+# PLP time-at-risks should try to use fixed-time TARs
 plpTimeAtRisks <- tibble(
   riskWindowStart  = c(1),
   startAnchor = c("cohort start"),
@@ -16,30 +30,32 @@ plpTimeAtRisks <- tibble(
   endAnchor = c("cohort start"),
 )
 
+# If you are not restricting your study to a specific time window, 
+# please make these strings empty
 studyStartDate <- '20171201' #YYYYMMDD
 studyEndDate <- '20231231'   #YYYYMMDD
-# This is lame but has to be done
-studyStartDateWithHyphens <- '2017-12-01' #YYYYMMDD
-studyEndDateWithHyphens <- '2023-12-31'   #YYYYMMDD
+# Some of the settings require study dates with hyphens
+studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
+studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
 
 
-# Probably don't change below this line ----------------------------------------
+# Consider these settings for estimation  ----------------------------------------
 
 useCleanWindowForPriorOutcomeLookback <- FALSE # If FALSE, lookback window is all time prior, i.e., including only first events
 psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned on the matched set
 
-# Don't change below this line (unless you know what you're doing) -------------
-
-
 # Shared Resources -------------------------------------------------------------
-# Get the list of cohorts
+# Get the list of cohorts - NOTE: you should modify this for your
+# study to retrieve the cohorts you downloaded as part of
+# DownloadCohorts.R
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
   settingsFileName = "inst/sampleStudy/Cohorts.csv",
   jsonFolder = "inst/sampleStudy/cohorts",
   sqlFolder = "inst/sampleStudy/sql/sql_server"
 )
 
-# Create a subset to define the new user cohorts
+# OPTIONAL: Create a subset to define the new user cohorts
+# More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
 subset1 <- CohortGenerator::createCohortSubsetDefinition(
   name = "New Users",
   definitionId = 1,
@@ -55,7 +71,7 @@ cohortDefinitionSet <- cohortDefinitionSet |>
   CohortGenerator::addCohortSubsetDefinition(subset1, targetCohortIds = c(1,2))
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/negativeControlOutcomes.csv"
+  file = "inst/sampleStudy/negativeControlOutcomes.csv"
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
@@ -534,7 +550,7 @@ plpModuleSpecifications <- plpModuleSettingsCreator$createModuleSpecifications(
 )
 
 
-# Combine across modules -------------------------------------------------------
+# Create the analysis specifications ------------------------------------------
 analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
@@ -546,4 +562,7 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
   Strategus::addModuleSpecifications(plpModuleSpecifications)
 
-ParallelLogger::saveSettingsToJson(analysisSpecifications, file.path("inst", "sampleStudyAnalysisSpecification.json"))
+ParallelLogger::saveSettingsToJson(
+  analysisSpecifications, 
+  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+)

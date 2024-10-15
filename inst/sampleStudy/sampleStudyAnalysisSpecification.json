@@ -15,11 +15,11 @@
         {
           "cohortId": 3,
           "cohortName": "GI Bleed",
-          "cohortDefinition": "{\r\n\t\"cdmVersionRange\" : \">=5.0.0\",\r\n\t\"PrimaryCriteria\" : {\r\n\t\t\"CriteriaList\" : [\r\n\t\t\t{\r\n\t\t\t\t\"ConditionOccurrence\" : {\r\n\t\t\t\t\t\"CodesetId\" : 0,\r\n\t\t\t\t\t\"ConditionTypeExclude\" : false\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"ObservationWindow\" : {\r\n\t\t\t\"PriorDays\" : 0,\r\n\t\t\t\"PostDays\" : 0\r\n\t\t},\r\n\t\t\"PrimaryCriteriaLimit\" : {\r\n\t\t\t\"Type\" : \"All\"\r\n\t\t}\r\n\t},\r\n\t\"ConceptSets\" : [\r\n\t\t{\r\n\t\t\t\"id\" : 0,\r\n\t\t\t\"name\" : \"GI bleed\",\r\n\t\t\t\"expression\" : {\r\n\t\t\t\t\"items\" : [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"concept\" : {\r\n\t\t\t\t\t\t\t\"CONCEPT_ID\" : 192671,\r\n\t\t\t\t\t\t\t\"CONCEPT_NAME\" : \"Gastrointestinal hemorrhage\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT\" : \"S\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT_CAPTION\" : \"Standard\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON\" : \"V\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON_CAPTION\" : \"Valid\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CODE\" : \"74474003\",\r\n\t\t\t\t\t\t\t\"DOMAIN_ID\" : \"Condition\",\r\n\t\t\t\t\t\t\t\"VOCABULARY_ID\" : \"SNOMED\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CLASS_ID\" : \"Clinical Finding\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"isExcluded\" : false,\r\n\t\t\t\t\t\t\"includeDescendants\" : true,\r\n\t\t\t\t\t\t\"includeMapped\" : false\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"QualifiedLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"ExpressionLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"InclusionRules\" : [],\r\n\t\"EndStrategy\" : {\r\n\t\t\"DateOffset\" : {\r\n\t\t\t\"DateField\" : \"StartDate\",\r\n\t\t\t\"Offset\" : 0\r\n\t\t}\r\n\t},\r\n\t\"CensoringCriteria\" : [],\r\n\t\"CollapseSettings\" : {\r\n\t\t\"CollapseType\" : \"ERA\",\r\n\t\t\"EraPad\" : 0\r\n\t},\r\n\t\"CensorWindow\" : {}\r\n}"
+          "cohortDefinition": "{\r\n\t\"cdmVersionRange\" : \">=5.0.0\",\r\n\t\"PrimaryCriteria\" : {\r\n\t\t\"CriteriaList\" : [\r\n\t\t\t{\r\n\t\t\t\t\"ConditionOccurrence\" : {\r\n\t\t\t\t\t\"CodesetId\" : 0\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"ObservationWindow\" : {\r\n\t\t\t\"PriorDays\" : 0,\r\n\t\t\t\"PostDays\" : 0\r\n\t\t},\r\n\t\t\"PrimaryCriteriaLimit\" : {\r\n\t\t\t\"Type\" : \"All\"\r\n\t\t}\r\n\t},\r\n\t\"ConceptSets\" : [\r\n\t\t{\r\n\t\t\t\"id\" : 0,\r\n\t\t\t\"name\" : \"GI bleed\",\r\n\t\t\t\"expression\" : {\r\n\t\t\t\t\"items\" : [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"concept\" : {\r\n\t\t\t\t\t\t\t\"CONCEPT_ID\" : 192671,\r\n\t\t\t\t\t\t\t\"CONCEPT_NAME\" : \"Gastrointestinal hemorrhage\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT\" : \"S\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT_CAPTION\" : \"Standard\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON\" : \"V\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON_CAPTION\" : \"Valid\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CODE\" : \"74474003\",\r\n\t\t\t\t\t\t\t\"DOMAIN_ID\" : \"Condition\",\r\n\t\t\t\t\t\t\t\"VOCABULARY_ID\" : \"SNOMED\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CLASS_ID\" : \"Clinical Finding\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"isExcluded\" : false,\r\n\t\t\t\t\t\t\"includeDescendants\" : true,\r\n\t\t\t\t\t\t\"includeMapped\" : false\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"QualifiedLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"ExpressionLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"InclusionRules\" : [],\r\n\t\"EndStrategy\" : {\r\n\t\t\"DateOffset\" : {\r\n\t\t\t\"DateField\" : \"StartDate\",\r\n\t\t\t\"Offset\" : 0\r\n\t\t}\r\n\t},\r\n\t\"CensoringCriteria\" : [],\r\n\t\"CollapseSettings\" : {\r\n\t\t\"CollapseType\" : \"ERA\",\r\n\t\t\"EraPad\" : 0\r\n\t},\r\n\t\"CensorWindow\" : {}\r\n}"
         }
       ],
       "subsetDefs": [
-        "{\n  \"name\": \"New Users\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 0,\n      \"limitTo\": \"firstEver\"\n    }\n  ],\n  \"packageVersion\": \"0.11.1\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}"
+        "{\n  \"name\": \"New Users\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 0,\n      \"limitTo\": \"firstEver\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}"
       ],
       "cohortSubsets": [
         {
@@ -1994,7 +1994,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 54646610,
+                  "seed": 82617313,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2108,7 +2108,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2125,7 +2125,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2142,7 +2142,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2159,7 +2159,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2176,7 +2176,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2193,7 +2193,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2210,7 +2210,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2227,7 +2227,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2244,7 +2244,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2261,7 +2261,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2278,7 +2278,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2295,7 +2295,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2312,7 +2312,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2329,7 +2329,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2346,7 +2346,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2363,7 +2363,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2380,7 +2380,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2397,7 +2397,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2414,7 +2414,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2431,7 +2431,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2448,7 +2448,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2465,7 +2465,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2482,7 +2482,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2499,7 +2499,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2516,7 +2516,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2533,7 +2533,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2550,7 +2550,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2567,7 +2567,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2584,7 +2584,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2601,7 +2601,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2618,7 +2618,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2635,7 +2635,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2652,7 +2652,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2669,7 +2669,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2686,7 +2686,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2703,7 +2703,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2720,7 +2720,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2737,7 +2737,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2754,7 +2754,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2771,7 +2771,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2788,7 +2788,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2805,7 +2805,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2822,7 +2822,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2839,7 +2839,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2856,7 +2856,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2873,7 +2873,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2890,7 +2890,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2907,7 +2907,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -2924,7 +2924,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2941,7 +2941,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2958,7 +2958,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2975,7 +2975,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -2992,7 +2992,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3009,7 +3009,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3026,7 +3026,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3043,7 +3043,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3060,7 +3060,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3077,7 +3077,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3094,7 +3094,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3111,7 +3111,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3128,7 +3128,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3145,7 +3145,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3162,7 +3162,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3179,7 +3179,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3196,7 +3196,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3213,7 +3213,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3230,7 +3230,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3247,7 +3247,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3264,7 +3264,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3281,7 +3281,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3298,7 +3298,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3315,7 +3315,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3332,7 +3332,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3349,7 +3349,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3366,7 +3366,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3383,7 +3383,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3400,7 +3400,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3417,7 +3417,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3434,7 +3434,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3451,7 +3451,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3468,7 +3468,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3485,7 +3485,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3502,7 +3502,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3519,7 +3519,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3536,7 +3536,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3553,7 +3553,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3570,7 +3570,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3587,7 +3587,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3604,7 +3604,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3621,7 +3621,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3638,7 +3638,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3655,7 +3655,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3672,7 +3672,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3689,7 +3689,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3706,7 +3706,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -3723,13 +3723,13 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
                 "attr_settings": {
                   "modelType": "randomForest",
-                  "seed": 96907,
+                  "seed": 83324,
                   "paramNames": ["ntrees", "criterion", "maxDepth", "minSamplesSplit", "minSamplesLeaf", "minWeightFractionLeaf", "mtries", "maxLeafNodes", "minImpurityDecrease", "bootstrap", "oobScore", "nJobs", "seed", "classWeight", "maxSamples"],
                   "requiresDenseMatrix": false,
                   "name": "Random forest",
@@ -3847,7 +3847,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 54646610,
+                  "seed": 82617313,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -3961,7 +3961,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3978,7 +3978,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -3995,7 +3995,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4012,7 +4012,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4029,7 +4029,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4046,7 +4046,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4063,7 +4063,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4080,7 +4080,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4097,7 +4097,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4114,7 +4114,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4131,7 +4131,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4148,7 +4148,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4165,7 +4165,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4182,7 +4182,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4199,7 +4199,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4216,7 +4216,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4233,7 +4233,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4250,7 +4250,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4267,7 +4267,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4284,7 +4284,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4301,7 +4301,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4318,7 +4318,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4335,7 +4335,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4352,7 +4352,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4369,7 +4369,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4386,7 +4386,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4403,7 +4403,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4420,7 +4420,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4437,7 +4437,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4454,7 +4454,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4471,7 +4471,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4488,7 +4488,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4505,7 +4505,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4522,7 +4522,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4539,7 +4539,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4556,7 +4556,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4573,7 +4573,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4590,7 +4590,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4607,7 +4607,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4624,7 +4624,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4641,7 +4641,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4658,7 +4658,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4675,7 +4675,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4692,7 +4692,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4709,7 +4709,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4726,7 +4726,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4743,7 +4743,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4760,7 +4760,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": null
                 },
@@ -4777,7 +4777,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4794,7 +4794,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4811,7 +4811,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4828,7 +4828,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4845,7 +4845,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4862,7 +4862,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4879,7 +4879,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4896,7 +4896,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4913,7 +4913,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4930,7 +4930,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4947,7 +4947,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4964,7 +4964,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4981,7 +4981,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -4998,7 +4998,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5015,7 +5015,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5032,7 +5032,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5049,7 +5049,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5066,7 +5066,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5083,7 +5083,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5100,7 +5100,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5117,7 +5117,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5134,7 +5134,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5151,7 +5151,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5168,7 +5168,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5185,7 +5185,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5202,7 +5202,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5219,7 +5219,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5236,7 +5236,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5253,7 +5253,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5270,7 +5270,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5287,7 +5287,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5304,7 +5304,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5321,7 +5321,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5338,7 +5338,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5355,7 +5355,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5372,7 +5372,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5389,7 +5389,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5406,7 +5406,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5423,7 +5423,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5440,7 +5440,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5457,7 +5457,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5474,7 +5474,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5491,7 +5491,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5508,7 +5508,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5525,7 +5525,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5542,7 +5542,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5559,7 +5559,7 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
@@ -5576,13 +5576,13 @@
                   "bootstrap": true,
                   "oobScore": false,
                   "nJobs": null,
-                  "seed": 96907,
+                  "seed": 83324,
                   "classWeight": null,
                   "maxSamples": 0.9
                 },
                 "attr_settings": {
                   "modelType": "randomForest",
-                  "seed": 96907,
+                  "seed": 83324,
                   "paramNames": ["ntrees", "criterion", "maxDepth", "minSamplesSplit", "minSamplesLeaf", "minWeightFractionLeaf", "mtries", "maxLeafNodes", "minImpurityDecrease", "bootstrap", "oobScore", "nJobs", "seed", "classWeight", "maxSamples"],
                   "requiresDenseMatrix": false,
                   "name": "Random forest",

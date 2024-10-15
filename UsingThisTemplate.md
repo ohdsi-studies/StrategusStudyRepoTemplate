@@ -56,33 +56,34 @@ Next, review the [Creating Analysis Specifications Documentation](https://ohdsi.
 on the Strategus repository. This will provide an overview of using Strategus to 
 construct the analysis specification which captures the inputs for your study.
 
-This repository contains a script called `CreateStrategusAnalysisSpecification.R` which you can use to start setting up your study. This script contains...<TODO>.
+This repository contains a script called [CreateStrategusAnalysisSpecification.R](CreateStrategusAnalysisSpecification.R) which you can use to create the analysis specification(s) your study. This script is organzied into sections to allow you to define the cohorts of interest, the time-at-risk and other settings. This script uses all of the Strategus HADES modules for OMOP CDM analytics so you can tailor this script to suit the needs of your study.
 
-### Cohorts
+At the end of the [CreateStrategusAnalysisSpecification.R](CreateStrategusAnalysisSpecification.R) script, you will see the following code:
 
-<TODO>
+```r
+# Create the analysis specifications ------------------------------------------
+analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
+  Strategus::addSharedResources(cohortDefinitionShared) |> 
+  Strategus::addSharedResources(negativeControlsShared) |>
+  Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
+  Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
+  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
+  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
+  Strategus::addModuleSpecifications(plpModuleSpecifications)
+```
 
-https://github.com/OHDSI/PhenotypeLibrary/
-https://academy.ehden.eu/course/index.php?categoryid=all
+In the code above, you may opt to comment out any/all modules you are not planning to use for the study or just remove that module's code all together from the [CreateStrategusAnalysisSpecification.R](CreateStrategusAnalysisSpecification.R). This script will serve as a reference for how you created the analysis specification for the study and **it is not used by 👩‍🔬 Site Participant**.  
 
+Finally you will see the code to save the analysis specification as shown here:
 
-
-### Analytical Choices
-
-<TODO>
-
-#### Characterization
-
-<TODO>
-
-#### Estimation
-
-<TODO>
-
-#### Prediction
-
-<TODO>
-
+```r
+ParallelLogger::saveSettingsToJson(
+  analysisSpecifications, 
+  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+)
+```
 ## Executing the study
 
 <TODO>
@@ -90,13 +91,5 @@ https://academy.ehden.eu/course/index.php?categoryid=all
 See https://ohdsi.github.io/Strategus/articles/ExecuteStrategus.html
 
 `StrategusCodeToRun.R`
-
-## Review Results
-
-<TODO>
-
-## Provide Results To Study Coordinator
-
-<TODO>
 
 
