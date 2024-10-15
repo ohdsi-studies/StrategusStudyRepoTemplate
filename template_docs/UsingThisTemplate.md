@@ -50,7 +50,6 @@ Additional packages may be required, for example the [ROhdsiWebApi](https://gith
 
 ## Design Your Study
 
-
 ### Download cohorts
 To start, ensure you have defined the cohorts and negative control outcomes necessary for your study. This guide will assume you are using [ATLAS](https://atlas-demo.ohdsi.org/). The [DownloadCohorts.R](DownloadCohorts.R) provides an example to show how this is done to download and store cohorts/negative control outcomes in the study project.
 

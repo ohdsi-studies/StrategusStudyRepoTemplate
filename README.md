@@ -3,74 +3,9 @@ StrategusStudyRepoTemplate
 
 **PLEASE NOTE THIS IS UNDER DEVELOPMENT AND SHOULD NOT BE USED YET**
 
-
-Notes to self on installing Python
-
-- renv::deactivate() to do this in base R
-- Install and later renv::record `reticulate`
-- Helpful: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/
-- reticulate::install_miniconda(path = "e:/miniconda", update = TRUE)
-- reticulate::conda_list()
-- reticulate::use_condaenv(condaenv = "r-reticulate", conda = "E:/miniconda/_conda.exe")
-   - NOTE: Got warnings: 
-         Warning messages:
-      1: In conda_binary(conda) :
-        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
-      2: In conda_binary(conda) :
-        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
-      3: In conda_binary(conda) :
-        Supplied path is not a conda binary: ‘E:/miniconda/_conda.exe’
-- Reactivate renv
-- renv::use_python(type = "conda")
-- Used conda directly to set up the environment using cmd: conda env update --file /e/git/ohdsi/PatientLevelPredictionModule/environment.yml. THIS DID NOT WORK SINCE IT COULD NOT FIND THE PACKAGES USING CONFIGURED CHANNELS!
-- Manually installed: conda install scipy
-
-
-Leaving this hear after installing scikit-learn:
-Windows 64-bit packages of scikit-learn can be accelerated using sciki.    More deetails are available here: https://intel.github.io/scikit-learn-x
-    For example:
-
-        $ conda install scikit-learn-intelex
-        $ python -m sklearnex my_application.py
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 An OHDSI study repository is expected to have a README.md file where the header conforms to a standard. A template README file is provided here:
 
-**[README file template](templateREADME.md)**
+**[README file template](template_docs/templateREADME.md)**
 
 When initiating a repository, please copy this file, rename it to 'README.md', and fill in the fields as appropriate.
 
