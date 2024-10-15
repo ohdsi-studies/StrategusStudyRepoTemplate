@@ -46,12 +46,15 @@ The remainder of this document should be followed by the 🦸‍♀️ **Project
 ### IMPORTANT - run renv::restore
 Call `renv::restore()` to restore the R & Python environment for this project. <ins>**NOTE**: This is mandatory otherwise subsequent steps will not work properly<ins>.
 
-Additional packages may be required, for example the [ROhdsiWebApi](https://github.com/OHDSI/ROhdsiWebApi) which is used to download cohorts. If you need this package or any others, you can install them using `remotes::install_github()` for GitHub hosted packages or `install.packages()` if it is on CRAN.
+Additional packages may be required, for example the [ROhdsiWebApi](https://github.com/OHDSI/ROhdsiWebApi) which is used to download cohorts. If you need this package or any others, you can install them using `remotes::install_github()` for GitHub hosted packages or `install.packages()` if it is on CRAN. If a package is required for study execution then it must be included in the renv.lock file of the project using [renv::record("package")](https://rstudio.github.io/renv/reference/record.html).
 
 ## Design Your Study
 
+
+### Download cohorts
 To start, ensure you have defined the cohorts and negative control outcomes necessary for your study. This guide will assume you are using [ATLAS](https://atlas-demo.ohdsi.org/). The [DownloadCohorts.R](DownloadCohorts.R) provides an example to show how this is done to download and store cohorts/negative control outcomes in the study project.
 
+### Create analysis specifications
 Next, review the [Creating Analysis Specifications Documentation](https://ohdsi.github.io/Strategus/articles/CreatingAnalysisSpecification.html) 
 on the Strategus repository. This will provide an overview of using Strategus to 
 construct the analysis specification which captures the inputs for your study.

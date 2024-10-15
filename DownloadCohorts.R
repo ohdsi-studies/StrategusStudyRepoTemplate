@@ -7,6 +7,9 @@
 # "inst/sampleStudy" as part of the template for reference. You should store
 # your settings in the root of the "inst" folder and consider removing the 
 # "inst/sampleStudy" resources when you are ready to release your study.
+# 
+# See the [Download cohorts](UsingThisTemplate.md#design-your-study) section
+# of the UsingThisTemplate.md for more details.
 # ##############################################################################
 
 library(dplyr)
