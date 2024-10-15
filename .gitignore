@@ -50,3 +50,6 @@ rsconnect/
 
 # Strategus results folder
 results/
+
+# VSCode
+.vscode/

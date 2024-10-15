@@ -84,12 +84,10 @@ ParallelLogger::saveSettingsToJson(
   file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
 )
 ```
+
+You will want to modify the code above to save your analysis specification to the root of the `inst` folder (or anywhere else you feel is appropriate off of the `inst` folder). Its also advisable to remove the `inst/sampleStudy` resources once you've tested your study.
+
 ## Executing the study
 
-<TODO>
-
-See https://ohdsi.github.io/Strategus/articles/ExecuteStrategus.html
-
-`StrategusCodeToRun.R`
-
+The instructions for [Study Execution](StudyExecution.md) are found in a seperate file. This file will require an update to reflect the way in which you'd like to have users execute your study. For example you will find placeholders for `YourNetworkStudyName` in that document which should be replaced with something appropriate for your study. Additionally, you may have different analysis specifictions in your study and you can detail that in this file. It may also be easier for 👩‍🔬 **Site Participants** if you include this information directly in the README.md of your project. 
 
