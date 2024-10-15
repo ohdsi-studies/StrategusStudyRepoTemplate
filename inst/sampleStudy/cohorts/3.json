@@ -4,8 +4,7 @@
 		"CriteriaList" : [
 			{
 				"ConditionOccurrence" : {
-					"CodesetId" : 0,
-					"ConditionTypeExclude" : false
+					"CodesetId" : 0
 				}
 			}
 		],
