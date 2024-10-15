@@ -1,7 +1,7 @@
 StrategusStudyRepoTemplate
 =================
 
-**PLEASE NOTE THIS IS UNDER DEVELOPMENT AND SHOULD NOT BE USED YET**
+See **[template_docs](template_docs/UsingThisTemplate.md)** for more information on how to use this template.
 
 An OHDSI study repository is expected to have a README.md file where the header conforms to a standard. A template README file is provided here:
 

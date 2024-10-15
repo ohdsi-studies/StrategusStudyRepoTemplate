@@ -93,3 +93,7 @@ You will want to modify the code above to save your analysis specification to th
 
 The instructions for [Study Execution](StudyExecution.md) are found in a seperate file. This file will require an update to reflect the way in which you'd like to have users execute your study. For example you will find placeholders for `YourNetworkStudyName` in that document which should be replaced with something appropriate for your study. Additionally, you may have different analysis specifictions in your study and you can detail that in this file. It may also be easier for 👩‍🔬 **Site Participants** if you include this information directly in the README.md of your project. 
 
+## Working with results
+
+Once you have results for the study, see the [Working With Results](
+https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html) vignette which details how to load the results into a PostgreSQL database and use Shiny to view the results.
