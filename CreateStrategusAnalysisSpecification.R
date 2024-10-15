@@ -34,9 +34,9 @@ psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned o
 # Shared Resources -------------------------------------------------------------
 # Get the list of cohorts
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/Cohorts.csv",
-  jsonFolder = "inst/cohorts",
-  sqlFolder = "inst/sql/sql_server"
+  settingsFileName = "inst/sampleStudy/Cohorts.csv",
+  jsonFolder = "inst/sampleStudy/cohorts",
+  sqlFolder = "inst/sampleStudy/sql/sql_server"
 )
 
 # Create a subset to define the new user cohorts
