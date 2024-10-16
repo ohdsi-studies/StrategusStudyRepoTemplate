@@ -1,15 +1,26 @@
+################################################################################
+# INSTRUCTIONS: The code below assumes you uploaded results to a PostgreSQL 
+# database per the UploadResults.R script.This script will create the 
+# analysis specification for running the EvidenceSynthesis module, execute
+# EvidenceSynthesis, create the results tables and upload the results.
+# 
+# Review the code below and note the "sourceMethod" parameter used in the
+# esModuleSettingsCreator$createEvidenceSynthesisSource() function. If your 
+# study is not using CohortMethod and/or SelfControlledCaseSeries you should
+# remove that from the evidenceSynthesisAnalysisList.
+# ##############################################################################
+
 library(dplyr)
 library(Strategus)
 
-outputLocation <- getwd()
-resultsDatabaseSchema <- "strategus_repo_test"
+resultsDatabaseSchema <- "results"
 
 # Specify the connection to the results database
 resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = "postgresql",
-  connectionString = keyring::key_get("resultsConnectionString", keyring = "ohda"),
-  user = keyring::key_get("resultsAdmin", keyring = "ohda"),
-  password = keyring::key_get("resultsAdminPassword", keyring = "ohda")
+  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
+  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
+  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
 )
 
 esModuleSettingsCreator = EvidenceSynthesisModule$new()
@@ -40,16 +51,15 @@ evidenceSynthesisAnalysisSpecifications <- esModuleSettingsCreator$createModuleS
 esAnalysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addModuleSpecifications(evidenceSynthesisAnalysisSpecifications)
 
-if (!dir.exists(outputLocation)) {
-  dir.create(outputLocation, recursive = TRUE)
-}
-ParallelLogger::saveSettingsToJson(esAnalysisSpecifications, file.path(outputLocation, "inst/esAnalysisSpecification.json"))
+ParallelLogger::saveSettingsToJson(
+  esAnalysisSpecifications, 
+  file.path("inst/sampleStudy/esAnalysisSpecification.json"))
 
 
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
   resultsDatabaseSchema = resultsDatabaseSchema,
-  resultsFolder = file.path(outputLocation, "results", "evidence_sythesis", "strategusOutput"),
-  workFolder = file.path(outputLocation, "results", "evidence_sythesis", "strategusWork")
+  resultsFolder = file.path("results", "evidence_sythesis", "strategusOutput"),
+  workFolder = file.path("results", "evidence_sythesis", "strategusWork")
 )
 
 Strategus::execute(

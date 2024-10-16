@@ -101,3 +101,9 @@ https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html) vignette whi
 - **CreateResultsDataModel.R**: This script will create the results data model tables based on your analysis specification for the study. This script assumes you have set up your `results` schema ahead of time and have a database account with permissions to create tables.
 - **UploadResults.R**: This script will iterate over the files in the "results" subfolder and upload the results to your `results` schema tables. This script assumes that you have successfully created the results tables by running the CreateResultsDataModel.R script (or thorugh some other mechanism for creating the tables).
 - **app.R**: This is the Shiny results viewer which will query the `results` schema to obtain results. This script may require modification to remove any modules that were not used in your study.
+
+### Running EvidenceSynthesis
+
+If your study involves population-level estimation, you will want to run the HADES EvidenceSynthesis module to produce a meta-analysis for the databases involved in the study. The HADES EvidenceSynthesis module is designed to run off of the `results` schema once all of the results are uploaded.
+
+The **EvidenceSynthesis.R** script contains the code for defining the EvidenceSynthesis analysis, executing the analysis against the `results` schema and code to create the results tables and upload the results.
