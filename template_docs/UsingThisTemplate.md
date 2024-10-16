@@ -6,7 +6,7 @@ up a project for an OHDSI Network study. This guide assumes you are familiar
 with the [OHDSI Network Study
 principles](https://ohdsi.github.io/TheBookOfOhdsi/StudySteps.html) and [OHDSI
 Network Research](https://ohdsi.github.io/TheBookOfOhdsi/NetworkResearch.html)
-chapters in the Book of OHDSI. 
+chapters in the Book of OHDSI. If you have any questions on how to use this template please post it as an issue in the [issue tracker](https://github.com/ohdsi-studies/StrategusStudyRepoTemplate/issues).
 
 In this guide we'll assume there are 2 roles:
 
