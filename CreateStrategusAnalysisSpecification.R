@@ -5,12 +5,12 @@
 # located in "inst/sampleStudy" so you will need to modify this in the code 
 # below. 
 # 
-# See the [Create analysis specifications](UsingThisTemplate.md#create-analysis-specifications) section
+# See the Create analysis specifications section
 # of the UsingThisTemplate.md for more details.
 # 
 # More information about Strategus HADES modules can be found at:
 # https://ohdsi.github.io/Strategus/reference/index.html#omop-cdm-hades-modules.
-# This help page also contains links to the cooresponding HADES package that
+# This help page also contains links to the corresponding HADES package that
 # further details.
 # ##############################################################################
 library(dplyr)

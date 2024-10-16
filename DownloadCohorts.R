@@ -8,7 +8,7 @@
 # your settings in the root of the "inst" folder and consider removing the 
 # "inst/sampleStudy" resources when you are ready to release your study.
 # 
-# See the [Download cohorts](UsingThisTemplate.md#design-your-study) section
+# See the Download cohorts section
 # of the UsingThisTemplate.md for more details.
 # ##############################################################################
 

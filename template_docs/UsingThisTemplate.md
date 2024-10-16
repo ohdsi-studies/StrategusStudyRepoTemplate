@@ -96,4 +96,8 @@ The instructions for [Study Execution](StudyExecution.md) are found in a seperat
 ## Working with results
 
 Once you have results for the study, see the [Working With Results](
-https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html) vignette which details how to load the results into a PostgreSQL database and use Shiny to view the results.
+https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html) vignette which details how to load the results into a PostgreSQL database and use Shiny to view the results. This guide assumes you have access to a PostgreSQL database with access to create a new schema to hold the results of the study. We'll refer to this as the `results` schema. Each study's results should be stored in their own schema to prevent any data collision.
+
+- **CreateResultsDataModel.R**: This script will create the results data model tables based on your analysis specification for the study. This script assumes you have set up your `results` schema ahead of time and have a database account with permissions to create tables.
+- **UploadResults.R**: This script will iterate over the files in the "results" subfolder and upload the results to your `results` schema tables. This script assumes that you have successfully created the results tables by running the CreateResultsDataModel.R script (or thorugh some other mechanism for creating the tables).
+- **app.R**: This is the Shiny results viewer which will query the `results` schema to obtain results. This script may require modification to remove any modules that were not used in your study.

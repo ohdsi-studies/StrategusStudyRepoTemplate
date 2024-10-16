@@ -22,7 +22,7 @@ workDatabaseSchema <- "main"
 outputLocation <- file.path(getwd(), "results")
 databaseName <- "Eunomia" # Only used as a folder name for results from the study
 minCellCount <- 5
-cohortTableName <- "strategus_repo_test"
+cohortTableName <- "sample_study"
 
 # Create the connection details for your CDM
 # More details on how to do this are found here:
@@ -47,7 +47,7 @@ connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 
 ##=========== END OF INPUTS ==========
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudyAnalysisSpecification.json"
+  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
 )
 
 executionSettings <- Strategus::createCdmExecutionSettings(
