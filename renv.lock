@@ -8,6 +8,11 @@
       }
     ]
   },
+  "Python": {
+    "Version": "3.7.12",
+    "Type": "conda",
+    "Name": "./renv/python/condaenvs/renv-python"
+  },
   "Packages": {
     "Andromeda": {
       "Package": "Andromeda",
@@ -19,6 +24,11 @@
       "Version": "1.84.0-0",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "BeastJar": {
+      "Package": "BeastJar",
+      "Version": "1.10.6",
+      "Source": "Repository"
     },
     "Characterization": {
       "Package": "Characterization",
@@ -39,25 +49,20 @@
     },
     "CohortDiagnostics": {
       "Package": "CohortDiagnostics",
-      "Version": "3.2.5",
+      "Version": "3.3.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "CohortDiagnostics",
-      "RemoteRef": "v3.2.5",
-      "RemoteSha": "03c40ab06832a329f2c904fbd686a0596ea9af6f"
+      "RemoteRef": "v3.3.0",
+      "RemoteSha": "c7a94306596a506d3f9a3fabc70d59a2d1e66cd4"
     },
     "CohortGenerator": {
       "Package": "CohortGenerator",
-      "Version": "0.11.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "CohortGenerator",
-      "RemoteRef": "v0.11.0",
-      "RemoteSha": "78c74637edfdc37a163c95ccea6cb84276e168b1"
+      "Version": "0.11.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "CohortIncidence": {
       "Package": "CohortIncidence",
@@ -72,14 +77,19 @@
     },
     "CohortMethod": {
       "Package": "CohortMethod",
-      "Version": "5.3.0",
+      "Version": "5.4.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "CohortMethod",
-      "RemoteRef": "v5.3.0",
-      "RemoteSha": "5b70d20f15b1525ce45d9f69389a99753967b396"
+      "RemoteRef": "v5.4.0",
+      "RemoteSha": "893b5445e8a92c3a118db1b9cf92db8dbccdee39"
+    },
+    "CompQuadForm": {
+      "Package": "CompQuadForm",
+      "Version": "1.4.3",
+      "Source": "Repository"
     },
     "Cyclops": {
       "Package": "Cyclops",
@@ -93,11 +103,21 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "DT": {
+      "Package": "DT",
+      "Version": "0.33",
+      "Source": "Repository"
+    },
     "DatabaseConnector": {
       "Package": "DatabaseConnector",
       "Version": "6.3.2",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "Deriv": {
+      "Package": "Deriv",
+      "Version": "4.1.6",
+      "Source": "Repository"
     },
     "EmpiricalCalibration": {
       "Package": "EmpiricalCalibration",
@@ -105,9 +125,24 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "EvidenceSynthesis": {
+      "Package": "EvidenceSynthesis",
+      "Version": "0.5.0",
+      "Source": "Repository"
+    },
     "FeatureExtraction": {
       "Package": "FeatureExtraction",
-      "Version": "3.6.0",
+      "Version": "3.7.1",
+      "Source": "Repository"
+    },
+    "Formula": {
+      "Package": "Formula",
+      "Version": "1.2-5",
+      "Source": "Repository"
+    },
+    "HDInterval": {
+      "Package": "HDInterval",
+      "Version": "0.2.4",
       "Source": "Repository"
     },
     "MASS": {
@@ -122,6 +157,11 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "MatrixModels": {
+      "Package": "MatrixModels",
+      "Version": "0.5-3",
+      "Source": "Repository"
+    },
     "OhdsiSharing": {
       "Package": "OhdsiSharing",
       "Version": "0.2.2",
@@ -130,14 +170,41 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "OhdsiSharing",
-      "RemoteRef": "main",
-      "RemoteSha": "6fada2156ac78bfcd6ccea8ec4d6972e3bafa24f"
+      "RemoteRef": "v0.2.2",
+      "RemoteSha": "89cfe7c63d4c35cde4f3662a7493ce1670c78c6e"
+    },
+    "OhdsiShinyModules": {
+      "Package": "OhdsiShinyModules",
+      "Version": "3.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "OhdsiShinyModules",
+      "RemoteRef": "v3.1.0",
+      "RemoteSha": "7502b6319ad135ff4827da63b16a3ed4b8865d8d"
+    },
+    "PRROC": {
+      "Package": "PRROC",
+      "Version": "1.3.1",
+      "Source": "Repository"
     },
     "ParallelLogger": {
       "Package": "ParallelLogger",
       "Version": "3.3.1",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "PatientLevelPrediction": {
+      "Package": "PatientLevelPrediction",
+      "Version": "6.3.9",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "PatientLevelPrediction",
+      "RemoteRef": "v6.3.9",
+      "RemoteSha": "1dfc46bb55265f6620049e1ebf9e5018b6a98cf3"
     },
     "R6": {
       "Package": "R6",
@@ -180,16 +247,27 @@
       "Version": "5.1.9",
       "Source": "Repository"
     },
-    "ResultModelManager": {
-      "Package": "ResultModelManager",
-      "Version": "0.5.10",
+    "RcppTOML": {
+      "Package": "RcppTOML",
+      "Version": "0.2.2",
+      "Source": "Repository"
+    },
+    "ReportGenerator": {
+      "Package": "ReportGenerator",
+      "Version": "0.0.0.9000",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
-      "RemoteRepo": "ResultModelManager",
-      "RemoteRef": "v0.5.10",
-      "RemoteSha": "c734b7e55a851f8e1eba0d2a0f78f4a1603641ff"
+      "RemoteRepo": "ReportGenerator",
+      "RemoteRef": "v0.0.0.9000",
+      "RemoteSha": "9cda6de87b71bf76ed6b1a80fdec59cc94b079a9"
+    },
+    "ResultModelManager": {
+      "Package": "ResultModelManager",
+      "Version": "0.5.11",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "SelfControlledCaseSeries": {
       "Package": "SelfControlledCaseSeries",
@@ -202,9 +280,25 @@
       "RemoteRef": "v5.3.0",
       "RemoteSha": "c8ea06494f39064dc9d126fd08e197ba49f25b49"
     },
+    "ShinyAppBuilder": {
+      "Package": "ShinyAppBuilder",
+      "Version": "3.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "ShinyAppBuilder",
+      "RemoteRef": "v3.1.0",
+      "RemoteSha": "9360b5f794e137b300b1cf6aa824fead6a780391"
+    },
+    "SparseM": {
+      "Package": "SparseM",
+      "Version": "1.84-2",
+      "Source": "Repository"
+    },
     "SqlRender": {
       "Package": "SqlRender",
-      "Version": "1.18.1",
+      "Version": "1.19.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -216,8 +310,13 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "53c83d1897d6cdaff9499b36af279b0f7f75406b",
-      "RemoteSha": "53c83d1897d6cdaff9499b36af279b0f7f75406b"
+      "RemoteRef": "v1.0.0",
+      "RemoteSha": "f01bd49b9a25a1d863d47b64e07420b60996b96b"
+    },
+    "abind": {
+      "Package": "abind",
+      "Version": "1.4-8",
+      "Source": "Repository"
     },
     "askpass": {
       "Package": "askpass",
@@ -257,13 +356,13 @@
     },
     "bit": {
       "Package": "bit",
-      "Version": "4.0.5",
+      "Version": "4.5.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
     "bit64": {
       "Package": "bit64",
-      "Version": "4.0.5",
+      "Version": "4.5.2",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -273,11 +372,36 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "boot": {
+      "Package": "boot",
+      "Version": "1.3-31",
+      "Source": "Repository"
+    },
+    "broom": {
+      "Package": "broom",
+      "Version": "1.0.7",
+      "Source": "Repository"
+    },
+    "bslib": {
+      "Package": "bslib",
+      "Version": "0.8.0",
+      "Source": "Repository"
+    },
     "cachem": {
       "Package": "cachem",
       "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "car": {
+      "Package": "car",
+      "Version": "3.1-3",
+      "Source": "Repository"
+    },
+    "carData": {
+      "Package": "carData",
+      "Version": "3.0-5",
+      "Source": "Repository"
     },
     "checkmate": {
       "Package": "checkmate",
@@ -303,11 +427,31 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "coda": {
+      "Package": "coda",
+      "Version": "0.19-4.1",
+      "Source": "Repository"
+    },
     "colorspace": {
       "Package": "colorspace",
       "Version": "2.1-1",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "commonmark": {
+      "Package": "commonmark",
+      "Version": "1.9.1",
+      "Source": "Repository"
+    },
+    "corrplot": {
+      "Package": "corrplot",
+      "Version": "0.94",
+      "Source": "Repository"
+    },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.1.3",
+      "Source": "Repository"
     },
     "cpp11": {
       "Package": "cpp11",
@@ -321,11 +465,21 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "crosstalk": {
+      "Package": "crosstalk",
+      "Version": "1.2.1",
+      "Source": "Repository"
+    },
     "curl": {
       "Package": "curl",
-      "Version": "5.2.2",
+      "Version": "5.2.3",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "data.table": {
+      "Package": "data.table",
+      "Version": "1.16.0",
+      "Source": "Repository"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -339,11 +493,26 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "distributional": {
+      "Package": "distributional",
+      "Version": "0.5.0",
+      "Source": "Repository"
+    },
+    "doBy": {
+      "Package": "doBy",
+      "Version": "4.6.22",
+      "Source": "Repository"
+    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.1.4",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "evaluate": {
+      "Package": "evaluate",
+      "Version": "1.0.0",
+      "Source": "Repository"
     },
     "fansi": {
       "Package": "fansi",
@@ -369,17 +538,57 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "fontawesome": {
+      "Package": "fontawesome",
+      "Version": "0.5.2",
+      "Source": "Repository"
+    },
+    "forestplot": {
+      "Package": "forestplot",
+      "Version": "3.1.3",
+      "Source": "Repository"
+    },
+    "fs": {
+      "Package": "fs",
+      "Version": "1.6.4",
+      "Source": "Repository"
+    },
     "generics": {
       "Package": "generics",
       "Version": "0.1.3",
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "ggdist": {
+      "Package": "ggdist",
+      "Version": "3.3.2",
+      "Source": "Repository"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.5.1",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "ggpubr": {
+      "Package": "ggpubr",
+      "Version": "0.6.0",
+      "Source": "Repository"
+    },
+    "ggrepel": {
+      "Package": "ggrepel",
+      "Version": "0.9.6",
+      "Source": "Repository"
+    },
+    "ggsci": {
+      "Package": "ggsci",
+      "Version": "3.2.0",
+      "Source": "Repository"
+    },
+    "ggsignif": {
+      "Package": "ggsignif",
+      "Version": "0.6.4",
+      "Source": "Repository"
     },
     "glue": {
       "Package": "glue",
@@ -399,11 +608,36 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "here": {
+      "Package": "here",
+      "Version": "1.0.1",
+      "Source": "Repository"
+    },
+    "highr": {
+      "Package": "highr",
+      "Version": "0.11",
+      "Source": "Repository"
+    },
     "hms": {
       "Package": "hms",
       "Version": "1.1.3",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "htmltools": {
+      "Package": "htmltools",
+      "Version": "0.5.8.1",
+      "Source": "Repository"
+    },
+    "htmlwidgets": {
+      "Package": "htmlwidgets",
+      "Version": "1.6.4",
+      "Source": "Repository"
+    },
+    "httpuv": {
+      "Package": "httpuv",
+      "Version": "1.6.15",
+      "Source": "Repository"
     },
     "httr": {
       "Package": "httr",
@@ -417,9 +651,14 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "jquerylib": {
+      "Package": "jquerylib",
+      "Version": "0.1.4",
+      "Source": "Repository"
+    },
     "jsonlite": {
       "Package": "jsonlite",
-      "Version": "1.8.8",
+      "Version": "1.8.9",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -428,6 +667,11 @@
       "Version": "1.3.2",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "knitr": {
+      "Package": "knitr",
+      "Version": "1.48",
+      "Source": "Repository"
     },
     "labeling": {
       "Package": "labeling",
@@ -447,11 +691,21 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "lazyeval": {
+      "Package": "lazyeval",
+      "Version": "0.2.2",
+      "Source": "Repository"
+    },
     "lifecycle": {
       "Package": "lifecycle",
       "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "lme4": {
+      "Package": "lme4",
+      "Version": "1.1-35.5",
+      "Source": "Repository"
     },
     "lubridate": {
       "Package": "lubridate",
@@ -465,11 +719,41 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "markdown": {
+      "Package": "markdown",
+      "Version": "1.13",
+      "Source": "Repository"
+    },
+    "mathjaxr": {
+      "Package": "mathjaxr",
+      "Version": "1.6-0",
+      "Source": "Repository"
+    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "memuse": {
+      "Package": "memuse",
+      "Version": "4.2-3",
+      "Source": "Repository"
+    },
+    "meta": {
+      "Package": "meta",
+      "Version": "7.0-0",
+      "Source": "Repository"
+    },
+    "metadat": {
+      "Package": "metadat",
+      "Version": "1.2-0",
+      "Source": "Repository"
+    },
+    "metafor": {
+      "Package": "metafor",
+      "Version": "4.6-0",
+      "Source": "Repository"
     },
     "mgcv": {
       "Package": "mgcv",
@@ -477,11 +761,26 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.5.0",
+      "Source": "Repository"
+    },
     "mime": {
       "Package": "mime",
       "Version": "0.12",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "minqa": {
+      "Package": "minqa",
+      "Version": "1.2.8",
+      "Source": "Repository"
+    },
+    "modelr": {
+      "Package": "modelr",
+      "Version": "0.1.11",
+      "Source": "Repository"
     },
     "munsell": {
       "Package": "munsell",
@@ -495,11 +794,46 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "nloptr": {
+      "Package": "nloptr",
+      "Version": "2.1.1",
+      "Source": "Repository"
+    },
+    "nnet": {
+      "Package": "nnet",
+      "Version": "7.3-19",
+      "Source": "Repository"
+    },
+    "numDeriv": {
+      "Package": "numDeriv",
+      "Version": "2016.8-1.1",
+      "Source": "Repository"
+    },
     "openssl": {
       "Package": "openssl",
-      "Version": "2.2.1",
+      "Version": "2.2.2",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "openxlsx": {
+      "Package": "openxlsx",
+      "Version": "4.2.7.1",
+      "Source": "Repository"
+    },
+    "pROC": {
+      "Package": "pROC",
+      "Version": "1.18.5",
+      "Source": "Repository"
+    },
+    "pbapply": {
+      "Package": "pbapply",
+      "Version": "1.7-2",
+      "Source": "Repository"
+    },
+    "pbkrtest": {
+      "Package": "pbkrtest",
+      "Version": "0.5.3",
+      "Source": "Repository"
     },
     "pillar": {
       "Package": "pillar",
@@ -519,11 +853,31 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "plotly": {
+      "Package": "plotly",
+      "Version": "4.10.4",
+      "Source": "Repository"
+    },
     "plyr": {
       "Package": "plyr",
       "Version": "1.8.9",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "png": {
+      "Package": "png",
+      "Version": "0.1-8",
+      "Source": "Repository"
+    },
+    "polspline": {
+      "Package": "polspline",
+      "Version": "1.1.25",
+      "Source": "Repository"
+    },
+    "polynom": {
+      "Package": "polynom",
+      "Version": "1.4-1",
+      "Source": "Repository"
     },
     "pool": {
       "Package": "pool",
@@ -537,17 +891,47 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "processx": {
+      "Package": "processx",
+      "Version": "3.8.4",
+      "Source": "Repository"
+    },
     "progress": {
       "Package": "progress",
       "Version": "1.2.3",
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "promises": {
+      "Package": "promises",
+      "Version": "1.3.0",
+      "Source": "Repository"
+    },
+    "ps": {
+      "Package": "ps",
+      "Version": "1.8.0",
+      "Source": "Repository"
+    },
     "purrr": {
       "Package": "purrr",
       "Version": "1.0.2",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "quadprog": {
+      "Package": "quadprog",
+      "Version": "1.5-8",
+      "Source": "Repository"
+    },
+    "quantreg": {
+      "Package": "quantreg",
+      "Version": "5.98",
+      "Source": "Repository"
+    },
+    "quarto": {
+      "Package": "quarto",
+      "Version": "1.4.4",
+      "Source": "Repository"
     },
     "rJava": {
       "Package": "rJava",
@@ -559,6 +943,16 @@
       "Version": "0.3.3",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "reactR": {
+      "Package": "reactR",
+      "Version": "0.6.1",
+      "Source": "Repository"
+    },
+    "reactable": {
+      "Package": "reactable",
+      "Version": "0.4.4",
+      "Source": "Repository"
     },
     "readr": {
       "Package": "readr",
@@ -574,9 +968,14 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.0.7",
+      "Version": "1.0.11",
       "OS_type": null,
       "Repository": "CRAN",
+      "Source": "Repository"
+    },
+    "reticulate": {
+      "Package": "reticulate",
+      "Version": "1.39.0",
       "Source": "Repository"
     },
     "rlang": {
@@ -585,11 +984,61 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "rmarkdown": {
+      "Package": "rmarkdown",
+      "Version": "2.28",
+      "Source": "Repository"
+    },
+    "rprojroot": {
+      "Package": "rprojroot",
+      "Version": "2.0.4",
+      "Source": "Repository"
+    },
+    "rstatix": {
+      "Package": "rstatix",
+      "Version": "0.7.2",
+      "Source": "Repository"
+    },
+    "rstudioapi": {
+      "Package": "rstudioapi",
+      "Version": "0.16.0",
+      "Source": "Repository"
+    },
+    "sass": {
+      "Package": "sass",
+      "Version": "0.4.9",
+      "Source": "Repository"
+    },
     "scales": {
       "Package": "scales",
       "Version": "1.3.0",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "shiny": {
+      "Package": "shiny",
+      "Version": "1.9.1",
+      "Source": "Repository"
+    },
+    "shinyWidgets": {
+      "Package": "shinyWidgets",
+      "Version": "0.8.7",
+      "Source": "Repository"
+    },
+    "shinycssloaders": {
+      "Package": "shinycssloaders",
+      "Version": "1.1.0",
+      "Source": "Repository"
+    },
+    "shinydashboard": {
+      "Package": "shinydashboard",
+      "Version": "0.7.2",
+      "Source": "Repository"
+    },
+    "shinyglide": {
+      "Package": "shinyglide",
+      "Version": "0.1.4",
+      "Source": "Repository"
     },
     "snow": {
       "Package": "snow",
@@ -602,6 +1051,11 @@
       "Version": "1.3.1",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "sourcetools": {
+      "Package": "sourcetools",
+      "Version": "0.1.7-1",
+      "Source": "Repository"
     },
     "stringi": {
       "Package": "stringi",
@@ -651,6 +1105,16 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "tinytex": {
+      "Package": "tinytex",
+      "Version": "0.53",
+      "Source": "Repository"
+    },
+    "tippy": {
+      "Package": "tippy",
+      "Version": "0.1.0",
+      "Source": "Repository"
+    },
     "triebeard": {
       "Package": "triebeard",
       "Version": "0.4.1",
@@ -699,11 +1163,21 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "xfun": {
+      "Package": "xfun",
+      "Version": "0.47",
+      "Source": "Repository"
+    },
     "xml2": {
       "Package": "xml2",
       "Version": "1.3.6",
       "Source": "Repository",
       "Repository": "CRAN"
+    },
+    "xtable": {
+      "Package": "xtable",
+      "Version": "1.8-4",
+      "Source": "Repository"
     },
     "yaml": {
       "Package": "yaml",

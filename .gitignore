@@ -47,3 +47,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Strategus results folder
+results/
+
+# VSCode
+.vscode/
