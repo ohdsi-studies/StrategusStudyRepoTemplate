@@ -28,6 +28,10 @@ The following video is the first in a series of videos for the [OHDSI 2023 Save 
 
 [![How to initiate an OHDSI network study](http://img.youtube.com/vi/Aj4x6g7n3Mc/0.jpg)](http://www.youtube.com/watch?v=Aj4x6g7n3Mc "How to initiate an OHDSI network study")
 
+## Template usage & organization
+
+This project template is designed as a way to get started with using Strategus for running a network study. The R scripts and resources aim to design a sample study to allow you to follow along with the steps in this guide. You will want to review the R scripts and adjust them to the design of your study and later remove the sample study artifacts which are located in the `inst/sampleStudy` folder.
+
 ## Setting up your execution environment
 
 This section should be followed by both the 🦸‍♀️ **Project Author** and 👩‍🔬 **Site Participant**.
