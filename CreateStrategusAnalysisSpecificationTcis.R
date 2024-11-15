@@ -19,6 +19,16 @@ library(Strategus)
 ########################################################
 # Above the line - MODIFY ------------------------------
 ########################################################
+
+# Get the list of cohorts - NOTE: you should modify this for your
+# study to retrieve the cohorts you downloaded as part of
+# DownloadCohorts.R
+cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
+  settingsFileName = "inst/sampleStudy/Cohorts.csv",
+  jsonFolder = "inst/sampleStudy/cohorts",
+  sqlFolder = "inst/sampleStudy/sql/sql_server"
+)
+
 tcis <- list(
   #standard analyses that would be performed during routine signal detection
   list(
@@ -84,14 +94,6 @@ psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned o
 # Don't change below this line (unless you know what you're doing) -------------
 
 # Shared Resources -------------------------------------------------------------
-# Get the list of cohorts - NOTE: you should modify this for your
-# study to retrieve the cohorts you downloaded as part of
-# DownloadCohorts.R
-cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server"
-)
 
 # Get the unique subset criteria from the tcis
 # object to construct the cohortDefintionSet's 
