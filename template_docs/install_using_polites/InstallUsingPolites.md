@@ -23,8 +23,9 @@ Clone your forked version and checkout the branch you created.
 
 ## Generate your Github Personal Access Token (PAT)
 In order to install the R packages required for this project, you will need a Github Personal Access Token (PAT).  <br/>
-A token can be created at the following Github URL: </br>
+A token can be created at the following Github URL (I'm not sure what privileges are required, for now, I simply select them all): 
 https://github.com/settings/tokens<br/>
+<img src="./img/github-pat.png" />
 
 ## Open RStudio as Admin and then Open the StrategusStudyRepoTemplate Project
 Important: Open R as Admin. The following process will require the installation of many R packages.  Some of these installs will fail if you do not run as Admin.  <br/>
