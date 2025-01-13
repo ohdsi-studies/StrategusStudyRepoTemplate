@@ -35,9 +35,9 @@ Run the scripts in the \_StartHere/init folder in order:
 <ul>
 	<li>
 		<b>00-EditRenvironmentFile.R:</b> This script will let you edit your Renviron file. <br/>
-		For this step, you will need a Github Personal Access Token (PAT). <br/>
-		Use https://github.com/settings/tokens to generate your token.  <br/>
-		Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the token you generated as above: <br/>
+		For this step, you will need a Github Personal Access Token (PAT). 
+		Use <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> to generate your token (you will need to be logged into Github first for this to work). 
+		Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the token you've just generated: <br/>
 		<br/>
 		_JAVA_OPTIONS='-Xmx4g'<br/>
 		GITHUB_PAT='MY_GITHUB_PAT'<br/>
@@ -48,7 +48,7 @@ Run the scripts in the \_StartHere/init folder in order:
 		<b>Important: Don't forget to restart R.</b><br/>
 	</li>
 	<li>
-		<b>01-Init.R:</b> This script will run renv::restore(). The renv::restore() sets your R environment to a spcific configuration that uses a specific set of pacakges and versions of each of those packages.  It is a tool used to create somewhat of a frozen code release of the software we are creating and using here.  
+		<b>01-Init.R:</b> This script will run renv::restore(). The renv::restore() call sets your R environment to a spcific configuration that uses a specific set of pacakges and versions of each of those packages.  It is a tool used to create somewhat of a frozen code release of the software we are creating and using here.  
 	</li>
 	<li>
 		<b>02-install-reteculite.R:</b> This script installs the Python environment that will be used by R. 
