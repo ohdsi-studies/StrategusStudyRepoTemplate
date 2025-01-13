@@ -1,9 +1,10 @@
 # # #
 #
-# script to edit the .Renviron file
-# Add the following lines to the .Renviron file:
+# Use https://github.com/settings/tokens to generate your token.  
 #
-# (See https://ohdsi.github.io/DatabaseOnSpark/developer-how-tos_gen_dev.html for how to generate the GITHUB_PAT)
+# Script to edit the .Renviron file
+# Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the
+# token you generated as above:
 #
 # _JAVA_OPTIONS='-Xmx4g'
 # GITHUB_PAT='MY_GITHUB_PAT'
