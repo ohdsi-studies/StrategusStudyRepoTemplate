@@ -34,8 +34,23 @@ Start RStudio as Admin. Select File->Open Project and navigate to the StrategusS
 Run the scripts in the \_StartHere/init folder in order:
 <ul>
 	<li>
-		<b>00-EditRenvironmentFile.R:</b>This script will let you edit your Renviron file. Add the lines shown in the comment at the top of this file to the Renviron file. After editing and saving this file, restart R (Session->Restart R).<br/>
+		<b>00-EditRenvironmentFile.R:</b> This script will let you edit your Renviron file. <br/>
+		For this step, you will need a Github Personal Access Token (PAT). <br/>
+		Use https://github.com/settings/tokens to generate your token.  <br/>
+		Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the token you generated as above: <br/>
+		<br/>
+		_JAVA_OPTIONS='-Xmx4g'<br/>
+		GITHUB_PAT='MY_GITHUB_PAT'<br/>
+		<br/>
+		After editing and saving this file, restart R (Session->Restart R).<br/>
+		You can close the .REnviron file once this step has been completed.  <br/>
 		<b>Important: Don't forget to save the file before restarting R.</b><br/>
-		<b>Important: Don't forget to restart R.</b>
+		<b>Important: Don't forget to restart R.</b><br/>
+	</li>
+	<li>
+		<b>01-Init.R:</b> This script will run renv::restore(). The renv::restore() sets your R environment to a spcific configuration that uses a specific set of pacakges and versions of each of those packages.  It is a tool used to create somewhat of a frozen code release of the software we are creating and using here.  
+	</li>
+	<li>
+		<b>02-install-reteculite.R:</b> This script installs the Python environment that will be used by R. 
 	</li>
 </ul>
