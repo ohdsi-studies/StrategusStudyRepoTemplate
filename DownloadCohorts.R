@@ -12,32 +12,59 @@
 # of the UsingThisTemplate.md for more details.
 # ##############################################################################
 
+# # # 
+# 
+# Libraries
+# 
+# # #
+
 library(dplyr)
+
+# # # 
+# 
+# Implementation
+# 
+# # #
+
 baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
 # Use this if your WebAPI instance has security enables
 # ROhdsiWebApi::authorizeWebApi(
 #   baseUrl = baseUrl,
 #   authMethod = "windows"
 # )
+
+cohortList <-
+  list(
+    list(1778211, "celecoxib"),
+    list(1790989, "diclofenac"),
+    list(1780946, "GI Bleed")
+  )
+
+negativeControlConceptId <- 1885090
+
+settingsFileName <- "inst/sampleStudy/Cohorts.csv"
+jsonFolder <- "inst/sampleStudy/cohorts"
+sqlFolder <- "inst/sampleStudy/sql/sql_server"
+negativeControlOutcomesFile <- "inst/sampleStudy/negativeControlOutcomes.csv"
+
+cohortIds <- sapply(cohortList, function(x) as.numeric(x[1]))
+
 cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
   baseUrl = baseUrl,
-  cohortIds = c(
-    1778211, # All exposures - celecoxib
-    1790989, # All exposures - diclofenac
-    1780946 # GI Bleed
-  ),
+  cohortIds = cohortIds,
   generateStats = TRUE
 )
 
-# Rename cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1778211,]$cohortName <- "celecoxib"
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1790989,]$cohortName <- "diclofenac"
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1780946,]$cohortName <- "GI Bleed"
+cohortTibble <- tibble(
+  ID = sapply(cohortList, `[[`, 1),
+  Name = sapply(cohortList, `[[`, 2)
+)
 
-# Re-number cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1778211,]$cohortId <- 1
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1790989,]$cohortId <- 2
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1780946,]$cohortId <- 3
+# Rename renumber cohorts
+for (i in seq_len(nrow(cohortTibble))) {
+  cohortDefinitionSet[cohortDefinitionSet$cohortId == cohortTibble$ID[i], "cohortName"] <- cohortTibble$Name[i]
+  cohortDefinitionSet[cohortDefinitionSet$cohortId == cohortTibble$ID[i], "cohortId"] <- i
+}
 
 # Save the cohort definition set
 # NOTE: Update settingsFileName, jsonFolder and sqlFolder
@@ -52,7 +79,7 @@ CohortGenerator::saveCohortDefinitionSet(
 
 # Download and save the negative control outcomes
 negativeControlOutcomeCohortSet <- ROhdsiWebApi::getConceptSetDefinition(
-  conceptSetId = 1885090,
+  conceptSetId = negativeControlConceptId,
   baseUrl = baseUrl
 ) %>%
   ROhdsiWebApi::resolveConceptSet(
@@ -69,6 +96,6 @@ negativeControlOutcomeCohortSet <- ROhdsiWebApi::getConceptSetDefinition(
 # NOTE: Update file location for your study.
 CohortGenerator::writeCsv(
   x = negativeControlOutcomeCohortSet,
-  file = "inst/sampleStudy/negativeControlOutcomes.csv",
+  file = negativeControlOutcomesFile,
   warnOnFileNameCaseMismatch = F
 )
