@@ -41,6 +41,7 @@ Run the scripts in the \_StartHere/init folder in order:
 		Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the token you've just generated: <br/>
 		<br/>
 		_JAVA_OPTIONS='-Xmx4g'<br/>
+    VROOM_THREADS=1<br/>
 		GITHUB_PAT='MY_GITHUB_PAT'<br/>
 		<br/>
 		After editing and saving this file, restart R (Session->Restart R).<br/>
