@@ -53,3 +53,8 @@ results/
 
 # VSCode
 .vscode/
+
+# Sample study design
+inst/sampleStudy
+
+
