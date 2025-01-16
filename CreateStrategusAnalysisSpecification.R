@@ -139,6 +139,7 @@ cModuleSettingsCreator <- CharacterizationModule$new()
 characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpecifications(
   targetIds = cohortDefinitionSet$cohortId, # NOTE: This is all T/C/I/O
   outcomeIds = oList$outcomeCohortId,
+  # TODO: PICKUP HERE (JEG)
   minPriorObservation = 365,
   dechallengeStopInterval = 30,
   dechallengeEvaluationWindow = 30,
@@ -149,7 +150,6 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   covariateSettings = FeatureExtraction::createDefaultCovariateSettings(),
   minCharacterizationMean = .01
 )
-
 
 # CohortIncidenceModule --------------------------------------------------------
 ciModuleSettingsCreator <- CohortIncidenceModule$new()
