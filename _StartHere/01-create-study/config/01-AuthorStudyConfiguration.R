@@ -58,3 +58,17 @@ baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
 #   authMethod = "windows"
 # )
 
+# # #
+#
+# Results Connection Detials:
+# Connection details for the database that will hold the results.  
+# 
+# # #
+
+resultsConnectionDetails <- DatabaseConnector::createConnectionDetails (
+  dbms = "postgresql",
+  user = "user",
+  password = "password",
+  server = "localhost"
+)
+
