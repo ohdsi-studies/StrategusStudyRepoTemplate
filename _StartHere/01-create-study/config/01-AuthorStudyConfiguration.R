@@ -18,6 +18,7 @@ settingsFileName <- paste0(studyDefRootDir, "/Cohorts.csv")
 jsonFolder <- paste0(studyDefRootDir, "/cohorts")
 sqlFolder <- paste0(studyDefRootDir, "/sql/sql_server")
 negativeControlOutcomesFile <- paste0(studyDefRootDir, "/negativeControlOutcomes.csv")
+studyDefinitionFile <- paste0(studyDefRootDir, "/sampleStudyAnalysisSpecification.json")
 
 # Base URL ----
 
@@ -128,6 +129,13 @@ plpTarEndAnchor = "cohort start"
 useCleanWindowForPriorOutcomeLookback <- FALSE 
 psMatchMaxRatio <- 1 
 
+# CharacterizationModule ------------------------------------------------------
+charMinPriorObservation <- 365
+charDechallengeStopInterval <- 30
+charDechallengeEvaluationWindow <- 30
 
+# SelfControlledCaseSeriesmodule ---------------------------------------------------
+sccsTargetCohortId <- c(1,2)
+sscsTargetCohortName <- c("celecoxib", "diclofenac")
 
 

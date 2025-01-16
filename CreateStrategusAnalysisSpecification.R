@@ -1,5 +1,5 @@
-################################################################################
-# INSTRUCTIONS: Make sure you have downloaded your cohorts using 
+# INSTRUCTIONS #################################################################
+# Make sure you have downloaded your cohorts using 
 # DownloadCohorts.R and that those cohorts are stored in the "inst" folder
 # of the project. This script is written to use the sample study cohorts
 # located in "inst/sampleStudy" so you will need to modify this in the code 
@@ -14,11 +14,7 @@
 # further details.
 # ##############################################################################
 
-# # #
-# 
-# libraries
-#
-# # #
+# libraries --------------------------------------------------------------------
 
 library(dplyr)
 library(Strategus)
@@ -140,9 +136,9 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   targetIds = cohortDefinitionSet$cohortId, # NOTE: This is all T/C/I/O
   outcomeIds = oList$outcomeCohortId,
   # TODO: PICKUP HERE (JEG)
-  minPriorObservation = 365,
-  dechallengeStopInterval = 30,
-  dechallengeEvaluationWindow = 30,
+  minPriorObservation = charMinPriorObservation,
+  dechallengeStopInterval = charDechallengeStopInterval,
+  dechallengeEvaluationWindow = charDechallengeEvaluationWindow,
   riskWindowStart = timeAtRisks$riskWindowStart, 
   startAnchor = timeAtRisks$startAnchor, 
   riskWindowEnd = timeAtRisks$riskWindowEnd, 
@@ -376,8 +372,8 @@ cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecific
 # SelfControlledCaseSeriesmodule -----------------------------------------------
 
 sccsTList <- data.frame(
-  targetCohortId = c(1,2),
-  targetCohortName = c("celecoxib", "diclofenac")
+  targetCohortId = sccsTargetCohortId,
+  targetCohortName = sscsTargetCohortName
 )
 
 sccsModuleSettingsCreator <- SelfControlledCaseSeriesModule$new()
