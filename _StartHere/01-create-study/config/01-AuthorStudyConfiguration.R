@@ -65,10 +65,30 @@ baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
 # 
 # # #
 
-resultsConnectionDetails <- DatabaseConnector::createConnectionDetails (
-  dbms = "postgresql",
-  user = "user",
-  password = "password",
-  server = "localhost"
-)
+# TODO: (JEG) FINISH THIS THOUGHT
+
+# ------------------------------------------------------------------------------
+# Study Design Variables
+# ------------------------------------------------------------------------------
+
+# # #
+# Time at risk (TARs) variables 
+# # #
+
+tarLabel <- "On treatment"
+tarRiskWindowStart  <- 1
+tarStartAnchor <- "cohort start"
+tarRiskWindowEnd  <- 0
+tarEndAnchor <- "cohort end"
+
+# # #
+# Patient Level Prediction (PLP) Time at risk (TARs) variables 
+# # #
+
+plpTarRiskWindowStart  = 1
+plpTarStartAnchor = "cohort start"
+plpTarRiskWindowEnd  = 365
+plpTarEndAnchor = "cohort start"
+
+
 

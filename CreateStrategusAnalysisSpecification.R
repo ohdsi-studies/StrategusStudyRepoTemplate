@@ -26,19 +26,19 @@ source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
 # Time-at-risks (TARs) for the outcomes of interest in your study
 timeAtRisks <- tibble(
-  label = c("On treatment"),
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(0),
-  endAnchor = c("cohort end")
+  label = c(tarLabel),
+  riskWindowStart  = c(tarRiskWindowStart),
+  startAnchor = c(tarStartAnchor),
+  riskWindowEnd  = c(tarRiskWindowEnd),
+  endAnchor = c(tarEndAnchor)
 )
 
 # PLP time-at-risks should try to use fixed-time TARs
 plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(365),
-  endAnchor = c("cohort start"),
+  riskWindowStart  = c(plpTarRiskWindowStart),
+  startAnchor = c(plpTarStartAnchor),
+  riskWindowEnd  = c(plpTarRiskWindowEnd),
+  endAnchor = c(plpTarEndAnchor),
 )
 
 # If you are not restricting your study to a specific time window, 
