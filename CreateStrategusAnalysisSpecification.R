@@ -24,6 +24,12 @@ library(dplyr)
 library(Strategus)
 source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
+# # #
+#
+# global variables 
+#
+# # #
+
 # Time-at-risks (TARs) for the outcomes of interest in your study
 timeAtRisks <- tibble(
   label = c(tarLabel),
@@ -41,30 +47,19 @@ plpTimeAtRisks <- tibble(
   endAnchor = c(plpTarEndAnchor),
 )
 
-# If you are not restricting your study to a specific time window, 
-# please make these strings empty
-studyStartDate <- '20171201' #YYYYMMDD
-studyEndDate <- '20231231'   #YYYYMMDD
-
 # Some of the settings require study dates with hyphens
 studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
 studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
 
-
-# Consider these settings for estimation  ----------------------------------------
-
-useCleanWindowForPriorOutcomeLookback <- FALSE # If FALSE, lookback window is all time prior, i.e., including only first events
-psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned on the matched set
-
 # Shared Resources -------------------------------------------------------------
-# Get the list of cohorts - NOTE: you should modify this for your
-# study to retrieve the cohorts you downloaded as part of
-# DownloadCohorts.R
+# Get the list of cohorts
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server"
+  settingsFileName = settingsFileName,
+  jsonFolder = jsonFolder,
+  sqlFolder = sqlFolder
 )
+
+# TODO: (JEG) NEED TO LOOK AT THE VARIABLES IN THE BLOCK
 
 # OPTIONAL: Create a subset to define the new user cohorts
 # More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
@@ -83,34 +78,35 @@ cohortDefinitionSet <- cohortDefinitionSet |>
   CohortGenerator::addCohortSubsetDefinition(subset1, targetCohortIds = c(1,2))
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/sampleStudy/negativeControlOutcomes.csv"
+  file = negativeControlOutcomesFile
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
   stop("*** Error: duplicate cohort IDs found ***")
 }
 
+# TODO: NOT SURE WHAT THE SIGNIFICANCE OF CLEAN WINDOW IS
+
 # Create some data frames to hold the cohorts we'll use in each analysis ---------------
 # Outcomes: The outcome for this study is cohort_id == 3 
 oList <- cohortDefinitionSet %>%
-  filter(.data$cohortId == 3) %>%
+  filter(.data$cohortId == outcomeCohortId) %>%
   mutate(outcomeCohortId = cohortId, outcomeCohortName = cohortName) %>%
   select(outcomeCohortId, outcomeCohortName) %>%
-  mutate(cleanWindow = 365)
+  mutate(cleanWindow = cleanWindow)
 
 # For the CohortMethod analysis we'll use the subsetted cohorts
 cmTcList <- data.frame(
-  targetCohortId = 1001,
-  targetCohortName = "celecoxib new users",
-  comparatorCohortId = 2001,
-  comparatorCohortName = "diclofenac new users"
+  targetCohortId = targetCohortId,
+  targetCohortName = targetCohortName,
+  comparatorCohortId = comparatorCohortId,
+  comparatorCohortName = comparatorCohortId
 )
 
-# For the CohortMethod LSPS we'll need to exclude the drugs of interest in this
-# study
+# For the CohortMethod LSPS we'll need to exclude the drugs of interest in this study
 excludedCovariateConcepts <- data.frame(
-  conceptId = c(1118084, 1124300),
-  conceptName = c("celecoxib", "diclofenac")
+  conceptId = excludeConceptIdList,
+  conceptName = excludeConceptNameList
 )
 
 # For the SCCS analysis we'll use the all exposure cohorts
