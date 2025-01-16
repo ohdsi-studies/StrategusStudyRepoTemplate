@@ -4,7 +4,6 @@
 #
 # # #
 
-
 # # #
 #
 # Delete the existing version of the study

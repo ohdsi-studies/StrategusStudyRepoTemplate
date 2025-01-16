@@ -24,13 +24,40 @@ library(dplyr)
 library(Strategus)
 source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
+# Shared Resources, Variables, and settings  -----------------------------------
+
 # # #
 #
-# global variables 
+# This section contains code that defines and manipulates resources, variables and settings 
+# used by multiple modules.  
 #
 # # #
 
-# Time-at-risks (TARs) for the outcomes of interest in your study
+# add web authorization if indicated ----
+if (useWebApiAuthorization == TRUE) {
+  ROhdsiWebApi::authorizeWebApi (
+    baseUrl = baseUrl,
+    authMethod = "windows"
+  )
+}
+
+# dates with hyphens ----
+studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
+studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
+
+# negative controls ----
+negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
+  file = negativeControlOutcomesFile
+)
+
+# cohortDefinitionSet ----
+cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
+  settingsFileName = settingsFileName,
+  jsonFolder = jsonFolder,
+  sqlFolder = sqlFolder
+)
+
+# timeAtRisks ----
 timeAtRisks <- tibble(
   label = c(tarLabel),
   riskWindowStart  = c(tarRiskWindowStart),
@@ -39,80 +66,44 @@ timeAtRisks <- tibble(
   endAnchor = c(tarEndAnchor)
 )
 
-# PLP time-at-risks should try to use fixed-time TARs
-plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(plpTarRiskWindowStart),
-  startAnchor = c(plpTarStartAnchor),
-  riskWindowEnd  = c(plpTarRiskWindowEnd),
-  endAnchor = c(plpTarEndAnchor),
-)
-
-# Some of the settings require study dates with hyphens
-studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
-studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
-
-# Shared Resources -------------------------------------------------------------
-# Get the list of cohorts
-cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = settingsFileName,
-  jsonFolder = jsonFolder,
-  sqlFolder = sqlFolder
-)
-
-# TODO: (JEG) NEED TO LOOK AT THE VARIABLES IN THE BLOCK
-
-# OPTIONAL: Create a subset to define the new user cohorts
-# More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
-subset1 <- CohortGenerator::createCohortSubsetDefinition(
-  name = "New Users",
-  definitionId = 1,
-  subsetOperators = list(
-    CohortGenerator::createLimitSubset(
-      priorTime = 365,
-      limitTo = "firstEver"
+# createNewUserSubset ----
+if(createNewUsersSubset == TRUE) {
+  # More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
+  subset1 <- CohortGenerator::createCohortSubsetDefinition(
+    name = "New Users",
+    definitionId = newUsersDefinitionId,
+    subsetOperators = list(
+      CohortGenerator::createLimitSubset(
+        priorTime = newUsersPriorTime,
+        limitTo = newUsersLimitTo
+      )
     )
   )
-)
+}
 
-cohortDefinitionSet <- cohortDefinitionSet |>
-  CohortGenerator::addCohortSubsetDefinition(subset1, targetCohortIds = c(1,2))
-
-negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = negativeControlOutcomesFile
+# cohortDefinitionSet ----
+cohortDefinitionSet <- CohortGenerator::addCohortSubsetDefinition (
+  cohortDefinitionSet, 
+  subset1, 
+  targetCohortIds = c(1,2)
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
   stop("*** Error: duplicate cohort IDs found ***")
 }
 
-# TODO: NOT SURE WHAT THE SIGNIFICANCE OF CLEAN WINDOW IS
-
-# Create some data frames to hold the cohorts we'll use in each analysis ---------------
-# Outcomes: The outcome for this study is cohort_id == 3 
+# Create some data frames to hold the cohorts we'll use in each analysis ----
 oList <- cohortDefinitionSet %>%
   filter(.data$cohortId == outcomeCohortId) %>%
   mutate(outcomeCohortId = cohortId, outcomeCohortName = cohortName) %>%
   select(outcomeCohortId, outcomeCohortName) %>%
   mutate(cleanWindow = cleanWindow)
 
-# For the CohortMethod analysis we'll use the subsetted cohorts
 cmTcList <- data.frame(
   targetCohortId = targetCohortId,
   targetCohortName = targetCohortName,
   comparatorCohortId = comparatorCohortId,
   comparatorCohortName = comparatorCohortId
-)
-
-# For the CohortMethod LSPS we'll need to exclude the drugs of interest in this study
-excludedCovariateConcepts <- data.frame(
-  conceptId = excludeConceptIdList,
-  conceptName = excludeConceptNameList
-)
-
-# For the SCCS analysis we'll use the all exposure cohorts
-sccsTList <- data.frame(
-  targetCohortId = c(1,2),
-  targetCohortName = c("celecoxib", "diclofenac")
 )
 
 # CohortGeneratorModule --------------------------------------------------------
@@ -224,6 +215,12 @@ cohortIncidenceModuleSpecifications <- ciModuleSettingsCreator$createModuleSpeci
 
 
 # CohortMethodModule -----------------------------------------------------------
+
+excludedCovariateConcepts <- data.frame(
+  conceptId = excludeConceptIdList,
+  conceptName = excludeConceptNameList
+)
+
 cmModuleSettingsCreator <- CohortMethodModule$new()
 covariateSettings <- FeatureExtraction::createDefaultCovariateSettings(
   addDescendantsToExclude = TRUE # Keep TRUE because you're excluding concepts
@@ -377,6 +374,12 @@ cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecific
 
 
 # SelfControlledCaseSeriesmodule -----------------------------------------------
+
+sccsTList <- data.frame(
+  targetCohortId = c(1,2),
+  targetCohortName = c("celecoxib", "diclofenac")
+)
+
 sccsModuleSettingsCreator <- SelfControlledCaseSeriesModule$new()
 uniqueTargetIds <- sccsTList$targetCohortId
 
@@ -498,6 +501,15 @@ selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpec
 )
 
 # PatientLevelPredictionModule -------------------------------------------------
+
+# PLP time-at-risks should try to use fixed-time TARs
+plpTimeAtRisks <- tibble(
+  riskWindowStart  = c(plpTarRiskWindowStart),
+  startAnchor = c(plpTarStartAnchor),
+  riskWindowEnd  = c(plpTarRiskWindowEnd),
+  endAnchor = c(plpTarEndAnchor),
+)
+
 plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
 
 modelSettings <- list(
@@ -573,4 +585,6 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
   file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+  
 )
+
