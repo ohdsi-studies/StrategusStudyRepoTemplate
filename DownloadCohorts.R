@@ -5,7 +5,7 @@
 # # #
 
 library(dplyr)
-source("./_StartHere/01-create-study/01-ConfigDownloadCohort.R")
+source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
 # # # 
 # 

@@ -34,10 +34,11 @@ negativeControlConceptSetId <- 1885090
 #
 # # #
 
-settingsFileName <- "inst/sampleStudy/Cohorts.csv"
-jsonFolder <- "inst/sampleStudy/cohorts"
-sqlFolder <- "inst/sampleStudy/sql/sql_server"
-negativeControlOutcomesFile <- "inst/sampleStudy/negativeControlOutcomes.csv"
+studyDefRootDir <- "./inst/sampleStudy"
+settingsFileName <- paste0(studyDefRootDir, "/Cohorts.csv")
+jsonFolder <- paste0(studyDefRootDir, "/cohorts")
+sqlFolder <- paste0(studyDefRootDir, "/sql/sql_server")
+negativeControlOutcomesFile <- paste0(studyDefRootDir, "/negativeControlOutcomes.csv")
 
 # # #
 #

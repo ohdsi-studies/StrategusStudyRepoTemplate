@@ -14,8 +14,15 @@
 # further details.
 # ##############################################################################
 
+# # #
+# 
+# libraries
+#
+# # #
+
 library(dplyr)
 library(Strategus)
+source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
 # Time-at-risks (TARs) for the outcomes of interest in your study
 timeAtRisks <- tibble(
