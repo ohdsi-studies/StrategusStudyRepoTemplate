@@ -35,7 +35,7 @@ R.version.string
 # # #
 
 if (!requireNamespace("usethis", quietly = TRUE) || packageVersion("usethis") != "3.1.0") {
-  options(replace.readline = function(prompt) "Y") # This won't work for install.packages
+  options(replace.readline = function(prompt) "Y")
   install.packages("usethis", ask = FALSE)
   options(replace.readline = function(prompt) NULL)
 }

@@ -42,6 +42,7 @@ Run the scripts in the \_StartHere/init folder in order:
 		<br/>
 		_JAVA_OPTIONS='-Xmx4g'<br/>
     VROOM_THREADS=1<br/>
+		DATABASECONNECTOR_JAR_FOLDER = "C:\Program Files\Stragegus\jdbc\drivers"<br/>
 		GITHUB_PAT='MY_GITHUB_PAT'<br/>
 		<br/>
 		After editing and saving this file, restart R (Session->Restart R).<br/>
