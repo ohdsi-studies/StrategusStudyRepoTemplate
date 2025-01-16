@@ -7,7 +7,7 @@
 #
 # # #
 
-# Files ----
+# Files ---- 
 
 # # #
 # The following parameters define where files for your study should be located.
