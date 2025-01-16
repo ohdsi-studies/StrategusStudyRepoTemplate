@@ -35,7 +35,17 @@ useWebApiAuthorization <- FALSE
 # Connection details for the database that will hold the results.  
 # # #
 
-# TODO: (JEG) FINISH THIS THOUGHT
+jdbcDriverDir <- Sys.getenv("DATABASECONNECTOR_JAR_FOLDER")
+if(dir.exists(jdbcDriverDir) == FALSE) {
+  dir.create(jdbcDriverDir, recursive = TRUE)
+}
+DatabaseConnector::downloadJdbcDrivers("postgresql")
+resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
+  dbms = "postgresql",
+  connectionString = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
+)
+conn <- DatabaseConnector::connect(resultsConnectionDetails)
+DatabaseConnector::disconnect(conn)
 
 # ------------------------------------------------------------------------------
 # Study Design Variables
