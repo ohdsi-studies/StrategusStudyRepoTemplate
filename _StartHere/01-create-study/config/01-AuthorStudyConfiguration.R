@@ -7,6 +7,12 @@
 #
 # # #
 
+# Libraries --------------------------------------------------------------------
+
+source("./util/database/StrategusDatabaseUtil.R")
+
+# Implementation ---------------------------------------------------------------
+
 # Files ---- 
 
 # # #
@@ -35,17 +41,10 @@ useWebApiAuthorization <- FALSE
 # Connection details for the database that will hold the results.  
 # # #
 
-jdbcDriverDir <- Sys.getenv("DATABASECONNECTOR_JAR_FOLDER")
-if(dir.exists(jdbcDriverDir) == FALSE) {
-  dir.create(jdbcDriverDir, recursive = TRUE)
-}
-DatabaseConnector::downloadJdbcDrivers("postgresql")
-resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
+resultsConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
   dbms = "postgresql",
   connectionString = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
 )
-conn <- DatabaseConnector::connect(resultsConnectionDetails)
-DatabaseConnector::disconnect(conn)
 
 # ------------------------------------------------------------------------------
 # Study Design Variables
