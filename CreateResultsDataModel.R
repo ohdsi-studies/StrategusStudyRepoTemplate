@@ -10,7 +10,7 @@ source("./util/database/StrategusDatabaseUtil.R")
 # create a connection to use to create the schema if it does not exist ----
 bootStrapConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
   dbms = dbms,
-  connectionString = connectionString
+  connectionString = bootStrapConnectionString
 )
 
 # create the database if it does not exist ----
@@ -20,8 +20,8 @@ DatabaseConnector::disconnect(conn)
 
 # resultsConnectionDetails ----
 resultsConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
-  dbms = "postgresql",
-  connectionString = paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=ohdsi")
+  dbms = dbms,
+  connectionString = connectionString
 )
 
 # create the schema if it does not exist ----
@@ -40,7 +40,15 @@ resultsDataModelSettings <- Strategus::createResultsDataModelSettings (
   resultsFolder = resultsPath
 )
 
-# createResultDataModel ----
+# Create results data model -------------------------
+
+# Use the 1st results folder to define the results data model
+resultsFolder <- list.dirs(path = resultsPath, full.names = T, recursive = F)[1]
+resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
+  resultsDatabaseSchema = schemaName,
+  resultsFolder = file.path(resultsFolder, "strategusOutput")
+)
+
 Strategus::createResultDataModel(
   analysisSpecifications = analysisSpecifications,
   resultsDataModelSettings = resultsDataModelSettings,

@@ -2,21 +2,11 @@ DBMS:
 postgresql
 
 Error:
-org.postgresql.util.PSQLException: ERROR: schema "strategus" does not exist
-  Position: 14
+org.postgresql.util.PSQLException: ERROR: relation "study_results.database_meta_data" does not exist
+  Position: 22
 
 SQL:
-CREATE TABLE strategus.cg_cohort_definition (
-	 cohort_definition_id BIGINT NOT NULL,
-	 cohort_name VARCHAR,
-	 description VARCHAR,
-	 json TEXT,
-	 sql_command TEXT,
-	 subset_parent BIGINT,
-	 is_subset INT,
-	 subset_definition_id BIGINT,
-	PRIMARY KEY(cohort_definition_id)
-)
+SELECT COUNT(*) FROM study_results.database_meta_data WHERE database_id IN ('388020256');
 
 R version:
 R version 4.4.1 (2024-06-14 ucrt)

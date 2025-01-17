@@ -9,7 +9,7 @@
 # Files ----
 
 analysisSpecificationFilePath <- "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
-resultsPath <- "results"
+resultsPath <- "./results"
 
 # Results Connection Details ----
 
@@ -20,5 +20,6 @@ resultsPath <- "results"
 dbName <- "strategus"
 schemaName <- "study_results"
 dbms <- "postgresql"
-connectionString <- "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
+bootStrapConnectionString <- "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
+connectionString <- paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=ohdsi")
 
