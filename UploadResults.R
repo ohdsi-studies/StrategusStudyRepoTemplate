@@ -30,7 +30,7 @@ analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
 )
 
 # resultsDatabaseSchema ----
-resultsDatabaseSchema <- "study_results"
+resultsDatabaseSchema <- schemaName
 
 # resultsDatabaseConnectionDetails ----
 resultsDatabaseConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
@@ -38,8 +38,7 @@ resultsDatabaseConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
   connectionString = connectionString
 )
 
-
-# Setup logging ----------------------------------------------------------------
+# Setup logging ----
 
 ParallelLogger::clearLoggers()
 ParallelLogger::addDefaultFileLogger(
@@ -51,7 +50,7 @@ ParallelLogger::addDefaultErrorReportLogger(
   name = "RESULTS_ERROR_LOGGER"
 )
 
-# Upload Results ---------------------------------------------------------------
+# Upload Results ----
 
 for (resultFolder in list.dirs(path = resultsPath, full.names = T, recursive = F)) {
   resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
@@ -110,6 +109,7 @@ connection <- DatabaseConnector::connect(
 # 
 # DatabaseConnector::disconnect(connection)
 
-# Unregister loggers -----------------------------------------------------------
+# Unregister loggers ----
 ParallelLogger::unregisterLogger("RESULTS_FILE_LOGGER")
 ParallelLogger::unregisterLogger("RESULTS_ERROR_LOGGER")
+
