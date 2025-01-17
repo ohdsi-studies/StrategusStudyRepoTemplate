@@ -37,10 +37,10 @@ StrategusDatabaseUtil$getConnectionDetails <- function(dbms, connectionString) {
   return(resultsConnectionDetails)
 }
 
-# createSchemaIfItDoesNotExist ------------------------------------------------
+# createDatabaseIfItDoesNotExist ------------------------------------------------
 
 # ----
-# Creates the specified schema if it does not exist.  
+# Creates the specified database if it does not exist.  
 # ----
 
 StrategusDatabaseUtil$createDatabaseIfItDoesNotExist <- function(dbName, conn) {
@@ -53,5 +53,24 @@ StrategusDatabaseUtil$createDatabaseIfItDoesNotExist <- function(dbName, conn) {
     DatabaseConnector::executeSql(conn, createDbQuery)
   }
 }
+
+
+# createSchemaIfItDoesNotExist ------------------------------------------------
+
+# ----
+# Creates the specified schema if it does not exist.  
+# ----
+
+StrategusDatabaseUtil$createSchemaIfItDoesNotExist <- function(schemaName, conn) {
+  # Check if the schema exists
+  checkSchemaQuery <- sprintf("SELECT 1 FROM information_schema.schemata WHERE schema_name = '%s';", schemaName)
+  schemaExists <- nrow(DatabaseConnector::querySql(conn, checkSchemaQuery)) > 0
+  # Create the schema if it doesn't exist
+  if (!schemaExists) {
+    createSchemaQuery <- sprintf("CREATE SCHEMA %s;", schemaName)
+    DatabaseConnector::executeSql(conn, createSchemaQuery)
+  }
+}
+  
 
 

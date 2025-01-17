@@ -2,11 +2,11 @@ DBMS:
 postgresql
 
 Error:
-org.postgresql.util.PSQLException: ERROR: schema "study_results" does not exist
+org.postgresql.util.PSQLException: ERROR: schema "strategus" does not exist
   Position: 14
 
 SQL:
-CREATE TABLE study_results.cg_cohort_definition (
+CREATE TABLE strategus.cg_cohort_definition (
 	 cohort_definition_id BIGINT NOT NULL,
 	 cohort_name VARCHAR,
 	 description VARCHAR,

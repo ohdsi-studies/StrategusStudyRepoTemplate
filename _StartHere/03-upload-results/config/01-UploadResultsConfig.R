@@ -17,7 +17,8 @@ resultsPath <- "results"
 # Connection details and schema for the database that will hold the results.  
 # # #
 
-dbName <- "study_results"
+dbName <- "strategus"
+schemaName <- "study_results"
 dbms <- "postgresql"
 connectionString <- "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
 
