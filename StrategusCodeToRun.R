@@ -12,34 +12,15 @@
 # -------------------------------------------------------
 #renv::restore()
 
+# libraries --------------------------------------------------------------------
+
+source("./_StartHere/02-run-study/config/01-RunStudyConfiguration.R")
+
+# implementation ---------------------------------------------------------------
+
 # ENVIRONMENT SETTINGS NEEDED FOR RUNNING Strategus ------------
 Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
 Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadlocks on file system
-
-##=========== START OF INPUTS ==========
-cdmDatabaseSchema <- "main"
-workDatabaseSchema <- "main"
-outputLocation <- file.path(getwd(), "results")
-databaseName <- "Eunomia" # Only used as a folder name for results from the study
-minCellCount <- 5
-cohortTableName <- "sample_study"
-
-# Create the connection details for your CDM
-# More details on how to do this are found here:
-# https://ohdsi.github.io/DatabaseConnector/reference/createConnectionDetails.html
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-#   dbms = Sys.getenv("DBMS_TYPE"),
-#   connectionString = Sys.getenv("CONNECTION_STRING"),
-#   user = Sys.getenv("DBMS_USERNAME"),
-#   password = Sys.getenv("DBMS_PASSWORD")
-# )
-
-# For this example we will use the Eunomia sample data 
-# set. This library is not installed by default so you
-# can install this by running:
-#
-# install.packages("Eunomia")
-connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 
 # You can use this snippet to test your connection
 #conn <- DatabaseConnector::connect(connectionDetails)
