@@ -1,0 +1,41 @@
+DBMS:
+postgresql
+
+Error:
+org.postgresql.util.PSQLException: ERROR: schema "study_results" does not exist
+  Position: 14
+
+SQL:
+CREATE TABLE study_results.cg_cohort_definition (
+	 cohort_definition_id BIGINT NOT NULL,
+	 cohort_name VARCHAR,
+	 description VARCHAR,
+	 json TEXT,
+	 sql_command TEXT,
+	 subset_parent BIGINT,
+	 is_subset INT,
+	 subset_definition_id BIGINT,
+	PRIMARY KEY(cohort_definition_id)
+)
+
+R version:
+R version 4.4.1 (2024-06-14 ucrt)
+
+Platform:
+x86_64-w64-mingw32
+
+Attached base packages:
+- stats
+- graphics
+- grDevices
+- datasets
+- utils
+- methods
+- base
+
+Other attached packages:
+- Strategus (1.0.0)
+- CohortGenerator (0.11.2)
+- R6 (2.5.1)
+- DatabaseConnector (6.3.2)
+- dplyr (1.1.4)

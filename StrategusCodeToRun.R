@@ -26,9 +26,8 @@ Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadloc
 #conn <- DatabaseConnector::connect(connectionDetails)
 #DatabaseConnector::disconnect(conn)
 
-##=========== END OF INPUTS ==========
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
+  fileName = analysisSpecificationFilePath
 )
 
 executionSettings <- Strategus::createCdmExecutionSettings(

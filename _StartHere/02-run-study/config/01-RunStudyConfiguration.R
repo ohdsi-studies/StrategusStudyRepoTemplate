@@ -6,7 +6,11 @@
 #
 # ----
 
-# Parameters for running the study ---------------------------------------------
+# Files ----
+
+analysisSpecificationFilePath <- "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
+
+# Other parameters for running the study ----
 
 cdmDatabaseSchema <- "main"
 workDatabaseSchema <- "main"
@@ -15,6 +19,6 @@ databaseName <- "Eunomia"
 minCellCount <- 5
 cohortTableName <- "sample_study"
 
-# Connection details -----------------------------------------------------------
+# Connection details ---- 
 
 connectionDetails <- Eunomia::getEunomiaConnectionDetails()

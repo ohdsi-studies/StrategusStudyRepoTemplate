@@ -1,7 +1,11 @@
+# libraries --------------------------------------------------------------------
 
-source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
+source("./_StartHere/03-upload-results/config/01-UploadResultsConfig.R")
+source("./util/database/StrategusDatabaseUtil.R")
 
-# test the results connection details ------------------------------------------
+# implementation ---------------------------------------------------------------
+
+# test the results connection details ----
 print("Getting connection...")
 conn <- DatabaseConnector::connect(resultsConnectionDetails)
 print("Closing connection")

@@ -35,17 +35,6 @@ studyDefinitionFile <- paste0(studyDefRootDir, "/sampleStudyAnalysisSpecificatio
 baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
 useWebApiAuthorization <- FALSE
 
-# Results Connection Detials ----
-
-# # #
-# Connection details for the database that will hold the results.  
-# # #
-
-resultsConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
-  dbms = "postgresql",
-  connectionString = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
-)
-
 # ------------------------------------------------------------------------------
 # Study Design Variables
 # ------------------------------------------------------------------------------

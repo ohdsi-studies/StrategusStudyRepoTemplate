@@ -1,4 +1,17 @@
+# StrategusDatabaseUtil -------------------------------------------------------
+
+# ----
+# StrategusDatabaseUtil:
+# A utility class for common database interactions.  
+# ----
+
 StrategusDatabaseUtil <- {}
+
+# getConnectionDetails --------------------------------------------------------
+
+# ----
+# Gets the connection details. Downloads the driver if needed.  
+# ----
 
 StrategusDatabaseUtil$getConnectionDetails <- function(dbms, connectionString) {
   # get the jdbc driver dir
@@ -22,6 +35,23 @@ StrategusDatabaseUtil$getConnectionDetails <- function(dbms, connectionString) {
   )
   # return
   return(resultsConnectionDetails)
+}
+
+# createSchemaIfItDoesNotExist ------------------------------------------------
+
+# ----
+# Creates the specified schema if it does not exist.  
+# ----
+
+StrategusDatabaseUtil$createDatabaseIfItDoesNotExist <- function(dbName, conn) {
+  # Check if the database exists
+  checkDbQuery <- sprintf("SELECT 1 FROM pg_database WHERE datname = '%s';", dbName)
+  dbExists <- nrow(DatabaseConnector::querySql(conn, checkDbQuery)) > 0
+  # Create the database if it doesn't exist
+  if (dbExists == FALSE) {
+    createDbQuery <- sprintf("CREATE DATABASE %s;", dbName)
+    DatabaseConnector::executeSql(conn, createDbQuery)
+  }
 }
 
 
