@@ -98,6 +98,7 @@ To run these scripts, start RStudio as Admin. Select File->Open Project and navi
 		<br/>
 		<b>Important: Don't forget to save the file before restarting R.</b><br/>
 		<b>Important: Don't forget to restart R.</b><br/>
+		<b>Important: Don't use production passwords in source code.</b> System variables are used here for all passwords to prevent passwords from being leaked when projects are commited to version control or otherwise shared or published.<br/>
 		<br/>
 	</li>
 	<li>
