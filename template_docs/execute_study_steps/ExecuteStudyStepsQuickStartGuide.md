@@ -65,3 +65,20 @@ Run the scripts in the \_StartHere/init folder in order:
 		<b>02-install-reteculite.R:</b> This script installs the Python environment that will be used by R. 
 	</li>
 </ul>
+
+## Create a Study Definition
+<b>Important: Before executing this step, run the Initialization scripts if you have not already.</b>
+<br/><br/>
+This step will download the cohorts for this study and create the analysis specification.<br/>
+<br/>
+For more details see the <a href="../UsingThisTemplate.md">Using This Template</a> document. <br/>
+<br/>
+To create a study:
+<ul>
+	<li>
+		Edit ./_StarteHere/01-create-study/config/01-AuthorStudyConfiguration.R. 
+	</li>
+	<li>
+		Execute ./_StarteHere/01-create-study/01-CreateStudy.R.
+	</li>
+</ul>
