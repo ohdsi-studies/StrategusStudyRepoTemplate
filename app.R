@@ -11,17 +11,20 @@
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
 
+# libraries --------------------------------------------------------------------
+
 library(ShinyAppBuilder)
 library(OhdsiShinyModules)
+source("./_StartHere/04-view-results/config/01-ViewResultsConfig.R")
 
-resultsDatabaseSchema <- "results"
+# implementation ---------------------------------------------------------------
+
+resultsDatabaseSchema <- schemaName
 
 # Specify the connection to the results database
 resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
-  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
-  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
+  dbms = dbms,
+  connectionString = connectionString
 )
 
 # ADD OR REMOVE MODULES TAILORED TO YOUR STUDY
