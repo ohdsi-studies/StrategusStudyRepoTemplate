@@ -17,9 +17,10 @@ resultsPath <- "./results"
 # Connection details and schema for the database that will hold the results.  
 # # #
 
+resultsDbPassword <- Sys.getenv("RESULTS_DB_PASSWORD")
 dbName <- "strategus"
 schemaName <- "study_results"
 dbms <- "postgresql"
-bootStrapConnectionString <- "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
-connectionString <- paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=ohdsi")
+bootStrapConnectionString <- paste0("jdbc:postgresql://localhost:5432/postgres?user=postgres&password=", resultsDbPassword)
+connectionString <- paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=", resultsDbPassword)
 

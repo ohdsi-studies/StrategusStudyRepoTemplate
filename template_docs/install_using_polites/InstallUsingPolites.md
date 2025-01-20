@@ -39,19 +39,57 @@ Run the scripts in the \_StartHere/init folder in order:
 <ul>
 	<li>
 		<b>00-EditRenvironmentFile.R:</b> This script will let you edit your Renviron file. <br/>
-		For this step, you will need a Github Personal Access Token (PAT). 
-		Use <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> to generate your token (you will need to be logged into Github first for this to work). 
-		Add the following lines to the .Renviron file (where MY_GITHUB_PAT) is the token you've just generated: <br/>
 		<br/>
+		For this step, you will need a Github Personal Access Token (PAT). 
+		Use <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> to generate your token (you will need to be logged into Github first for this to work). <br/><br/>
+		Add the following lines to the .Renviron file
+		<br/><br/>
 		_JAVA_OPTIONS='-Xmx4g'<br/>
     VROOM_THREADS=1<br/>
 		DATABASECONNECTOR_JAR_FOLDER = "C:\Program Files\Stragegus\jdbc\drivers"<br/>
+		CDM_DB_PASSWORD = "NA/Eunomia is being used for this example"<br/>
+		RESULTS_DB_PASSWORD = "resultsDbPassword"<br/>
 		GITHUB_PAT='MY_GITHUB_PAT'<br/>
 		<br/>
-		After editing and saving this file, restart R (Session->Restart R).<br/>
-		You can close the .REnviron file once this step has been completed.  <br/>
+		These variables represent the following:
+		<ul>
+			<li>
+				<b>_JAVA_OPTIONS</b>
+				<br/>
+				This is a memory setting for Java that needs to be set to ensure enough memory for underlying Java processes to execute.
+			</li>
+			<li>
+				<b>VROOM_THREADS</b>
+				<br/>
+				This sets the number of threads used by Strategus.
+			</li>
+			<li>
+				<b>DATABASECONNECTOR_JAR_FOLDER</b>
+				<br/>
+				This is the folder that R will use to store database driver files. This can be any empty directory. The processes used here use the default drivers. These drivers are automatically downloaded by R when they are needed. 
+			</li>
+			<li>
+				<b>CDM_DB_PASSWORD</b>
+				<br/>
+				This is the password for the CDM database you are using to run the study. It is not needed for the default case presented here as the Eunomia database is being used. 
+			</li>
+			<li>
+				<b>RESULTS_DB_PASSWORD</b>
+				<br/>
+				This is the password for the PostgreSql database used to store the study results. 
+			</li>
+			<li>
+				<b>GITHUB_PAT</b>
+				<br/>
+				This is your Github Personal Access Token (PAT)
+			</li>
+		</ul>
+		<br/>
+		After editing and saving this file, restart R (Session->Restart R). You can close the .REnviron file once this step has been completed.  <br/>
+		<br/>
 		<b>Important: Don't forget to save the file before restarting R.</b><br/>
 		<b>Important: Don't forget to restart R.</b><br/>
+		<br/>
 	</li>
 	<li>
 		<b>01-Init.R:</b> This script will run renv::restore(). The renv::restore() call sets your R environment to a spcific configuration that uses a specific set of pacakges and versions of each of those packages.  It is a tool used to create somewhat of a frozen code release of the software we are creating and using here.  

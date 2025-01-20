@@ -1,7 +1,8 @@
 # View Results Configuration ---------------------------------------------------
 
+resultsDbPassword <- Sys.getenv("RESULTS_DB_PASSWORD")
 schemaName <- "study_results"
-connectionString <- "jdbc:postgresql://localhost:5432/strategus?user=postgres&password=ohdsi"
+connectionString <- paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=", resultsDbPassword)
 
 # ADD OR REMOVE MODULES TAILORED TO YOUR STUDY ----
 shinyConfig <- initializeModuleConfig() |>
