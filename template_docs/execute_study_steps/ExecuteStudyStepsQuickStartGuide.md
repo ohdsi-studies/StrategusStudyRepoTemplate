@@ -1,5 +1,6 @@
 Executing Study Steps
 =================
+## Introduction
 
 This guide gives a quick start guide to executing all of the steps of a study. 
 These steps include the following:
@@ -33,14 +34,17 @@ Each of the other steps is defined in two files, a configuration file and an imp
 
 It should be noted that in many cases a user will run one or a subset of the steps below. For example, data providers will not run the Create Study step. Note that in all cases the initialization step must be executed before running any other step. 
 
+## Notes on Strategus, HADES, and HADES Modules
+This template executes Strategus code.  More information on Strategus is available at https://ohdsi.github.io/Strategus/index.html.  Strategus builds and executes a number of HADES Modules and other packages. More information on HADES is available at https://ohdsi.github.io/Hades/.  The HADES modules all have their own documentation that details what each module does, the input and output of the module, the meanings of each of the variables used by the module, etc.  A list of the available modules and links to the documentation is available at https://ohdsi.github.io/Strategus/reference/index.html#omop-cdm-hades-modules.
+
 ## 00 - Initialization: Run the Setup Scripts
 <b>Note: this step must be run before any of the other steps shown below. This step only needs to be run once. </b>
 <br/>
 
 <b>Important: Open R as Admin.</b> The following process will require the installation of many R packages.  Some of these installs will fail if you do not run as Admin.<br/><br/>
-Start RStudio as Admin. Select File->Open Project and navigate to the StrategusStudyRepoTemplate.proj file in the StrategusStudyRepoTemplate project.<br/>
+These scripts run renv::restore() and all of the other initialization steps described in the <a href="https://github.com/ohdsi-studies/StrategusStudyRepoTemplate/blob/main/template_docs/UsingThisTemplate.md">Using this Template</a> document. 
 
-Run the scripts in the \_StartHere/init folder in order:
+To run these scripts, start RStudio as Admin. Select File->Open Project and navigate to the StrategusStudyRepoTemplate.proj file in the StrategusStudyRepoTemplate project. Then run the scripts in the \_StartHere/init folder in order:
 <ul>
 	<li>
 		<b>00-EditRenvironmentFile.R:</b> This script will let you edit your Renviron file. <br/>
