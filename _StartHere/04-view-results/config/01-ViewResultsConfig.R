@@ -1,25 +1,29 @@
-# Configuration file for data upload -------------------------------------------
+# View Results Configuration ---------------------------------------------------
 
-# ----
-#
-# This file contains the configuration details for uploading data for a study that has been run.  
-#
-# ----
-
-# Files ----
-
-analysisSpecificationFilePath <- "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
-resultsPath <- "./results"
-
-# Results Connection Details ----
-
-# # #
-# Connection details and schema for the database that will hold the results.  
-# # #
-
-dbName <- "strategus"
 schemaName <- "study_results"
-dbms <- "postgresql"
-bootStrapConnectionString <- "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=ohdsi"
-connectionString <- paste0("jdbc:postgresql://localhost:5432/", dbName, "?user=postgres&password=ohdsi")
+connectionString <- "jdbc:postgresql://localhost:5432/strategus?user=postgres&password=ohdsi"
+
+# ADD OR REMOVE MODULES TAILORED TO YOUR STUDY ----
+shinyConfig <- initializeModuleConfig() |>
+  addModuleConfig(
+    createDefaultAboutConfig()
+  )  |>
+  addModuleConfig(
+    createDefaultDatasourcesConfig()
+  )  |>
+  addModuleConfig(
+    createDefaultCohortGeneratorConfig()
+  ) |>
+  addModuleConfig(
+    createDefaultCohortDiagnosticsConfig()
+  ) |>
+  addModuleConfig(
+    createDefaultCharacterizationConfig()
+  ) |>
+  addModuleConfig(
+    createDefaultPredictionConfig()
+  ) |>
+  addModuleConfig(
+    createDefaultEstimationConfig()
+  ) 
 
