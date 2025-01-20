@@ -33,7 +33,7 @@ Each of the other steps is defined in two files, a configuration file and an imp
 
 It should be noted that in many cases a user will run one or a subset of the steps below. For example, data providers will not run the Create Study step. Note that in all cases the initialization step must be executed before running any other step. 
 
-## Initialization: Run the Setup Scripts
+## 00 - Initialization: Run the Setup Scripts
 <b>Note: this step must be run before any of the other steps shown below. This step only needs to be run once. </b>
 <br/>
 
@@ -66,7 +66,7 @@ Run the scripts in the \_StartHere/init folder in order:
 	</li>
 </ul>
 
-## Create a Study Definition
+## 01 - Create the Study Definition
 <b>Important: Before executing this step, run the Initialization scripts if you have not already.</b>
 <br/><br/>
 This step will download the cohorts for this study and create the analysis specification.<br/>
@@ -82,3 +82,55 @@ To create a study:
 		Execute ./_StarteHere/01-create-study/01-CreateStudy.R.
 	</li>
 </ul>
+
+## 02 - Run the Study 
+<b>Important: Before executing this step, run the Initialization scripts if you have not already.</b>
+<br/><br/>
+This step will run the study using the database (CDM) specified in the configuration file.<br/>
+<br/>
+For more details see the <a href="../UsingThisTemplate.md">Using This Template</a> document. <br/>
+<br/>
+To run a study:
+<ul>
+	<li>
+		Edit ./_StarteHere/02-run-study/config/01-RunStudyConfiguration.R. 
+	</li>
+	<li>
+		Execute ./_StarteHere/02-run-study/01-RunStudy.R.
+	</li>
+</ul>
+
+## 03 - Upload the Study Results 
+<b>Important: Before executing this step, run the Initialization scripts if you have not already.</b>
+<br/><br/>
+This step will upload the study results to the Postgres dataabase specified in the configuration file.<br/>
+<br/>
+For more details see the <a href="../UsingThisTemplate.md">Using This Template</a> document. <br/>
+<br/>
+To upload study results:
+<ul>
+	<li>
+		Edit ./_StarteHere/03-upload-results/config/01-UploadResultsConfig.R. 
+	</li>
+	<li>
+		Execute ./_StarteHere/03-upload-results/01-UploadResults.R.
+	</li>
+</ul>
+
+## 04 - View Study Results 
+<b>Important: Before executing this step, run the Initialization scripts if you have not already.</b>
+<br/><br/>
+This step will launch a Shiny application that will display the study results.<br/>
+<br/>
+For more details see the <a href="../UsingThisTemplate.md">Using This Template</a> document. <br/>
+<br/>
+To view the study results:
+<ul>
+	<li>
+		Edit ./_StarteHere/04-view-results/config/01-ViewResultsConfig.R. 
+	</li>
+	<li>
+		Execute ./_StarteHere/04-view-results/01-ViewResults.R.
+	</li>
+</ul>
+
