@@ -3,7 +3,7 @@
 # ----
 
 options(replace.readline = function(prompt) "Y")
-renv::restore()
+renv::restore(confirm = FALSE)
 options(replace.readline = function(prompt) NULL)
 
 # ----
