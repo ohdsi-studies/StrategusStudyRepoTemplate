@@ -1,0 +1,49 @@
+DBMS:
+postgresql
+
+Error:
+org.postgresql.util.PSQLException: ERROR: relation "database_meta_data" already exists
+
+SQL:
+CREATE TABLE study_results.database_meta_data (
+  	 cdm_source_name VARCHAR,
+	 cdm_source_abbreviation VARCHAR,
+	 cdm_holder VARCHAR,
+	 source_description VARCHAR,
+	 source_documentation_reference VARCHAR,
+	 cdm_etl_reference VARCHAR,
+	 source_release_date DATE,
+	 cdm_release_date DATE,
+	 cdm_version VARCHAR,
+	 cdm_version_concept_id INT,
+	 vocabulary_version VARCHAR,
+	 database_id VARCHAR NOT NULL,
+	 max_obs_period_end_date DATE,
+	PRIMARY KEY(database_id)
+)
+
+R version:
+R version 4.4.1 (2024-06-14 ucrt)
+
+Platform:
+x86_64-w64-mingw32
+
+Attached base packages:
+- stats
+- graphics
+- grDevices
+- datasets
+- utils
+- methods
+- base
+
+Other attached packages:
+- CohortMethod (5.4.0)
+- FeatureExtraction (3.7.1)
+- Andromeda (0.6.7)
+- Cyclops (3.4.1)
+- Strategus (1.0.0)
+- CohortGenerator (0.11.2)
+- R6 (2.5.1)
+- DatabaseConnector (6.3.2)
+- dplyr (1.1.4)
