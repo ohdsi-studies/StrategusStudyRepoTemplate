@@ -2,7 +2,9 @@
 #  set up environment
 # ----
 
+options(replace.readline = function(prompt) "Y")
 renv::restore()
+options(replace.readline = function(prompt) NULL)
 
 # ----
 # Add libraries not included in the lock file
