@@ -176,4 +176,3 @@ To view the study results:
 		Execute ./_StarteHere/04-view-results/01-ViewResults.R.
 	</li>
 </ul>
-
