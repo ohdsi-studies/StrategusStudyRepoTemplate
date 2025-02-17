@@ -18,19 +18,28 @@
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
 
-# Code for uploading results to a Postgres database
-resultsDatabaseSchema <- "results"
+# libraries --------------------------------------------------------------------
+
+source("./_StartHere/03-upload-results/config/01-UploadResultsConfig.R")
+
+# implementation ---------------------------------------------------------------
+
+# analysisSpecifications ----
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
-)
-resultsDatabaseConnectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
-  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
-  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
+  fileName = analysisSpecificationFilePath
 )
 
-# Setup logging ----------------------------------------------------------------
+# resultsDatabaseSchema ----
+resultsDatabaseSchema <- schemaName
+
+# resultsDatabaseConnectionDetails ----
+resultsDatabaseConnectionDetails <- StrategusDatabaseUtil$getConnectionDetails (
+  dbms = dbms,
+  connectionString = connectionString
+)
+
+# Setup logging ----
+
 ParallelLogger::clearLoggers()
 ParallelLogger::addDefaultFileLogger(
   fileName = "upload-log.txt",
@@ -41,8 +50,9 @@ ParallelLogger::addDefaultErrorReportLogger(
   name = "RESULTS_ERROR_LOGGER"
 )
 
-# Upload Results ---------------------------------------------------------------
-for (resultFolder in list.dirs(path = "results", full.names = T, recursive = F)) {
+# Upload Results ----
+
+for (resultFolder in list.dirs(path = resultsPath, full.names = T, recursive = F)) {
   resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
     resultsDatabaseSchema = resultsDatabaseSchema,
     resultsFolder = file.path(resultFolder, "strategusOutput"),
@@ -99,6 +109,7 @@ connection <- DatabaseConnector::connect(
 # 
 # DatabaseConnector::disconnect(connection)
 
-# Unregister loggers -----------------------------------------------------------
+# Unregister loggers ----
 ParallelLogger::unregisterLogger("RESULTS_FILE_LOGGER")
 ParallelLogger::unregisterLogger("RESULTS_ERROR_LOGGER")
+

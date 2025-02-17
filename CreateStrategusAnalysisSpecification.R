@@ -1,5 +1,5 @@
-################################################################################
-# INSTRUCTIONS: Make sure you have downloaded your cohorts using 
+# INSTRUCTIONS #################################################################
+# Make sure you have downloaded your cohorts using 
 # DownloadCohorts.R and that those cohorts are stored in the "inst" folder
 # of the project. This script is written to use the sample study cohorts
 # located in "inst/sampleStudy" so you will need to modify this in the code 
@@ -13,101 +13,93 @@
 # This help page also contains links to the corresponding HADES package that
 # further details.
 # ##############################################################################
+
+# libraries --------------------------------------------------------------------
+
 library(dplyr)
 library(Strategus)
+source("./_StartHere/01-create-study/config/01-AuthorStudyConfiguration.R")
 
-# Time-at-risks (TARs) for the outcomes of interest in your study
-timeAtRisks <- tibble(
-  label = c("On treatment"),
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(0),
-  endAnchor = c("cohort end")
-)
+# Shared Resources, Variables, and settings  -----------------------------------
 
-# PLP time-at-risks should try to use fixed-time TARs
-plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(365),
-  endAnchor = c("cohort start"),
-)
+# # #
+#
+# This section contains code that defines and manipulates resources, variables and settings 
+# used by multiple modules.  
+#
+# # #
 
-# If you are not restricting your study to a specific time window, 
-# please make these strings empty
-studyStartDate <- '20171201' #YYYYMMDD
-studyEndDate <- '20231231'   #YYYYMMDD
-# Some of the settings require study dates with hyphens
+# add web authorization if indicated ----
+if (useWebApiAuthorization == TRUE) {
+  ROhdsiWebApi::authorizeWebApi (
+    baseUrl = baseUrl,
+    authMethod = "windows"
+  )
+}
+
+# dates with hyphens ----
 studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
 studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
 
-
-# Consider these settings for estimation  ----------------------------------------
-
-useCleanWindowForPriorOutcomeLookback <- FALSE # If FALSE, lookback window is all time prior, i.e., including only first events
-psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned on the matched set
-
-# Shared Resources -------------------------------------------------------------
-# Get the list of cohorts - NOTE: you should modify this for your
-# study to retrieve the cohorts you downloaded as part of
-# DownloadCohorts.R
-cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server"
+# negative controls ----
+negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
+  file = negativeControlOutcomesFile
 )
 
-# OPTIONAL: Create a subset to define the new user cohorts
-# More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
-subset1 <- CohortGenerator::createCohortSubsetDefinition(
-  name = "New Users",
-  definitionId = 1,
-  subsetOperators = list(
-    CohortGenerator::createLimitSubset(
-      priorTime = 365,
-      limitTo = "firstEver"
+# cohortDefinitionSet ----
+cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
+  settingsFileName = settingsFileName,
+  jsonFolder = jsonFolder,
+  sqlFolder = sqlFolder
+)
+
+# timeAtRisks ----
+timeAtRisks <- tibble(
+  label = c(tarLabel),
+  riskWindowStart  = c(tarRiskWindowStart),
+  startAnchor = c(tarStartAnchor),
+  riskWindowEnd  = c(tarRiskWindowEnd),
+  endAnchor = c(tarEndAnchor)
+)
+
+# createNewUserSubset ----
+if(createNewUsersSubset == TRUE) {
+  # More information: https://ohdsi.github.io/CohortGenerator/articles/CreatingCohortSubsetDefinitions.html
+  subset1 <- CohortGenerator::createCohortSubsetDefinition(
+    name = "New Users",
+    definitionId = newUsersDefinitionId,
+    subsetOperators = list(
+      CohortGenerator::createLimitSubset(
+        priorTime = newUsersPriorTime,
+        limitTo = newUsersLimitTo
+      )
     )
   )
-)
+}
 
-cohortDefinitionSet <- cohortDefinitionSet |>
-  CohortGenerator::addCohortSubsetDefinition(subset1, targetCohortIds = c(1,2))
-
-negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/sampleStudy/negativeControlOutcomes.csv"
+# cohortDefinitionSet ----
+cohortDefinitionSet <- CohortGenerator::addCohortSubsetDefinition (
+  cohortDefinitionSet, 
+  subset1, 
+  targetCohortIds = c(1,2)
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
   stop("*** Error: duplicate cohort IDs found ***")
 }
 
-# Create some data frames to hold the cohorts we'll use in each analysis ---------------
-# Outcomes: The outcome for this study is cohort_id == 3 
+# Create some data frames to hold the cohorts we'll use in each analysis ----
 oList <- cohortDefinitionSet %>%
-  filter(.data$cohortId == 3) %>%
+  filter(.data$cohortId == outcomeCohortId) %>%
   mutate(outcomeCohortId = cohortId, outcomeCohortName = cohortName) %>%
   select(outcomeCohortId, outcomeCohortName) %>%
-  mutate(cleanWindow = 365)
+  mutate(cleanWindow = cleanWindow)
 
-# For the CohortMethod analysis we'll use the subsetted cohorts
 cmTcList <- data.frame(
-  targetCohortId = 1001,
-  targetCohortName = "celecoxib new users",
-  comparatorCohortId = 2001,
-  comparatorCohortName = "diclofenac new users"
-)
-
-# For the CohortMethod LSPS we'll need to exclude the drugs of interest in this
-# study
-excludedCovariateConcepts <- data.frame(
-  conceptId = c(1118084, 1124300),
-  conceptName = c("celecoxib", "diclofenac")
-)
-
-# For the SCCS analysis we'll use the all exposure cohorts
-sccsTList <- data.frame(
-  targetCohortId = c(1,2),
-  targetCohortName = c("celecoxib", "diclofenac")
+  targetCohortId = targetCohortId,
+  targetCohortName = targetCohortName,
+  comparatorCohortId = comparatorCohortId,
+  comparatorCohortName = comparatorCohortId
 )
 
 # CohortGeneratorModule --------------------------------------------------------
@@ -143,9 +135,10 @@ cModuleSettingsCreator <- CharacterizationModule$new()
 characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpecifications(
   targetIds = cohortDefinitionSet$cohortId, # NOTE: This is all T/C/I/O
   outcomeIds = oList$outcomeCohortId,
-  minPriorObservation = 365,
-  dechallengeStopInterval = 30,
-  dechallengeEvaluationWindow = 30,
+  # TODO: PICKUP HERE (JEG)
+  minPriorObservation = charMinPriorObservation,
+  dechallengeStopInterval = charDechallengeStopInterval,
+  dechallengeEvaluationWindow = charDechallengeEvaluationWindow,
   riskWindowStart = timeAtRisks$riskWindowStart, 
   startAnchor = timeAtRisks$startAnchor, 
   riskWindowEnd = timeAtRisks$riskWindowEnd, 
@@ -153,7 +146,6 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   covariateSettings = FeatureExtraction::createDefaultCovariateSettings(),
   minCharacterizationMean = .01
 )
-
 
 # CohortIncidenceModule --------------------------------------------------------
 ciModuleSettingsCreator <- CohortIncidenceModule$new()
@@ -219,6 +211,12 @@ cohortIncidenceModuleSpecifications <- ciModuleSettingsCreator$createModuleSpeci
 
 
 # CohortMethodModule -----------------------------------------------------------
+
+excludedCovariateConcepts <- data.frame(
+  conceptId = excludeConceptIdList,
+  conceptName = excludeConceptNameList
+)
+
 cmModuleSettingsCreator <- CohortMethodModule$new()
 covariateSettings <- FeatureExtraction::createDefaultCovariateSettings(
   addDescendantsToExclude = TRUE # Keep TRUE because you're excluding concepts
@@ -372,6 +370,12 @@ cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecific
 
 
 # SelfControlledCaseSeriesmodule -----------------------------------------------
+
+sccsTList <- data.frame(
+  targetCohortId = sccsTargetCohortId,
+  targetCohortName = sscsTargetCohortName
+)
+
 sccsModuleSettingsCreator <- SelfControlledCaseSeriesModule$new()
 uniqueTargetIds <- sccsTList$targetCohortId
 
@@ -493,6 +497,15 @@ selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpec
 )
 
 # PatientLevelPredictionModule -------------------------------------------------
+
+# PLP time-at-risks should try to use fixed-time TARs
+plpTimeAtRisks <- tibble(
+  riskWindowStart  = c(plpTarRiskWindowStart),
+  startAnchor = c(plpTarStartAnchor),
+  riskWindowEnd  = c(plpTarRiskWindowEnd),
+  endAnchor = c(plpTarEndAnchor),
+)
+
 plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
 
 modelSettings <- list(
@@ -568,4 +581,6 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
   file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+  
 )
+
