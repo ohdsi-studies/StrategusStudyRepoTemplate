@@ -241,7 +241,6 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   startAnchor = timeAtRisks$startAnchor, 
   riskWindowEnd = timeAtRisks$riskWindowEnd, 
   endAnchor = timeAtRisks$endAnchor,
-  covariateSettings = FeatureExtraction::createDefaultCovariateSettings(),
   minCharacterizationMean = .01
 )
 

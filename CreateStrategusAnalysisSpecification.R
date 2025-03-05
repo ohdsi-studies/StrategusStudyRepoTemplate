@@ -150,7 +150,6 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   startAnchor = timeAtRisks$startAnchor, 
   riskWindowEnd = timeAtRisks$riskWindowEnd, 
   endAnchor = timeAtRisks$endAnchor,
-  covariateSettings = FeatureExtraction::createDefaultCovariateSettings(),
   minCharacterizationMean = .01
 )
 
@@ -361,13 +360,7 @@ cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecific
   analysesToExclude = NULL,
   refitPsForEveryOutcome = FALSE,
   refitPsForEveryStudyPopulation = FALSE,  
-  cmDiagnosticThresholds = CohortMethod::createCmDiagnosticThresholds(
-    mdrrThreshold = Inf,
-    easeThreshold = 0.25,
-    sdmThreshold = 0.1,
-    equipoiseThreshold = 0.2,
-    generalizabilitySdmThreshold = 1 # NOTE using default here
-  )
+  cmDiagnosticThresholds = CohortMethod::createCmDiagnosticThresholds()
 )
 
 
@@ -484,20 +477,15 @@ selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpec
   sccsAnalysisList = sccsAnalysisList,
   exposuresOutcomeList = eoList,
   combineDataFetchAcrossOutcomes = FALSE,
-  sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds(
-    mdrrThreshold = Inf,
-    easeThreshold = 0.25,
-    timeTrendPThreshold = 0.05,
-    preExposurePThreshold = 0.05
-  )
+  sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds()
 )
 
 # PatientLevelPredictionModule -------------------------------------------------
 plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
 
 modelSettings <- list(
-  lassoLogisticRegression = PatientLevelPrediction::setLassoLogisticRegression(),
-  randomForest = PatientLevelPrediction::setRandomForest()
+  lassoLogisticRegression = PatientLevelPrediction::setLassoLogisticRegression()
+  #randomForest = PatientLevelPrediction::setRandomForest()
 )
 modelDesignList <- list()
 for (cohortId in tcIds) {
