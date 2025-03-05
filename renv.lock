@@ -17,7 +17,8 @@
     "Andromeda": {
       "Package": "Andromeda",
       "Version": "0.6.7",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "BH": {
       "Package": "BH",
@@ -32,14 +33,9 @@
     },
     "Characterization": {
       "Package": "Characterization",
-      "Version": "2.0.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "Characterization",
-      "RemoteRef": "v2.0.1",
-      "RemoteSha": "67613dcfd0d8a676de2ecfbea84f812a90bac5d8"
+      "Version": "2.1.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "CirceR": {
       "Package": "CirceR",
@@ -49,14 +45,14 @@
     },
     "CohortDiagnostics": {
       "Package": "CohortDiagnostics",
-      "Version": "3.3.0",
+      "Version": "3.3.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "CohortDiagnostics",
-      "RemoteRef": "v3.3.0",
-      "RemoteSha": "c7a94306596a506d3f9a3fabc70d59a2d1e66cd4"
+      "RemoteRef": "v3.3.1",
+      "RemoteSha": "0829b780b8368234aa59090a5c06ef8c19aab1e6"
     },
     "CohortGenerator": {
       "Package": "CohortGenerator",
@@ -70,7 +66,7 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "CohortIncidence",
       "RemoteRef": "v4.0.0",
       "RemoteSha": "ac147182ced2461d515041b385962062309c473f"
@@ -81,7 +77,7 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "CohortMethod",
       "RemoteRef": "v5.4.0",
       "RemoteSha": "893b5445e8a92c3a118db1b9cf92db8dbccdee39"
@@ -93,7 +89,7 @@
     },
     "Cyclops": {
       "Package": "Cyclops",
-      "Version": "3.4.1",
+      "Version": "3.5.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -110,7 +106,7 @@
     },
     "DatabaseConnector": {
       "Package": "DatabaseConnector",
-      "Version": "6.3.2",
+      "Version": "6.4.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -121,19 +117,21 @@
     },
     "EmpiricalCalibration": {
       "Package": "EmpiricalCalibration",
-      "Version": "3.1.2",
+      "Version": "3.1.4",
       "Source": "Repository",
       "Repository": "CRAN"
     },
     "EvidenceSynthesis": {
       "Package": "EvidenceSynthesis",
       "Version": "0.5.0",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "FeatureExtraction": {
       "Package": "FeatureExtraction",
-      "Version": "3.7.1",
-      "Source": "Repository"
+      "Version": "3.7.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "Formula": {
       "Package": "Formula",
@@ -148,19 +146,28 @@
     "MASS": {
       "Package": "MASS",
       "Version": "7.3-61",
-      "Source": "Repository",
-      "Repository": "CRAN"
+      "Source": "Repository"
     },
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.7-0",
-      "Source": "Repository",
-      "Repository": "CRAN"
+      "Version": "1.6-5",
+      "Source": "Repository"
     },
     "MatrixModels": {
       "Package": "MatrixModels",
       "Version": "0.5-3",
       "Source": "Repository"
+    },
+    "OhdsiReportGenerator": {
+      "Package": "OhdsiReportGenerator",
+      "Version": "1.0.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "OhdsiReportGenerator",
+      "RemoteRef": "main",
+      "RemoteSha": "876bfaac66539e2b62df173c79809849e889e126"
     },
     "OhdsiSharing": {
       "Package": "OhdsiSharing",
@@ -168,21 +175,21 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "OhdsiSharing",
       "RemoteRef": "v0.2.2",
       "RemoteSha": "89cfe7c63d4c35cde4f3662a7493ce1670c78c6e"
     },
     "OhdsiShinyModules": {
       "Package": "OhdsiShinyModules",
-      "Version": "3.1.0",
+      "Version": "3.1.2",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "OhdsiShinyModules",
-      "RemoteRef": "v3.1.0",
-      "RemoteSha": "7502b6319ad135ff4827da63b16a3ed4b8865d8d"
+      "RemoteRef": "v3.1.2",
+      "RemoteSha": "cdc13bb700e0700117aa071c407bf589892ebf31"
     },
     "PRROC": {
       "Package": "PRROC",
@@ -197,14 +204,9 @@
     },
     "PatientLevelPrediction": {
       "Package": "PatientLevelPrediction",
-      "Version": "6.3.9",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "PatientLevelPrediction",
-      "RemoteRef": "v6.3.9",
-      "RemoteSha": "1dfc46bb55265f6620049e1ebf9e5018b6a98cf3"
+      "Version": "6.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "R6": {
       "Package": "R6",
@@ -271,25 +273,25 @@
     },
     "SelfControlledCaseSeries": {
       "Package": "SelfControlledCaseSeries",
-      "Version": "5.3.0",
+      "Version": "5.3.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "SelfControlledCaseSeries",
-      "RemoteRef": "v5.3.0",
-      "RemoteSha": "c8ea06494f39064dc9d126fd08e197ba49f25b49"
+      "RemoteRef": "v5.3.1",
+      "RemoteSha": "3bbd4751f5f539464e7996be8323a4b3fb0aa0f2"
     },
     "ShinyAppBuilder": {
       "Package": "ShinyAppBuilder",
-      "Version": "3.1.0",
+      "Version": "3.2.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "ShinyAppBuilder",
-      "RemoteRef": "v3.1.0",
-      "RemoteSha": "9360b5f794e137b300b1cf6aa824fead6a780391"
+      "RemoteRef": "v3.2.0",
+      "RemoteSha": "d884d7df2ac2ae8171bcf377a2a2f991b193dceb"
     },
     "SparseM": {
       "Package": "SparseM",
@@ -298,20 +300,20 @@
     },
     "SqlRender": {
       "Package": "SqlRender",
-      "Version": "1.19.0",
+      "Version": "1.19.1",
       "Source": "Repository",
       "Repository": "CRAN"
     },
     "Strategus": {
       "Package": "Strategus",
-      "Version": "1.0.0",
+      "Version": "1.2.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
+      "RemoteUsername": "ohdsi",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "v1.0.0",
-      "RemoteSha": "f01bd49b9a25a1d863d47b64e07420b60996b96b"
+      "RemoteRef": "v1.2.0",
+      "RemoteSha": "84f516b44a9f062a4b4fb759364edced22536b6a"
     },
     "abind": {
       "Package": "abind",
@@ -320,7 +322,7 @@
     },
     "askpass": {
       "Package": "askpass",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -511,7 +513,7 @@
     },
     "evaluate": {
       "Package": "evaluate",
-      "Version": "1.0.0",
+      "Version": "1.0.1",
       "Source": "Repository"
     },
     "fansi": {
@@ -550,7 +552,7 @@
     },
     "fs": {
       "Package": "fs",
-      "Version": "1.6.4",
+      "Version": "1.6.5",
       "Source": "Repository"
     },
     "generics": {
@@ -592,7 +594,7 @@
     },
     "glue": {
       "Package": "glue",
-      "Version": "1.7.0",
+      "Version": "1.8.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -604,7 +606,7 @@
     },
     "gtable": {
       "Package": "gtable",
-      "Version": "0.3.5",
+      "Version": "0.3.6",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -659,6 +661,12 @@
     "jsonlite": {
       "Package": "jsonlite",
       "Version": "1.8.9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "kableExtra": {
+      "Package": "kableExtra",
+      "Version": "1.4.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -881,7 +889,7 @@
     },
     "pool": {
       "Package": "pool",
-      "Version": "1.0.3",
+      "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -909,7 +917,7 @@
     },
     "ps": {
       "Package": "ps",
-      "Version": "1.8.0",
+      "Version": "1.8.1",
       "Source": "Repository"
     },
     "purrr": {
@@ -1001,7 +1009,7 @@
     },
     "rstudioapi": {
       "Package": "rstudioapi",
-      "Version": "0.16.0",
+      "Version": "0.17.1",
       "Source": "Repository"
     },
     "sass": {
@@ -1075,9 +1083,21 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "svglite": {
+      "Package": "svglite",
+      "Version": "2.1.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "sys": {
       "Package": "sys",
-      "Version": "3.4.2",
+      "Version": "3.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "systemfonts": {
+      "Package": "systemfonts",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -1159,7 +1179,7 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "3.0.1",
+      "Version": "3.0.2",
       "Source": "Repository",
       "Repository": "CRAN"
     },
