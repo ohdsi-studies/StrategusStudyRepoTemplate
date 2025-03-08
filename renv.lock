@@ -306,14 +306,20 @@
     },
     "Strategus": {
       "Package": "Strategus",
-      "Version": "1.2.0",
+      "Version": "1.3.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "ohdsi",
+      "RemoteUsername": "OHDSI",
       "RemoteRepo": "Strategus",
-      "RemoteRef": "v1.2.0",
-      "RemoteSha": "84f516b44a9f062a4b4fb759364edced22536b6a"
+      "RemoteRef": "v1.3.0",
+      "RemoteSha": "0663305b388fd18d1a150fd2e0a8be23aa4b4094"
+    },
+    "TreatmentPatterns": {
+      "Package": "TreatmentPatterns",
+      "Version": "3.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "abind": {
       "Package": "abind",
@@ -475,6 +481,12 @@
     "curl": {
       "Package": "curl",
       "Version": "5.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "d3r": {
+      "Package": "d3r",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -647,6 +659,12 @@
       "Source": "Repository",
       "Repository": "CRAN"
     },
+    "igraph": {
+      "Package": "igraph",
+      "Version": "2.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "isoband": {
       "Package": "isoband",
       "Version": "0.2.7",
@@ -793,6 +811,12 @@
     "munsell": {
       "Package": "munsell",
       "Version": "0.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "networkD3": {
+      "Package": "networkD3",
+      "Version": "0.4",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -1074,6 +1098,12 @@
     "stringr": {
       "Package": "stringr",
       "Version": "1.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sunburstR": {
+      "Package": "sunburstR",
+      "Version": "2.1.8",
       "Source": "Repository",
       "Repository": "CRAN"
     },
