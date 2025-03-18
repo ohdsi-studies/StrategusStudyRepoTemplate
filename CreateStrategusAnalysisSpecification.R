@@ -2,7 +2,7 @@
 # INSTRUCTIONS: Make sure you have downloaded your cohorts using 
 # DownloadCohorts.R and that those cohorts are stored in the "inst" folder
 # of the project. This script is written to use the sample study cohorts
-# located in "inst/sampleStudy" so you will need to modify this in the code 
+# located in "inst/sampleStudy/Eunomia" so you will need to modify this in the code 
 # below. 
 # 
 # See the Create analysis specifications section
@@ -52,9 +52,9 @@ psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned o
 # study to retrieve the cohorts you downloaded as part of
 # DownloadCohorts.R
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server"
+  settingsFileName = "inst/sampleStudy/Eunomia/Cohorts.csv",
+  jsonFolder = "inst/sampleStudy/Eunomia/cohorts",
+  sqlFolder = "inst/sampleStudy/Eunomia/sql/sql_server"
 )
 
 # OPTIONAL: Create a subset to define the new user cohorts
@@ -74,7 +74,7 @@ cohortDefinitionSet <- cohortDefinitionSet |>
   CohortGenerator::addCohortSubsetDefinition(subset1, targetCohortIds = c(1,2))
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/sampleStudy/negativeControlOutcomes.csv"
+  file = "inst/sampleStudy/Eunomia/negativeControlOutcomes.csv"
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
@@ -555,5 +555,5 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
 
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
-  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+  file.path("inst", "sampleStudy", "Eunomia", "sampleStudyAnalysisSpecification.json")
 )
