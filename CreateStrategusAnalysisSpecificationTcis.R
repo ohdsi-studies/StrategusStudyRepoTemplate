@@ -75,7 +75,7 @@ plpTimeAtRisks <- tibble(
 )
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
-studyStartDate <- '20150101' #YYYYMMDD
+studyStartDate <- '20200101' #YYYYMMDD
 studyEndDate <- '20241231'   #YYYYMMDD
 # Some of the settings require study dates with hyphens
 studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
@@ -86,6 +86,12 @@ studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", study
 
 useCleanWindowForPriorOutcomeLookback <- FALSE # If FALSE, lookback window is all time prior, i.e., including only first events
 psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned on the matched set
+maxCohortSizeForFitting <- 10000 # Normally 250,000 but downsampling for the sample study performance
+maxCohortSize <- maxCohortSizeForFitting
+maxCasesPerOutcome <- 10000 # Normally 1000000 but downsampling for sample study performance
+
+# Consider these settings for patient-level prediction  ----------------------------------------
+plpMaxSampleSize <- 20000 # Normally 1000000 but downsampling for sample study performance
 
 ########################################################
 # Below the line - DO NOT MODIFY -----------------------
@@ -369,7 +375,7 @@ getDbCohortMethodDataArgs <- CohortMethod::createGetDbCohortMethodDataArgs(
   covariateSettings = covariateSettings
 )
 createPsArgs = CohortMethod::createCreatePsArgs(
-  maxCohortSizeForFitting = 250000,
+  maxCohortSizeForFitting = maxCohortSizeForFitting,
   errorOnHighCorrelation = TRUE,
   stopOnError = FALSE, # Setting to FALSE to allow Strategus complete all CM operations; when we cannot fit a model, the equipoise diagnostic should fail
   estimator = "att",
@@ -401,11 +407,11 @@ matchOnPsArgs = CohortMethod::createMatchOnPsArgs(
 #   baseSelection = "all"
 # )
 computeSharedCovariateBalanceArgs = CohortMethod::createComputeCovariateBalanceArgs(
-  maxCohortSize = 250000,
+  maxCohortSize = maxCohortSize,
   covariateFilter = NULL
 )
 computeCovariateBalanceArgs = CohortMethod::createComputeCovariateBalanceArgs(
-  maxCohortSize = 250000,
+  maxCohortSize = maxCohortSize,
   covariateFilter = FeatureExtraction::getDefaultTable1Specifications()
 )
 fitOutcomeModelArgs = CohortMethod::createFitOutcomeModelArgs(
@@ -514,7 +520,7 @@ analysisToInclude <- data.frame()
 for (i in seq_len(nrow(uniqueTargetIndications))) {
   targetIndication <- uniqueTargetIndications[i, ]
   getDbSccsDataArgs <- SelfControlledCaseSeries::createGetDbSccsDataArgs(
-    maxCasesPerOutcome = 1000000,
+    maxCasesPerOutcome = maxCasesPerOutcome,
     useNestingCohort = !is.na(targetIndication$indicationId),
     nestingCohortId = targetIndication$indicationId,
     studyStartDate = studyStartDate,
@@ -642,7 +648,7 @@ for (i in 1:nrow(dfUniqueTis)) {
         targetId = cohortId,
         outcomeId = outcomes$cohortId[k],
         restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
-          sampleSize = 1000000,
+          sampleSize = plpMaxSampleSize,
           studyStartDate = studyStartDate,
           studyEndDate = studyEndDate,
           firstExposureOnly = FALSE,

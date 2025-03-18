@@ -29,8 +29,8 @@
         }
       ],
       "subsetDefs": [
-        "{\n  \"name\": \"\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"startWindow\": {\n        \"startDay\": -99999,\n        \"endDay\": 0,\n        \"targetAnchor\": \"cohortStart\"\n      },\n      \"endWindow\": {\n        \"startDay\": 0,\n        \"endDay\": 99999,\n        \"targetAnchor\": \"cohortStart\"\n      }\n    },\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2015-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2015-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}",
-        "{\n  \"name\": \"\",\n  \"definitionId\": 101,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2015-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2015-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}"
+        "{\n  \"name\": \"\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"startWindow\": {\n        \"startDay\": -99999,\n        \"endDay\": 0,\n        \"targetAnchor\": \"cohortStart\"\n      },\n      \"endWindow\": {\n        \"startDay\": 0,\n        \"endDay\": 99999,\n        \"targetAnchor\": \"cohortStart\"\n      }\n    },\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}",
+        "{\n  \"name\": \"\",\n  \"definitionId\": 101,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}"
       ],
       "cohortSubsets": [
         {
@@ -408,15 +408,15 @@
           "targetDefs": [
             {
               "id": 20126001,
-              "name": "ACE inhibitor -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2015-01-01 and before 2024-12-31"
+              "name": "ACE inhibitor -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
             },
             {
               "id": 20127001,
-              "name": "Diuretic -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2015-01-01 and before 2024-12-31"
+              "name": "Diuretic -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
             },
             {
               "id": 20128101,
-              "name": "Hypertensive disorder -  first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2015-01-01 and before 2024-12-31"
+              "name": "Hypertensive disorder -  first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
             }
           ],
           "outcomeDefs": [
@@ -482,7 +482,7 @@
             "analysisId": 1,
             "description": "Cohort method, On treatment",
             "getDbCohortMethodDataArgs": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "removeDuplicateSubjects": "keep all",
@@ -552,7 +552,7 @@
               "attr_class": "args"
             },
             "createPsArgs": {
-              "maxCohortSizeForFitting": 250000,
+              "maxCohortSizeForFitting": 10000,
               "errorOnHighCorrelation": true,
               "stopOnError": false,
               "prior": {
@@ -602,11 +602,11 @@
               "attr_class": "args"
             },
             "computeSharedCovariateBalanceArgs": {
-              "maxCohortSize": 250000,
+              "maxCohortSize": 10000,
               "attr_class": "args"
             },
             "computeCovariateBalanceArgs": {
-              "maxCohortSize": 250000,
+              "maxCohortSize": 10000,
               "covariateFilter": {
                 "label": ["Age group", "Gender: female", "Race", "Ethnicity", "Medical history: General", "Medical history: Cardiovascular disease", "Medical history: Neoplasms", "Medication use", "Charlson comorbidity index", "CHADS2Vasc", "DCSI"],
                 "analysisId": [3, 1, 4, 5, 210, 210, 210, 410, 901, 904, 902],
@@ -675,7 +675,7 @@
             "analysisId": 2,
             "description": "Cohort method, On treatment",
             "getDbCohortMethodDataArgs": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "removeDuplicateSubjects": "keep all",
@@ -745,7 +745,7 @@
               "attr_class": "args"
             },
             "createPsArgs": {
-              "maxCohortSizeForFitting": 250000,
+              "maxCohortSizeForFitting": 10000,
               "errorOnHighCorrelation": true,
               "stopOnError": false,
               "prior": {
@@ -795,11 +795,11 @@
               "attr_class": "args"
             },
             "computeSharedCovariateBalanceArgs": {
-              "maxCohortSize": 250000,
+              "maxCohortSize": 10000,
               "attr_class": "args"
             },
             "computeCovariateBalanceArgs": {
-              "maxCohortSize": 250000,
+              "maxCohortSize": 10000,
               "covariateFilter": {
                 "label": ["Age group", "Gender: female", "Race", "Ethnicity", "Medical history: General", "Medical history: Cardiovascular disease", "Medical history: Neoplasms", "Medication use", "Charlson comorbidity index", "CHADS2Vasc", "DCSI"],
                 "analysisId": [3, 1, 4, 5, 210, 210, 210, 410, 901, 904, 902],
@@ -1034,9 +1034,9 @@
               "useNestingCohort": true,
               "nestingCohortId": 20128,
               "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 1000000,
+              "maxCasesPerOutcome": 10000,
               "exposureIds": "exposureId",
               "customCovariateIds": "",
               "attr_class": "args"
@@ -1139,9 +1139,9 @@
               "useNestingCohort": true,
               "nestingCohortId": 20128,
               "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 1000000,
+              "maxCasesPerOutcome": 10000,
               "exposureIds": "exposureId",
               "customCovariateIds": "",
               "attr_class": "args"
@@ -1244,9 +1244,9 @@
               "useNestingCohort": true,
               "nestingCohortId": 20128,
               "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 1000000,
+              "maxCasesPerOutcome": 10000,
               "exposureIds": "exposureId",
               "customCovariateIds": "",
               "attr_class": "args"
@@ -1349,9 +1349,9 @@
               "useNestingCohort": true,
               "nestingCohortId": 20128,
               "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 1000000,
+              "maxCasesPerOutcome": 10000,
               "exposureIds": "exposureId",
               "customCovariateIds": "",
               "attr_class": "args"
@@ -2009,11 +2009,11 @@
             "targetId": 20126001,
             "outcomeId": 20129,
             "restrictPlpDataSettings": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 1000000,
+              "sampleSize": 20000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2092,7 +2092,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 89213607,
+                  "seed": 78012429,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2107,7 +2107,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 23880,
+              "seed": 22184,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2127,11 +2127,11 @@
             "targetId": 20126001,
             "outcomeId": 20130,
             "restrictPlpDataSettings": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 1000000,
+              "sampleSize": 20000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2210,7 +2210,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 51089763,
+                  "seed": 39181274,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2225,7 +2225,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 59181,
+              "seed": 53110,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2245,11 +2245,11 @@
             "targetId": 20126001,
             "outcomeId": 20129,
             "restrictPlpDataSettings": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 1000000,
+              "sampleSize": 20000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2328,7 +2328,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 60104578,
+                  "seed": 86907399,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2343,7 +2343,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 81572,
+              "seed": 90922,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2363,11 +2363,11 @@
             "targetId": 20126001,
             "outcomeId": 20130,
             "restrictPlpDataSettings": {
-              "studyStartDate": "20150101",
+              "studyStartDate": "20200101",
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 1000000,
+              "sampleSize": 20000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2446,7 +2446,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 5721074,
+                  "seed": 41738509,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2461,7 +2461,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 71444,
+              "seed": 94793,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
