@@ -32,51 +32,51 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 tcis <- list(
   #standard analyses that would be performed during routine signal detection
   list(
-    targetId = 1, # New users of celecoxib
-    comparatorId = 2, # New users of diclofenac
-    indicationId = NULL, 
+    targetId = 20126, # Ace inhibitor
+    comparatorId = 20127, # Diuretic
+    indicationId = 20128, # Hypertensive disorder
     genderConceptIds = c(8507, 8532), # use valid genders (remove unknown)
     minAge = NULL, # All ages In years. Can be NULL
     maxAge = NULL, # All ages In years. Can be NULL
     excludedCovariateConceptIds = c(
-      1118084, 
-      1124300
+      21601783, 
+      21601461
     ) 
   )
 )
 
 outcomes <- tibble(
-  cohortId = c(3), # GI Bleed
-  cleanWindow = c(365)
+  cohortId = c(20129, 20130), # AMI, Angioedema
+  cleanWindow = c(365, 365)
 )
 
 # Time-at-risks (TARs) for the outcomes of interest in your study
 timeAtRisks <- tibble(
-  label = c("On treatment"),
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(0),
-  endAnchor = c("cohort end")
+  label = c("On treatment", "On treatment"),
+  riskWindowStart  = c(1, 1),
+  startAnchor = c("cohort start", "cohort start"),
+  riskWindowEnd  = c(0, 0),
+  endAnchor = c("cohort end", "cohort end")
 )
 # Try to avoid intent-to-treat TARs for SCCS, or then at least disable calendar time spline:
 sccsTimeAtRisks <- tibble(
-  label = c("On treatment"),
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(0),
-  endAnchor = c("cohort end"),
+  label = c("On treatment", "On treatment"),
+  riskWindowStart  = c(1, 1),
+  startAnchor = c("cohort start", "cohort start"),
+  riskWindowEnd  = c(0, 0),
+  endAnchor = c("cohort end", "cohort end")
 )
 # Try to use fixed-time TARs for patient-level prediction:
 plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(1),
-  startAnchor = c("cohort start"),
-  riskWindowEnd  = c(365),
-  endAnchor = c("cohort start"),
+  riskWindowStart  = c(1, 1),
+  startAnchor = c("cohort start", "cohort start"),
+  riskWindowEnd  = c(365, 365),
+  endAnchor = c("cohort start", "cohort start"),
 )
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
-studyStartDate <- '20171201' #YYYYMMDD
-studyEndDate <- '20231231'   #YYYYMMDD
+studyStartDate <- '20150101' #YYYYMMDD
+studyEndDate <- '20241231'   #YYYYMMDD
 # Some of the settings require study dates with hyphens
 studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
 studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
@@ -234,6 +234,7 @@ allCohortIdsExceptOutcomes <- cohortDefinitionSet %>%
 characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpecifications(
   targetIds = allCohortIdsExceptOutcomes,
   outcomeIds = outcomes$cohortId,
+  outcomeWashoutDays = outcomes$cleanWindow,
   minPriorObservation = 365,
   dechallengeStopInterval = 30,
   dechallengeEvaluationWindow = 30,
@@ -694,5 +695,5 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
 
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
-  file.path("inst", "studyAnalysisSpecification.json")
+  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
 )
