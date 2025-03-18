@@ -1,3 +1,11 @@
+StrategusStudyRepoTemplate 1.1.0
+===============
+
+- Adds a new sample study (T: ACE inhibitors, C:Diuretics, I: Hypertensive Disorder, O: AMI, Angioedema) to use for testing this template at OHDSI network sites.
+- Update `renv.lock` to capture updated HADES/DARWIN packages
+- Add new TCIS script for creating analysis specification
+- Use the Characterization module default settings for features (#7)
+
 StrategusStudyRepoTemplate 1.0.0
 ===============
 
