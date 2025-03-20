@@ -86,12 +86,12 @@ studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", study
 
 useCleanWindowForPriorOutcomeLookback <- FALSE # If FALSE, lookback window is all time prior, i.e., including only first events
 psMatchMaxRatio <- 1 # If bigger than 1, the outcome model will be conditioned on the matched set
-maxCohortSizeForFitting <- 10000 # Normally 250,000 but downsampling for the sample study performance
+maxCohortSizeForFitting <- 250000 # Downsampled example study to 10000
 maxCohortSize <- maxCohortSizeForFitting
-maxCasesPerOutcome <- 10000 # Normally 1000000 but downsampling for sample study performance
+maxCasesPerOutcome <- 1000000 # Downsampled example study to 10000
 
 # Consider these settings for patient-level prediction  ----------------------------------------
-plpMaxSampleSize <- 20000 # Normally 1000000 but downsampling for sample study performance
+plpMaxSampleSize <- 1000000 # Downsampled example study to 20000
 
 ########################################################
 # Below the line - DO NOT MODIFY -----------------------
