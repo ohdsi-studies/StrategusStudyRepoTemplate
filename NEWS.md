@@ -1,3 +1,7 @@
+StrategusStudyRepoTemplate 1.1.1
+===============
+- Revise sample study to reduce execution time (#18)
+
 StrategusStudyRepoTemplate 1.1.0
 ===============
 
