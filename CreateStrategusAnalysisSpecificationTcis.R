@@ -35,13 +35,36 @@ tcis <- list(
     targetId = 20126, # Ace inhibitor
     comparatorId = 20127, # Diuretic
     indicationId = 20128, # Hypertensive disorder
-    genderConceptIds = c(8507, 8532), # use valid genders (remove unknown)
-    minAge = NULL, # All ages In years. Can be NULL
-    maxAge = NULL, # All ages In years. Can be NULL
     excludedCovariateConceptIds = c(
       21601783, 
       21601461
     ) 
+  ),
+  list(
+    targetId = 20126, # Ace inhibitor
+    comparatorId = 20127, # Diuretic
+    indicationId = 20128, # Hypertensive disorder
+    excludedCovariateConceptIds = c(
+      21601783, 
+      21601461
+    ) 
+  )
+)
+
+# These are the cohorts we'd like to used as subsets for all T/C's
+cohortSubsets <- c(20126, 20127)
+ageGroups <- list(
+  list(
+    minAge = 0,
+    maxAge = 20
+  ),
+  list(
+    minAge = 21,
+    maxAge = 60
+  ),
+  list(
+    minAge = 61,
+    maxAge = 80
   )
 )
 
@@ -58,21 +81,21 @@ timeAtRisks <- tibble(
   riskWindowEnd  = c(0, 0),
   endAnchor = c("cohort end", "cohort end")
 )
-# Try to avoid intent-to-treat TARs for SCCS, or then at least disable calendar time spline:
-sccsTimeAtRisks <- tibble(
-  label = c("On treatment", "On treatment"),
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(0, 0),
-  endAnchor = c("cohort end", "cohort end")
-)
-# Try to use fixed-time TARs for patient-level prediction:
-plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(365, 365),
-  endAnchor = c("cohort start", "cohort start"),
-)
+# # Try to avoid intent-to-treat TARs for SCCS, or then at least disable calendar time spline:
+# sccsTimeAtRisks <- tibble(
+#   label = c("On treatment", "On treatment"),
+#   riskWindowStart  = c(1, 1),
+#   startAnchor = c("cohort start", "cohort start"),
+#   riskWindowEnd  = c(0, 0),
+#   endAnchor = c("cohort end", "cohort end")
+# )
+# # Try to use fixed-time TARs for patient-level prediction:
+# plpTimeAtRisks <- tibble(
+#   riskWindowStart  = c(1, 1),
+#   startAnchor = c("cohort start", "cohort start"),
+#   riskWindowEnd  = c(365, 365),
+#   endAnchor = c("cohort start", "cohort start"),
+# )
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
 studyStartDate <- '20200101' #YYYYMMDD
@@ -91,7 +114,7 @@ maxCohortSize <- maxCohortSizeForFitting
 maxCasesPerOutcome <- 1000000 # Downsampled example study to 10000
 
 # Consider these settings for patient-level prediction  ----------------------------------------
-plpMaxSampleSize <- 1000000 # Downsampled example study to 20000
+#plpMaxSampleSize <- 1000000 # Downsampled example study to 20000
 
 ########################################################
 # Below the line - DO NOT MODIFY -----------------------
@@ -108,17 +131,11 @@ plpMaxSampleSize <- 1000000 # Downsampled example study to 20000
 dfUniqueTcis <- data.frame()
 for (i in seq_along(tcis)) {
   dfUniqueTcis <- rbind(dfUniqueTcis, data.frame(cohortId = tcis[[i]]$targetId,
-                                                 indicationId = paste(tcis[[i]]$indicationId, collapse = ","),
-                                                 genderConceptIds = paste(tcis[[i]]$genderConceptIds, collapse = ","),
-                                                 minAge = paste(tcis[[i]]$minAge, collapse = ","),
-                                                 maxAge = paste(tcis[[i]]$maxAge, collapse = ",")
+                                                 indicationId = paste(tcis[[i]]$indicationId, collapse = ",")
   ))
   if (!is.null(tcis[[i]]$comparatorId)) {
     dfUniqueTcis <- rbind(dfUniqueTcis, data.frame(cohortId = tcis[[i]]$comparatorId,
-                                                   indicationId = paste(tcis[[i]]$indicationId, collapse = ","),
-                                                   genderConceptIds = paste(tcis[[i]]$genderConceptIds, collapse = ","),
-                                                   minAge = paste(tcis[[i]]$minAge, collapse = ","),
-                                                   maxAge = paste(tcis[[i]]$maxAge, collapse = ",")
+                                                   indicationId = paste(tcis[[i]]$indicationId, collapse = ",")
     ))
   }
 }
@@ -129,15 +146,9 @@ dfUniqueSubsetCriteria <- unique(dfUniqueTcis[,-1])
 
 for (i in 1:nrow(dfUniqueSubsetCriteria)) {
   uniqueSubsetCriteria <- dfUniqueSubsetCriteria[i,]
-  dfCurrentTcis <- dfUniqueTcis[dfUniqueTcis$indicationId == uniqueSubsetCriteria$indicationId &
-                                  dfUniqueTcis$genderConceptIds == uniqueSubsetCriteria$genderConceptIds &
-                                  dfUniqueTcis$minAge == uniqueSubsetCriteria$minAge & 
-                                  dfUniqueTcis$maxAge == uniqueSubsetCriteria$maxAge,]
+  dfCurrentTcis <- dfUniqueTcis[dfUniqueTcis$indicationId == uniqueSubsetCriteria$indicationId,]
   targetCohortIdsForSubsetCriteria <- as.integer(dfCurrentTcis[, "cohortId"])
-  dfUniqueTcis[dfUniqueTcis$indicationId == dfCurrentTcis$indicationId &
-                 dfUniqueTcis$genderConceptIds == dfCurrentTcis$genderConceptIds &
-                 dfUniqueTcis$minAge == dfCurrentTcis$minAge & 
-                 dfUniqueTcis$maxAge == dfCurrentTcis$maxAge,]$subsetDefinitionId <- i
+  dfUniqueTcis[dfUniqueTcis$indicationId == dfCurrentTcis$indicationId,]$subsetDefinitionId <- i
   
   subsetOperators <- list()
   if (uniqueSubsetCriteria$indicationId != "") {
@@ -154,15 +165,6 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
     followUpTime = 1,
     limitTo = "firstEver"
   )
-  if (uniqueSubsetCriteria$genderConceptIds != "" ||
-      uniqueSubsetCriteria$minAge != "" ||
-      uniqueSubsetCriteria$maxAge != "") {
-    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubset(
-      ageMin = if(uniqueSubsetCriteria$minAge == "") 0 else as.integer(uniqueSubsetCriteria$minAge),
-      ageMax = if(uniqueSubsetCriteria$maxAge == "") 99999 else as.integer(uniqueSubsetCriteria$maxAge),
-      gender = if(uniqueSubsetCriteria$genderConceptIds == "") NULL else as.integer(strsplit(uniqueSubsetCriteria$genderConceptIds, ",")[[1]])
-    )
-  }
   if (studyStartDate != "" || studyEndDate != "") {
     subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
       calendarStartDate = if (studyStartDate == "") NULL else as.Date(studyStartDate, "%Y%m%d"),
@@ -172,7 +174,8 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
   subsetDef <- CohortGenerator::createCohortSubsetDefinition(
     name = "",
     definitionId = i,
-    subsetOperators = subsetOperators
+    subsetOperators = subsetOperators#,
+    #operatorNameConcatString = "[T with I]"
   )
   cohortDefinitionSet <- cohortDefinitionSet %>%
     CohortGenerator::addCohortSubsetDefinition(
@@ -184,7 +187,7 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
     # Also create restricted version of indication cohort:
     subsetDef <- CohortGenerator::createCohortSubsetDefinition(
       name = "",
-      definitionId = i + 100,
+      definitionId = i + 10,
       subsetOperators = subsetOperators[2:length(subsetOperators)]
     )
     cohortDefinitionSet <- cohortDefinitionSet %>%
@@ -194,6 +197,111 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
       )
   }  
 }
+
+# CUIMC subsets - apply to the T with I subgroup
+targetCohortsWithIndicationIds <- cohortDefinitionSet |>
+  filter(isSubset == TRUE) |>
+  filter(subsetParent %in% dfUniqueTcis$cohortId) |>
+  select(cohortId)
+
+for (j in seq_along(cohortSubsets)) {
+  # You belong to the subset
+  subsetOperators <- list()
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubset(
+    cohortIds = cohortSubsets[j],
+    negate = FALSE,
+    cohortCombinationOperator = "all",
+    startWindow = CohortGenerator::createSubsetCohortWindow(-99999, 0, "cohortStart"),
+    endWindow = CohortGenerator::createSubsetCohortWindow(0, 99999, "cohortStart")
+  )
+  
+  # Also create restricted version of indication cohort:
+  subsetDef <- CohortGenerator::createCohortSubsetDefinition(
+    name = "",
+    definitionId = j + 20,
+    subsetOperators = subsetOperators,
+    identifierExpression = "targetId * 10 + definitionId"
+  )
+  
+  cohortDefinitionSet <- cohortDefinitionSet %>%
+    CohortGenerator::addCohortSubsetDefinition(
+      cohortSubsetDefintion = subsetDef,
+      targetCohortIds = targetCohortsWithIndicationIds$cohortId
+    ) 
+
+  # You DON'T belong to the subset
+  subsetOperators <- list()
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubset(
+    cohortIds = cohortSubsets[j],
+    negate = TRUE,
+    cohortCombinationOperator = "all",
+    startWindow = CohortGenerator::createSubsetCohortWindow(-99999, 0, "cohortStart"),
+    endWindow = CohortGenerator::createSubsetCohortWindow(0, 99999, "cohortStart")
+  )
+  
+  # Also create restricted version of indication cohort:
+  subsetDef <- CohortGenerator::createCohortSubsetDefinition(
+    name = "",
+    definitionId = j + 30,
+    subsetOperators = subsetOperators,
+    identifierExpression = "targetId * 10 + definitionId"
+  )
+  
+  cohortDefinitionSet <- cohortDefinitionSet %>%
+    CohortGenerator::addCohortSubsetDefinition(
+      cohortSubsetDefintion = subsetDef,
+      targetCohortIds = targetCohortsWithIndicationIds$cohortId
+    ) 
+}
+
+# Age groups
+for (j in 1:length(ageGroups)) {
+  # Restrict to age
+  subsetOperators <- list()
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubset(
+    ageMin = ageGroups[[j]]$minAge,
+    ageMax = ageGroups[[j]]$maxAge
+  )
+  
+  # Also create restricted version of indication cohort:
+  subsetDef <- CohortGenerator::createCohortSubsetDefinition(
+    name = "",
+    definitionId = j + 40,
+    subsetOperators = subsetOperators,
+    identifierExpression = "targetId * 10 + definitionId"
+  )
+  
+  cohortDefinitionSet <- cohortDefinitionSet %>%
+    CohortGenerator::addCohortSubsetDefinition(
+      cohortSubsetDefintion = subsetDef,
+      targetCohortIds = targetCohortsWithIndicationIds$cohortId
+    ) 
+}
+
+# Gender
+genders <- c(8507, 8532)
+for (j in seq_along(genders)) {
+  # Restrict to gender
+  subsetOperators <- list()
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubset(
+    gender = genders[j]
+  )
+  
+  # Also create restricted version of indication cohort:
+  subsetDef <- CohortGenerator::createCohortSubsetDefinition(
+    name = "",
+    definitionId = j + 50,
+    subsetOperators = subsetOperators,
+    identifierExpression = "targetId * 10 + definitionId"
+  )
+  
+  cohortDefinitionSet <- cohortDefinitionSet %>%
+    CohortGenerator::addCohortSubsetDefinition(
+      cohortSubsetDefintion = subsetDef,
+      targetCohortIds = targetCohortsWithIndicationIds$cohortId
+    ) 
+}
+
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
   file = "inst/sampleStudy/negativeControlOutcomes.csv"
@@ -349,10 +457,7 @@ for (i in seq_along(tcis)) {
   # definition ID
   currentSubsetDefinitionId <- dfUniqueTcis %>%
     filter(cohortId == tci$targetId &
-             indicationId == paste(tci$indicationId, collapse = ",") &
-             genderConceptIds == paste(tci$genderConceptIds, collapse = ",") &
-             minAge == paste(tci$minAge, collapse = ",") &
-             maxAge == paste(tci$maxAge, collapse = ",")) %>%
+             indicationId == paste(tci$indicationId, collapse = ",")) %>%
     pull(subsetDefinitionId)
   targetId <- cohortDefinitionSet %>%
     filter(subsetParent == tci$targetId & subsetDefinitionId == currentSubsetDefinitionId) %>%
@@ -475,231 +580,19 @@ cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecific
 )
 
 
-# SelfControlledCaseSeriesmodule -----------------------------------------------
-sccsModuleSettingsCreator <- SelfControlledCaseSeriesModule$new()
-uniqueTargetIndications <- lapply(tcis,
-                                  function(x) data.frame(
-                                    exposureId = c(x$targetId, x$comparatorId),
-                                    indicationId = if (is.null(x$indicationId)) NA else x$indicationId,
-                                    genderConceptIds = paste(x$genderConceptIds, collapse = ","),
-                                    minAge = if (is.null(x$minAge)) NA else x$minAge,
-                                    maxAge = if (is.null(x$maxAge)) NA else x$maxAge
-                                  )) %>%
-  bind_rows() %>%
-  distinct()
-
-uniqueTargetIds <- uniqueTargetIndications %>%
-  distinct(exposureId) %>%
-  pull()
-
-eoList <- list()
-for (targetId in uniqueTargetIds) {
-  for (outcomeId in outcomes$cohortId) {
-    eoList[[length(eoList) + 1]] <- SelfControlledCaseSeries::createExposuresOutcome(
-      outcomeId = outcomeId,
-      exposures = list(
-        SelfControlledCaseSeries::createExposure(
-          exposureId = targetId,
-          trueEffectSize = NA
-        )
-      )
-    )
-  }
-  for (outcomeId in negativeControlOutcomeCohortSet$cohortId) {
-    eoList[[length(eoList) + 1]] <- SelfControlledCaseSeries::createExposuresOutcome(
-      outcomeId = outcomeId,
-      exposures = list(SelfControlledCaseSeries::createExposure(
-        exposureId = targetId, 
-        trueEffectSize = 1
-      ))
-    )
-  }
-}
-sccsAnalysisList <- list()
-analysisToInclude <- data.frame()
-for (i in seq_len(nrow(uniqueTargetIndications))) {
-  targetIndication <- uniqueTargetIndications[i, ]
-  getDbSccsDataArgs <- SelfControlledCaseSeries::createGetDbSccsDataArgs(
-    maxCasesPerOutcome = maxCasesPerOutcome,
-    useNestingCohort = !is.na(targetIndication$indicationId),
-    nestingCohortId = targetIndication$indicationId,
-    studyStartDate = studyStartDate,
-    studyEndDate = studyEndDate,
-    deleteCovariatesSmallCount = 0
-  )
-  createStudyPopulationArgs = SelfControlledCaseSeries::createCreateStudyPopulationArgs(
-    firstOutcomeOnly = TRUE,
-    naivePeriod = 365,
-    minAge = if (is.na(targetIndication$minAge)) NULL else targetIndication$minAge,
-    maxAge = if (is.na(targetIndication$maxAge)) NULL else targetIndication$maxAge
-  )
-  covarPreExp <- SelfControlledCaseSeries::createEraCovariateSettings(
-    label = "Pre-exposure",
-    includeEraIds = "exposureId",
-    start = -30,
-    startAnchor = "era start",
-    end = -1,
-    endAnchor = "era start",
-    firstOccurrenceOnly = FALSE,
-    allowRegularization = FALSE,
-    profileLikelihood = FALSE,
-    exposureOfInterest = FALSE
-  )
-  calendarTimeSettings <- SelfControlledCaseSeries::createCalendarTimeCovariateSettings(
-    calendarTimeKnots = 5,
-    allowRegularization = TRUE,
-    computeConfidenceIntervals = FALSE
-  )
-  # seasonalitySettings <- SelfControlledCaseSeries::createSeasonalityCovariateSettings(
-  #   seasonKnots = 5,
-  #   allowRegularization = TRUE,
-  #   computeConfidenceIntervals = FALSE
-  # )
-  fitSccsModelArgs <- SelfControlledCaseSeries::createFitSccsModelArgs(
-    prior = Cyclops::createPrior("laplace", useCrossValidation = TRUE),
-    control = Cyclops::createControl(
-      cvType = "auto",
-      selectorType = "byPid",
-      startingVariance = 0.1,
-      seed = 1,
-      resetCoefficients = TRUE,
-      noiseLevel = "quiet")
-  )
-  for (j in seq_len(nrow(sccsTimeAtRisks))) {
-    covarExposureOfInt <- SelfControlledCaseSeries::createEraCovariateSettings(
-      label = "Main",
-      includeEraIds = "exposureId",
-      start = sccsTimeAtRisks$riskWindowStart[j],
-      startAnchor = gsub("cohort", "era", sccsTimeAtRisks$startAnchor[j]),
-      end = sccsTimeAtRisks$riskWindowEnd[j],
-      endAnchor = gsub("cohort", "era", sccsTimeAtRisks$endAnchor[j]),
-      firstOccurrenceOnly = FALSE,
-      allowRegularization = FALSE,
-      profileLikelihood = TRUE,
-      exposureOfInterest = TRUE
-    )
-    createSccsIntervalDataArgs <- SelfControlledCaseSeries::createCreateSccsIntervalDataArgs(
-      eraCovariateSettings = list(covarPreExp, covarExposureOfInt),
-      # seasonalityCovariateSettings = seasonalitySettings,
-      calendarTimeCovariateSettings = calendarTimeSettings
-    )
-    description <- "SCCS"
-    if (!is.na(targetIndication$indicationId)) {
-      description <- sprintf("%s, having %s", description, cohortDefinitionSet %>%
-                               filter(cohortId == targetIndication$indicationId) %>%
-                               pull(cohortName))
-    }
-    if (targetIndication$genderConceptIds == "8507") {
-      description <- sprintf("%s, male", description)
-    } else if (targetIndication$genderConceptIds == "8532") {
-      description <- sprintf("%s, female", description)
-    }
-    if (!is.na(targetIndication$minAge) || !is.na(targetIndication$maxAge)) {
-      description <- sprintf("%s, age %s-%s",
-                             description,
-                             if(is.na(targetIndication$minAge)) "" else targetIndication$minAge,
-                             if(is.na(targetIndication$maxAge)) "" else targetIndication$maxAge)
-    }
-    description <- sprintf("%s, %s", description, sccsTimeAtRisks$label[j])
-    sccsAnalysisList[[length(sccsAnalysisList) + 1]] <- SelfControlledCaseSeries::createSccsAnalysis(
-      analysisId = length(sccsAnalysisList) + 1,
-      description = description,
-      getDbSccsDataArgs = getDbSccsDataArgs,
-      createStudyPopulationArgs = createStudyPopulationArgs,
-      createIntervalDataArgs = createSccsIntervalDataArgs,
-      fitSccsModelArgs = fitSccsModelArgs
-    )
-    analysisToInclude <- bind_rows(analysisToInclude, data.frame(
-      exposureId = targetIndication$exposureId,
-      analysisId = length(sccsAnalysisList)
-    ))
-  }
-}
-analysesToExclude <- expand.grid(
-  exposureId = unique(analysisToInclude$exposureId),
-  analysisId = unique(analysisToInclude$analysisId)
-) %>%
-  anti_join(analysisToInclude, by = join_by(exposureId, analysisId))
-selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpecifications(
-  sccsAnalysisList = sccsAnalysisList,
-  exposuresOutcomeList = eoList,
-  analysesToExclude = analysesToExclude,
-  combineDataFetchAcrossOutcomes = FALSE,
-  sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds()
-)
-
-# PatientLevelPredictionModule -------------------------------------------------
-plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
-modelDesignList <- list()
-uniqueTargetIds <- unique(unlist(lapply(tcis, function(x) { c(x$targetId ) })))
-dfUniqueTis <- dfUniqueTcis[dfUniqueTcis$cohortId %in% uniqueTargetIds, ]
-for (i in 1:nrow(dfUniqueTis)) {
-  tci <- dfUniqueTis[i,]
-  cohortId <- cohortDefinitionSet %>% 
-    filter(subsetParent == tci$cohortId & subsetDefinitionId == tci$subsetDefinitionId) %>%
-    pull(cohortId)
-  for (j in seq_len(nrow(plpTimeAtRisks))) {
-    for (k in seq_len(nrow(outcomes))) {
-      if (useCleanWindowForPriorOutcomeLookback)
-        priorOutcomeLookback <- outcomes$cleanWindow[k]
-      else
-        priorOutcomeLookback <- 99999
-      modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
-        targetId = cohortId,
-        outcomeId = outcomes$cohortId[k],
-        restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
-          sampleSize = plpMaxSampleSize,
-          studyStartDate = studyStartDate,
-          studyEndDate = studyEndDate,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0
-        ),
-        populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
-          riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
-          startAnchor = plpTimeAtRisks$startAnchor[j],
-          riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
-          endAnchor = plpTimeAtRisks$endAnchor[j],
-          removeSubjectsWithPriorOutcome = TRUE,
-          priorOutcomeLookback = priorOutcomeLookback,
-          requireTimeAtRisk = FALSE,
-          binary = TRUE,
-          includeAllOutcomes = TRUE,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0,
-          minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
-          restrictTarToCohortEnd = FALSE
-        ),
-        covariateSettings = FeatureExtraction::createCovariateSettings(
-          useDemographicsGender = TRUE,
-          useDemographicsAgeGroup = TRUE,
-          useConditionGroupEraLongTerm = TRUE,
-          useDrugGroupEraLongTerm = TRUE,
-          useVisitConceptCountLongTerm = TRUE
-        ),
-        preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
-        modelSettings = PatientLevelPrediction::setLassoLogisticRegression()
-      )
-    }
-  }
-}
-plpModuleSpecifications <- plpModuleSettingsCreator$createModuleSpecifications(
-  modelDesignList = modelDesignList
-)
-
-
 # Create the analysis specifications ------------------------------------------
 analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
   Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
   Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
-  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
-  Strategus::addModuleSpecifications(plpModuleSpecifications)
+  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) 
 
+if (!dir.exists(file.path("inst", "cuimc"))) {
+  dir.create(file.path("inst", "cuimc"), recursive = T)
+}
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
-  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+  file.path("inst", "cuimc", "sampleStudyAnalysisSpecification.json")
 )
