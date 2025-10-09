@@ -29,8 +29,8 @@
         }
       ],
       "subsetDefs": [
-        "{\n  \"name\": \"\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"startWindow\": {\n        \"startDay\": -99999,\n        \"endDay\": 0,\n        \"targetAnchor\": \"cohortStart\"\n      },\n      \"endWindow\": {\n        \"startDay\": 0,\n        \"endDay\": 99999,\n        \"targetAnchor\": \"cohortStart\"\n      }\n    },\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}",
-        "{\n  \"name\": \"\",\n  \"definitionId\": 101,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"0.11.2\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName @operatorNames\"\n}"
+        "{\n  \"name\": \"first time in Hypertensive disorder gender 8507,8532 from 20200101 until 20241231\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"in cohorts: (20128) where subset cohort start is within D: -99999 - D: 0 of target cohort start and subset cohort end is within D: 0 - D: 99999 of target cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"windows\": [\n        {\n          \"startDay\": -99999,\n          \"endDay\": 0,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortStart\",\n          \"negate\": false\n        },\n        {\n          \"startDay\": 0,\n          \"endDay\": 99999,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortEnd\",\n          \"negate\": false\n        }\n      ]\n    },\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"1.0.0.9000\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName\"\n}",
+        "{\n  \"name\": \"first time  gender 8507,8532 from 20200101 until 20241231\",\n  \"definitionId\": 101,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"1.0.0.9000\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName\"\n}"
       ],
       "cohortSubsets": [
         {
@@ -199,13 +199,18 @@
           "ConditionOccurrence": true,
           "ConditionEraStart": true,
           "ConditionEraOverlap": true,
+          "ConditionEraGroupStart": true,
           "ConditionEraGroupOverlap": true,
           "DrugEraStart": true,
+          "DrugEraGroupStart": true,
           "DrugEraGroupOverlap": true,
           "ProcedureOccurrence": true,
           "DeviceExposure": true,
           "Measurement": true,
+          "MeasurementRangeGroup": true,
+          "MeasurementValueAsConcept": true,
           "Observation": true,
+          "ObservationValueAsConcept": true,
           "CharlsonIndex": true,
           "Dcsi": true,
           "Chads2": true,
@@ -408,15 +413,15 @@
           "targetDefs": [
             {
               "id": 20126001,
-              "name": "ACE inhibitor -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
+              "name": "ACE inhibitor - first time in Hypertensive disorder gender 8507,8532 from 20200101 until 20241231"
             },
             {
               "id": 20127001,
-              "name": "Diuretic -  in cohorts: (20128) starts within D: -99999 - D: 0 of cohort start and ends D: 0 - D: 99999 of cohort start, first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
+              "name": "Diuretic - first time in Hypertensive disorder gender 8507,8532 from 20200101 until 20241231"
             },
             {
               "id": 20128101,
-              "name": "Hypertensive disorder -  first ever occurence with at least 365 days prior observation and 1 days follow up observation, males, females, occurs after 2020-01-01 and before 2024-12-31"
+              "name": "Hypertensive disorder - first time  gender 8507,8532 from 20200101 until 20241231"
             }
           ],
           "outcomeDefs": [
@@ -469,6 +474,10 @@
             "byGender": true,
             "byYear": true,
             "ageBreaks": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+          },
+          "studyWindow": {
+            "startDate": "2020-01-01",
+            "endDate": "2024-12-31"
           }
         }
       },
@@ -552,7 +561,7 @@
               "attr_class": "args"
             },
             "createPsArgs": {
-              "maxCohortSizeForFitting": 10000,
+              "maxCohortSizeForFitting": 250000,
               "errorOnHighCorrelation": true,
               "stopOnError": false,
               "prior": {
@@ -602,11 +611,11 @@
               "attr_class": "args"
             },
             "computeSharedCovariateBalanceArgs": {
-              "maxCohortSize": 10000,
+              "maxCohortSize": 250000,
               "attr_class": "args"
             },
             "computeCovariateBalanceArgs": {
-              "maxCohortSize": 10000,
+              "maxCohortSize": 250000,
               "covariateFilter": {
                 "label": ["Age group", "Gender: female", "Race", "Ethnicity", "Medical history: General", "Medical history: Cardiovascular disease", "Medical history: Neoplasms", "Medication use", "Charlson comorbidity index", "CHADS2Vasc", "DCSI"],
                 "analysisId": [3, 1, 4, 5, 210, 210, 210, 410, 901, 904, 902],
@@ -620,8 +629,9 @@
                     "covariateIds": []
                   },
                   "default": [],
-                  "skip": 1
-                }
+                  "delim": ","
+                },
+                "attr_problems": {}
               },
               "attr_class": "args"
             },
@@ -745,7 +755,7 @@
               "attr_class": "args"
             },
             "createPsArgs": {
-              "maxCohortSizeForFitting": 10000,
+              "maxCohortSizeForFitting": 250000,
               "errorOnHighCorrelation": true,
               "stopOnError": false,
               "prior": {
@@ -795,11 +805,11 @@
               "attr_class": "args"
             },
             "computeSharedCovariateBalanceArgs": {
-              "maxCohortSize": 10000,
+              "maxCohortSize": 250000,
               "attr_class": "args"
             },
             "computeCovariateBalanceArgs": {
-              "maxCohortSize": 10000,
+              "maxCohortSize": 250000,
               "covariateFilter": {
                 "label": ["Age group", "Gender: female", "Race", "Ethnicity", "Medical history: General", "Medical history: Cardiovascular disease", "Medical history: Neoplasms", "Medication use", "Charlson comorbidity index", "CHADS2Vasc", "DCSI"],
                 "analysisId": [3, 1, 4, 5, 210, 210, 210, 410, 901, 904, 902],
@@ -813,8 +823,9 @@
                     "covariateIds": []
                   },
                   "default": [],
-                  "skip": 1
-                }
+                  "delim": ","
+                },
+                "attr_problems": {}
               },
               "attr_class": "args"
             },
@@ -1025,978 +1036,720 @@
     {
       "module": "SelfControlledCaseSeriesModule",
       "settings": {
-        "sccsAnalysisList": [
-          {
-            "analysisId": 1,
-            "description": "SCCS, having Hypertensive disorder, On treatment",
-            "getDbSccsDataArgs": {
-              "useCustomCovariates": false,
-              "useNestingCohort": true,
+        "sccsAnalysesSpecifications": {
+          "controlType": "outcome",
+          "sccsDiagnosticThresholds": {
+            "eventExposureDependenceNullBounds": [0.8, 1.25],
+            "eventObservationDependenceNullBounds": [0.5, 2],
+            "rareOutcomeMaxPrevalence": 0.1,
+            "timeTrendMaxRatio": 1.1,
+            "easeThreshold": 0.25,
+            "mdrrThreshold": 10
+          },
+          "combineDataFetchAcrossOutcomes": false,
+          "analysesToExclude": null,
+          "exposuresOutcomeList": [
+            {
               "nestingCohortId": 20128,
-              "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20200101",
-              "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 10000,
-              "exposureIds": "exposureId",
-              "customCovariateIds": "",
-              "attr_class": "args"
-            },
-            "createStudyPopulationArgs": {
-              "firstOutcomeOnly": true,
-              "naivePeriod": 365,
-              "attr_class": "args"
-            },
-            "createIntervalDataArgs": {
-              "eraCovariateSettings": [
+              "exposures": [
                 {
-                  "includeEraIds": "exposureId",
-                  "label": "Pre-exposure",
-                  "stratifyById": false,
-                  "start": -30,
-                  "startAnchor": "era start",
-                  "end": -1,
-                  "endAnchor": "era start",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": false,
-                  "exposureOfInterest": false,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
-                },
-                {
-                  "includeEraIds": "exposureId",
-                  "label": "Main",
-                  "stratifyById": false,
-                  "start": 1,
-                  "startAnchor": "era start",
-                  "end": 0,
-                  "endAnchor": "era end",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": true,
-                  "exposureOfInterest": true,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
+                  "trueEffectSize": null,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
                 }
               ],
-              "calendarTimeCovariateSettings": {
-                "calendarTimeKnots": 5,
-                "allowRegularization": true,
-                "computeConfidenceIntervals": false,
-                "attr_class": "CalendarTimeCovariateSettings"
-              },
-              "minCasesForTimeCovariates": 10000,
-              "eventDependentObservation": false,
-              "attr_class": "args"
+              "outcomeId": 20129
             },
-            "fitSccsModelArgs": {
-              "prior": {
-                "priorType": "laplace",
-                "variance": 1,
-                "exclude": null,
-                "graph": null,
-                "neighborhood": null,
-                "useCrossValidation": true,
-                "forceIntercept": false,
-                "attr_class": "cyclopsPrior"
-              },
-              "control": {
-                "maxIterations": 1000,
-                "tolerance": 1e-06,
-                "convergenceType": "gradient",
-                "autoSearch": true,
-                "fold": 10,
-                "lowerLimit": 0.01,
-                "upperLimit": 20,
-                "gridSteps": 10,
-                "minCVData": 100,
-                "cvRepetitions": 1,
-                "noiseLevel": "quiet",
-                "threads": 1,
-                "seed": 1,
-                "resetCoefficients": true,
-                "startingVariance": 0.1,
-                "useKKTSwindle": false,
-                "tuneSwindle": 10,
-                "selectorType": "byPid",
-                "initialBound": 2,
-                "maxBoundCount": 5,
-                "algorithm": "ccd",
-                "doItAll": true,
-                "syncCV": false,
-                "attr_class": "cyclopsControl"
-              },
-              "profileBounds": [-2.3026, 2.3026],
-              "attr_class": "args"
-            },
-            "attr_class": "SccsAnalysis"
-          },
-          {
-            "analysisId": 2,
-            "description": "SCCS, having Hypertensive disorder, On treatment",
-            "getDbSccsDataArgs": {
-              "useCustomCovariates": false,
-              "useNestingCohort": true,
+            {
               "nestingCohortId": 20128,
-              "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20200101",
-              "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 10000,
-              "exposureIds": "exposureId",
-              "customCovariateIds": "",
-              "attr_class": "args"
-            },
-            "createStudyPopulationArgs": {
-              "firstOutcomeOnly": true,
-              "naivePeriod": 365,
-              "attr_class": "args"
-            },
-            "createIntervalDataArgs": {
-              "eraCovariateSettings": [
+              "exposures": [
                 {
-                  "includeEraIds": "exposureId",
-                  "label": "Pre-exposure",
-                  "stratifyById": false,
-                  "start": -30,
-                  "startAnchor": "era start",
-                  "end": -1,
-                  "endAnchor": "era start",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": false,
-                  "exposureOfInterest": false,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
-                },
-                {
-                  "includeEraIds": "exposureId",
-                  "label": "Main",
-                  "stratifyById": false,
-                  "start": 1,
-                  "startAnchor": "era start",
-                  "end": 0,
-                  "endAnchor": "era end",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": true,
-                  "exposureOfInterest": true,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
+                  "trueEffectSize": null,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
                 }
               ],
-              "calendarTimeCovariateSettings": {
-                "calendarTimeKnots": 5,
-                "allowRegularization": true,
-                "computeConfidenceIntervals": false,
-                "attr_class": "CalendarTimeCovariateSettings"
-              },
-              "minCasesForTimeCovariates": 10000,
-              "eventDependentObservation": false,
-              "attr_class": "args"
+              "outcomeId": 20130
             },
-            "fitSccsModelArgs": {
-              "prior": {
-                "priorType": "laplace",
-                "variance": 1,
-                "exclude": null,
-                "graph": null,
-                "neighborhood": null,
-                "useCrossValidation": true,
-                "forceIntercept": false,
-                "attr_class": "cyclopsPrior"
-              },
-              "control": {
-                "maxIterations": 1000,
-                "tolerance": 1e-06,
-                "convergenceType": "gradient",
-                "autoSearch": true,
-                "fold": 10,
-                "lowerLimit": 0.01,
-                "upperLimit": 20,
-                "gridSteps": 10,
-                "minCVData": 100,
-                "cvRepetitions": 1,
-                "noiseLevel": "quiet",
-                "threads": 1,
-                "seed": 1,
-                "resetCoefficients": true,
-                "startingVariance": 0.1,
-                "useKKTSwindle": false,
-                "tuneSwindle": 10,
-                "selectorType": "byPid",
-                "initialBound": 2,
-                "maxBoundCount": 5,
-                "algorithm": "ccd",
-                "doItAll": true,
-                "syncCV": false,
-                "attr_class": "cyclopsControl"
-              },
-              "profileBounds": [-2.3026, 2.3026],
-              "attr_class": "args"
-            },
-            "attr_class": "SccsAnalysis"
-          },
-          {
-            "analysisId": 3,
-            "description": "SCCS, having Hypertensive disorder, On treatment",
-            "getDbSccsDataArgs": {
-              "useCustomCovariates": false,
-              "useNestingCohort": true,
+            {
               "nestingCohortId": 20128,
-              "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20200101",
-              "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 10000,
-              "exposureIds": "exposureId",
-              "customCovariateIds": "",
-              "attr_class": "args"
-            },
-            "createStudyPopulationArgs": {
-              "firstOutcomeOnly": true,
-              "naivePeriod": 365,
-              "attr_class": "args"
-            },
-            "createIntervalDataArgs": {
-              "eraCovariateSettings": [
+              "exposures": [
                 {
-                  "includeEraIds": "exposureId",
-                  "label": "Pre-exposure",
-                  "stratifyById": false,
-                  "start": -30,
-                  "startAnchor": "era start",
-                  "end": -1,
-                  "endAnchor": "era start",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": false,
-                  "exposureOfInterest": false,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
-                },
-                {
-                  "includeEraIds": "exposureId",
-                  "label": "Main",
-                  "stratifyById": false,
-                  "start": 1,
-                  "startAnchor": "era start",
-                  "end": 0,
-                  "endAnchor": "era end",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": true,
-                  "exposureOfInterest": true,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
                 }
               ],
-              "calendarTimeCovariateSettings": {
-                "calendarTimeKnots": 5,
-                "allowRegularization": true,
-                "computeConfidenceIntervals": false,
-                "attr_class": "CalendarTimeCovariateSettings"
-              },
-              "minCasesForTimeCovariates": 10000,
-              "eventDependentObservation": false,
-              "attr_class": "args"
+              "outcomeId": 101
             },
-            "fitSccsModelArgs": {
-              "prior": {
-                "priorType": "laplace",
-                "variance": 1,
-                "exclude": null,
-                "graph": null,
-                "neighborhood": null,
-                "useCrossValidation": true,
-                "forceIntercept": false,
-                "attr_class": "cyclopsPrior"
-              },
-              "control": {
-                "maxIterations": 1000,
-                "tolerance": 1e-06,
-                "convergenceType": "gradient",
-                "autoSearch": true,
-                "fold": 10,
-                "lowerLimit": 0.01,
-                "upperLimit": 20,
-                "gridSteps": 10,
-                "minCVData": 100,
-                "cvRepetitions": 1,
-                "noiseLevel": "quiet",
-                "threads": 1,
-                "seed": 1,
-                "resetCoefficients": true,
-                "startingVariance": 0.1,
-                "useKKTSwindle": false,
-                "tuneSwindle": 10,
-                "selectorType": "byPid",
-                "initialBound": 2,
-                "maxBoundCount": 5,
-                "algorithm": "ccd",
-                "doItAll": true,
-                "syncCV": false,
-                "attr_class": "cyclopsControl"
-              },
-              "profileBounds": [-2.3026, 2.3026],
-              "attr_class": "args"
-            },
-            "attr_class": "SccsAnalysis"
-          },
-          {
-            "analysisId": 4,
-            "description": "SCCS, having Hypertensive disorder, On treatment",
-            "getDbSccsDataArgs": {
-              "useCustomCovariates": false,
-              "useNestingCohort": true,
+            {
               "nestingCohortId": 20128,
-              "deleteCovariatesSmallCount": 0,
-              "studyStartDate": "20200101",
-              "studyEndDate": "20241231",
-              "maxCasesPerOutcome": 10000,
-              "exposureIds": "exposureId",
-              "customCovariateIds": "",
-              "attr_class": "args"
-            },
-            "createStudyPopulationArgs": {
-              "firstOutcomeOnly": true,
-              "naivePeriod": 365,
-              "attr_class": "args"
-            },
-            "createIntervalDataArgs": {
-              "eraCovariateSettings": [
+              "exposures": [
                 {
-                  "includeEraIds": "exposureId",
-                  "label": "Pre-exposure",
-                  "stratifyById": false,
-                  "start": -30,
-                  "startAnchor": "era start",
-                  "end": -1,
-                  "endAnchor": "era start",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": false,
-                  "exposureOfInterest": false,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
-                },
-                {
-                  "includeEraIds": "exposureId",
-                  "label": "Main",
-                  "stratifyById": false,
-                  "start": 1,
-                  "startAnchor": "era start",
-                  "end": 0,
-                  "endAnchor": "era end",
-                  "firstOccurrenceOnly": false,
-                  "allowRegularization": false,
-                  "profileLikelihood": true,
-                  "exposureOfInterest": true,
-                  "isControlInterval": false,
-                  "attr_class": "EraCovariateSettings"
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
                 }
               ],
-              "calendarTimeCovariateSettings": {
-                "calendarTimeKnots": 5,
-                "allowRegularization": true,
-                "computeConfidenceIntervals": false,
-                "attr_class": "CalendarTimeCovariateSettings"
-              },
-              "minCasesForTimeCovariates": 10000,
-              "eventDependentObservation": false,
-              "attr_class": "args"
+              "outcomeId": 102
             },
-            "fitSccsModelArgs": {
-              "prior": {
-                "priorType": "laplace",
-                "variance": 1,
-                "exclude": null,
-                "graph": null,
-                "neighborhood": null,
-                "useCrossValidation": true,
-                "forceIntercept": false,
-                "attr_class": "cyclopsPrior"
-              },
-              "control": {
-                "maxIterations": 1000,
-                "tolerance": 1e-06,
-                "convergenceType": "gradient",
-                "autoSearch": true,
-                "fold": 10,
-                "lowerLimit": 0.01,
-                "upperLimit": 20,
-                "gridSteps": 10,
-                "minCVData": 100,
-                "cvRepetitions": 1,
-                "noiseLevel": "quiet",
-                "threads": 1,
-                "seed": 1,
-                "resetCoefficients": true,
-                "startingVariance": 0.1,
-                "useKKTSwindle": false,
-                "tuneSwindle": 10,
-                "selectorType": "byPid",
-                "initialBound": 2,
-                "maxBoundCount": 5,
-                "algorithm": "ccd",
-                "doItAll": true,
-                "syncCV": false,
-                "attr_class": "cyclopsControl"
-              },
-              "profileBounds": [-2.3026, 2.3026],
-              "attr_class": "args"
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 103
             },
-            "attr_class": "SccsAnalysis"
-          }
-        ],
-        "exposuresOutcomeList": [
-          {
-            "outcomeId": 20129,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": null,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 20130,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": null,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 101,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 102,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 103,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 104,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 105,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 106,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 107,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 108,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 109,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 110,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 111,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 112,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 113,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 114,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 115,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 116,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 117,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 118,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 119,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 120,
-            "exposures": [
-              {
-                "exposureId": 20126,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 20129,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": null,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 20130,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": null,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 101,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 102,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 103,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 104,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 105,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 106,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 107,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 108,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 109,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 110,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 111,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 112,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 113,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 114,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 115,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 116,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 117,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 118,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 119,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          },
-          {
-            "outcomeId": 120,
-            "exposures": [
-              {
-                "exposureId": 20127,
-                "exposureIdRef": "exposureId",
-                "trueEffectSize": 1,
-                "attr_class": "Exposure"
-              }
-            ],
-            "attr_class": "ExposuresOutcome"
-          }
-        ],
-        "analysesToExclude": {
-          "exposureId": [20127, 20127, 20126, 20126],
-          "analysisId": [1, 2, 3, 4],
-          "attr_class": "data.frame",
-          "attr_out.attrs": {
-            "dim": [2, 4],
-            "dimnames": {
-              "exposureId": ["exposureId=20126", "exposureId=20127"],
-              "analysisId": ["analysisId=1", "analysisId=2", "analysisId=3", "analysisId=4"]
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 104
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 105
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 106
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 107
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 108
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 109
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 110
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 111
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 112
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 113
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 114
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 115
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 116
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 117
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 118
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 119
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20126
+                }
+              ],
+              "outcomeId": 120
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": null,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 20129
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": null,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 20130
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 101
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 102
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 103
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 104
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 105
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 106
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 107
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 108
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 109
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 110
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 111
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 112
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 113
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 114
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 115
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 116
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 117
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 118
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 119
+            },
+            {
+              "nestingCohortId": 20128,
+              "exposures": [
+                {
+                  "trueEffectSize": 1,
+                  "exposureIdRef": "exposureId",
+                  "exposureId": 20127
+                }
+              ],
+              "outcomeId": 120
             }
-          },
-          "attr_row.names": [1, 2, 3, 4]
-        },
-        "combineDataFetchAcrossOutcomes": false,
-        "sccsDiagnosticThresholds": {
-          "mdrrThreshold": 10,
-          "easeThreshold": 0.25,
-          "timeTrendPThreshold": 0.05,
-          "preExposurePThreshold": 0.05,
-          "attr_class": "SccsDiagnosticThresholds"
+          ],
+          "sccsAnalysisList": [
+            {
+              "fitSccsModelArgs": {
+                "profileBounds": null,
+                "profileGrid": [-2.3026, -1.6447, -0.9868, -0.3289, 0.3289, 0.9868, 1.6447, 2.3026],
+                "control": {
+                  "maxIterations": 1000,
+                  "tolerance": 1e-06,
+                  "convergenceType": "gradient",
+                  "autoSearch": true,
+                  "fold": 10,
+                  "lowerLimit": 0.01,
+                  "upperLimit": 20,
+                  "gridSteps": 10,
+                  "minCVData": 100,
+                  "cvRepetitions": 1,
+                  "noiseLevel": "quiet",
+                  "threads": 1,
+                  "seed": 1,
+                  "resetCoefficients": true,
+                  "startingVariance": 0.1,
+                  "useKKTSwindle": false,
+                  "tuneSwindle": 10,
+                  "selectorType": "byPid",
+                  "initialBound": 2,
+                  "maxBoundCount": 5,
+                  "algorithm": "ccd",
+                  "doItAll": true,
+                  "syncCV": false
+                },
+                "prior": {
+                  "priorType": "laplace",
+                  "variance": 1,
+                  "exclude": null,
+                  "graph": null,
+                  "neighborhood": null,
+                  "useCrossValidation": true,
+                  "forceIntercept": false
+                }
+              },
+              "createIntervalDataArgs": {
+                "eventDependentObservation": false,
+                "endOfObservationEraLength": 30,
+                "minCasesForTimeCovariates": 10000,
+                "calendarTimeCovariateSettings": {
+                  "computeConfidenceIntervals": false,
+                  "allowRegularization": true,
+                  "calendarTimeKnots": 5
+                },
+                "seasonalityCovariateSettings": {
+                  "computeConfidenceIntervals": false,
+                  "allowRegularization": true,
+                  "seasonKnots": 5
+                },
+                "ageCovariateSettings": null,
+                "eraCovariateSettings": [
+                  {
+                    "preExposure": true,
+                    "exposureOfInterest": false,
+                    "profileLikelihood": false,
+                    "allowRegularization": false,
+                    "firstOccurrenceOnly": false,
+                    "endAnchor": "era start",
+                    "end": -1,
+                    "startAnchor": "era start",
+                    "start": -30,
+                    "stratifyById": false,
+                    "label": "Pre-exposure",
+                    "excludeEraIds": null,
+                    "includeEraIds": "exposureId"
+                  },
+                  {
+                    "preExposure": false,
+                    "exposureOfInterest": true,
+                    "profileLikelihood": true,
+                    "allowRegularization": false,
+                    "firstOccurrenceOnly": false,
+                    "endAnchor": "era end",
+                    "end": 0,
+                    "startAnchor": "era start",
+                    "start": 1,
+                    "stratifyById": false,
+                    "label": "Main",
+                    "excludeEraIds": null,
+                    "includeEraIds": "exposureId"
+                  }
+                ]
+              },
+              "createStudyPopulationArgs": {
+                "restrictTimeToEraId": null,
+                "genderConceptIds": null,
+                "maxAge": null,
+                "minAge": null,
+                "naivePeriod": 365,
+                "firstOutcomeOnly": true
+              },
+              "getDbSccsDataArgs": {
+                "customCovariateIds": null,
+                "exposureIds": "exposureId",
+                "maxCasesPerOutcome": 100000,
+                "studyEndDates": "20241231",
+                "studyStartDates": "20200101",
+                "deleteCovariatesSmallCount": 0,
+                "nestingCohortId": null
+              },
+              "description": "SCCS, On treatment",
+              "analysisId": 1
+            },
+            {
+              "fitSccsModelArgs": {
+                "profileBounds": null,
+                "profileGrid": [-2.3026, -1.6447, -0.9868, -0.3289, 0.3289, 0.9868, 1.6447, 2.3026],
+                "control": {
+                  "maxIterations": 1000,
+                  "tolerance": 1e-06,
+                  "convergenceType": "gradient",
+                  "autoSearch": true,
+                  "fold": 10,
+                  "lowerLimit": 0.01,
+                  "upperLimit": 20,
+                  "gridSteps": 10,
+                  "minCVData": 100,
+                  "cvRepetitions": 1,
+                  "noiseLevel": "quiet",
+                  "threads": 1,
+                  "seed": 1,
+                  "resetCoefficients": true,
+                  "startingVariance": 0.1,
+                  "useKKTSwindle": false,
+                  "tuneSwindle": 10,
+                  "selectorType": "byPid",
+                  "initialBound": 2,
+                  "maxBoundCount": 5,
+                  "algorithm": "ccd",
+                  "doItAll": true,
+                  "syncCV": false
+                },
+                "prior": {
+                  "priorType": "laplace",
+                  "variance": 1,
+                  "exclude": null,
+                  "graph": null,
+                  "neighborhood": null,
+                  "useCrossValidation": true,
+                  "forceIntercept": false
+                }
+              },
+              "createIntervalDataArgs": {
+                "eventDependentObservation": false,
+                "endOfObservationEraLength": 30,
+                "minCasesForTimeCovariates": 10000,
+                "calendarTimeCovariateSettings": {
+                  "computeConfidenceIntervals": false,
+                  "allowRegularization": true,
+                  "calendarTimeKnots": 5
+                },
+                "seasonalityCovariateSettings": {
+                  "computeConfidenceIntervals": false,
+                  "allowRegularization": true,
+                  "seasonKnots": 5
+                },
+                "ageCovariateSettings": null,
+                "eraCovariateSettings": [
+                  {
+                    "preExposure": true,
+                    "exposureOfInterest": false,
+                    "profileLikelihood": false,
+                    "allowRegularization": false,
+                    "firstOccurrenceOnly": false,
+                    "endAnchor": "era start",
+                    "end": -1,
+                    "startAnchor": "era start",
+                    "start": -30,
+                    "stratifyById": false,
+                    "label": "Pre-exposure",
+                    "excludeEraIds": null,
+                    "includeEraIds": "exposureId"
+                  },
+                  {
+                    "preExposure": false,
+                    "exposureOfInterest": true,
+                    "profileLikelihood": true,
+                    "allowRegularization": false,
+                    "firstOccurrenceOnly": false,
+                    "endAnchor": "era end",
+                    "end": 0,
+                    "startAnchor": "era start",
+                    "start": 1,
+                    "stratifyById": false,
+                    "label": "Main",
+                    "excludeEraIds": null,
+                    "includeEraIds": "exposureId"
+                  }
+                ]
+              },
+              "createStudyPopulationArgs": {
+                "restrictTimeToEraId": null,
+                "genderConceptIds": null,
+                "maxAge": null,
+                "minAge": null,
+                "naivePeriod": 365,
+                "firstOutcomeOnly": true
+              },
+              "getDbSccsDataArgs": {
+                "customCovariateIds": null,
+                "exposureIds": "exposureId",
+                "maxCasesPerOutcome": 100000,
+                "studyEndDates": "20241231",
+                "studyStartDates": "20200101",
+                "deleteCovariatesSmallCount": 0,
+                "nestingCohortId": null
+              },
+              "description": "SCCS, On treatment",
+              "analysisId": 2
+            }
+          ]
         }
       },
       "attr_class": ["ModuleSpecifications", "SelfControlledCaseSeriesModuleSpecifications"]
@@ -2013,7 +1766,7 @@
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 20000,
+              "sampleSize": 1000000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2092,7 +1845,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 78012429,
+                  "seed": 7213895,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2107,7 +1860,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 22184,
+              "seed": 10706,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2131,7 +1884,7 @@
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 20000,
+              "sampleSize": 1000000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2210,7 +1963,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 39181274,
+                  "seed": 57382262,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2225,7 +1978,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 53110,
+              "seed": 8247,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2249,7 +2002,7 @@
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 20000,
+              "sampleSize": 1000000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2328,7 +2081,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 86907399,
+                  "seed": 81763668,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2343,7 +2096,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 90922,
+              "seed": 84395,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2367,7 +2120,7 @@
               "studyEndDate": "20241231",
               "firstExposureOnly": false,
               "washoutPeriod": 0,
-              "sampleSize": 20000,
+              "sampleSize": 1000000,
               "attr_class": "restrictPlpDataSettings"
             },
             "covariateSettings": {
@@ -2446,7 +2199,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 41738509,
+                  "seed": 29644020,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -2461,7 +2214,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 94793,
+              "seed": 95996,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -2477,7 +2230,8 @@
             },
             "attr_class": "modelDesign"
           }
-        ]
+        ],
+        "skipDiagnostics": false
       },
       "attr_class": ["ModuleSpecifications", "PatientLevelPredictionModuleSpecifications"]
     }
