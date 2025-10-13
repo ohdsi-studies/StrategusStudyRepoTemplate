@@ -1,6 +1,6 @@
 ################################################################################
-# INSTRUCTIONS: Make sure you have downloaded your cohorts using 
-# DownloadCohorts.R and that those cohorts are stored in the "inst" folder
+# INSTRUCTIONS: Make sure you have downloaded your cohorts and concept sets 
+# using DownloadAssets.R and that those are stored in the "inst" folder of the
 # of the project. This script is written to use the sample study cohorts
 # located in "inst/sampleStudy" so you will need to modify this in the code 
 # below. 
@@ -23,6 +23,10 @@ library(tibble)
 # Get the list of cohorts - NOTE: you should modify this for your
 # study to retrieve the cohorts you downloaded as part of
 # DownloadCohorts.R
+negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
+  file = "inst/sampleStudy/negativeControlOutcomes.csv"
+)
+
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
   settingsFileName = "inst/sampleStudy/Cohorts.csv",
   jsonFolder = "inst/sampleStudy/cohorts",
@@ -77,9 +81,6 @@ plpTimeAtRisks <- tibble::tibble(
 # please make these strings empty
 studyStartDate <- "20200101" #YYYYMMDD
 studyEndDate <- "20241231"   #YYYYMMDD
-# Some of the settings require study dates with hyphens
-studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
-studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
 
 # Probably don't change below this line ----------------------------------------
 
@@ -252,10 +253,6 @@ for (i in seq_len(nrow(dfUniqueSubsetCriteria))) {
   }  
 }
 
-negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/sampleStudy/negativeControlOutcomes.csv"
-)
-
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
   stop("*** Error: duplicate cohort IDs found ***")
 }
@@ -351,6 +348,10 @@ analysis1 <- CohortIncidence::createIncidenceAnalysis(
   outcomes = seq_len(nrow(outcomes)),
   tars = seq_along(tars)
 )
+
+# Some of the settings require study dates with hyphens
+studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
+studyEndDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyEndDate)
 
 # NOTE: Passing an empty string to CohortIncidence::createDateRange
 # will not work since it assumes a non-missing value is formatted
