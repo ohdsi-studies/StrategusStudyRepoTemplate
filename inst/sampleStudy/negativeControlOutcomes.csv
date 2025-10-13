@@ -1,21 +1,69 @@
-cohort_id,cohort_name,outcome_concept_id
-101,Allergic rhinitis,257007
-102,Carpal tunnel syndrome,380094
-103,Cerebral palsy,4134120
-104,Chronic obstructive lung disease,255573
-105,Contact dermatitis,134438
-106,Cyst of ovary,197610
-107,Deviated nasal septum,377910
-108,Dislocation of shoulder joint,4213373
-109,Endometriosis (clinical),433527
-110,Foreign body in ear,374801
-111,Gout,440674
-112,Hemorrhoids,195562
-113,Hypoparathyroidism,140362
-114,Influenza,4266367
-115,Ingrowing nail,139099
-116,Osteoarthritis of knee,4079750
-117,Prostatitis,194997
-118,Sciatica,372409
-119,Sleep apnea,313459
-120,Vitamin D deficiency,436070
+outcome_concept_id,cohort_name,standard_concept,standard_concept_caption,invalid_reason,invalid_reason_caption,concept_code,domain_id,vocabulary_id,concept_class_id,valid_start_date,valid_end_date,cohort_id
+4299544,Acanthosis nigricans,S,Standard,V,Valid,402599005,Condition,SNOMED,Disorder,1059609600000,4102358400000,1001
+376707,Acute conjunctivitis,S,Standard,V,Valid,53726008,Condition,SNOMED,Disorder,1012435200000,4102358400000,1002
+77644,Adhesive capsulitis of shoulder,S,Standard,V,Valid,399114005,Condition,SNOMED,Disorder,1059609600000,4102358400000,1003
+4218106,Alcoholism,S,Standard,V,Valid,7200002,Condition,SNOMED,Disorder,1012435200000,4102358400000,1004
+257007,Allergic rhinitis,S,Standard,V,Valid,61582004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1005
+443800,Amenorrhea,S,Standard,V,Valid,14302001,Condition,SNOMED,Clinical Finding,1012435200000,4102358400000,1006
+378425,Blepharitis,S,Standard,V,Valid,41446000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1007
+256449,Bronchiectasis,S,Standard,V,Valid,12295008,Condition,SNOMED,Disorder,1012435200000,4102358400000,1008
+4067069,Callosity,S,Standard,V,Valid,201040000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1009
+440387,Cannabis dependence,S,Standard,V,Valid,85005007,Condition,SNOMED,Disorder,1012435200000,4102358400000,1010
+380094,Carpal tunnel syndrome,S,Standard,V,Valid,57406009,Condition,SNOMED,Disorder,1012435200000,4102358400000,1011
+4134120,Cerebral palsy,S,Standard,V,Valid,128188000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1012
+137548,Cervical radiculopathy,S,Standard,V,Valid,54404000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1013
+381581,Chalazion,S,Standard,V,Valid,1482004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1014
+255573,Chronic obstructive pulmonary disease,S,Standard,V,Valid,13645005,Condition,SNOMED,Disorder,1012435200000,4102358400000,1015
+134438,Contact dermatitis,S,Standard,V,Valid,40275004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1016
+4272340,Costal chondritis,S,Standard,V,Valid,64109004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1017
+436027,Coxsackie virus disease,S,Standard,V,Valid,186658007,Condition,SNOMED,Disorder,1012435200000,4102358400000,1018
+441267,Cystic fibrosis,S,Standard,V,Valid,190905008,Condition,SNOMED,Disorder,1012435200000,4102358400000,1019
+197610,Cyst of ovary,S,Standard,V,Valid,79883001,Condition,SNOMED,Disorder,1012435200000,4102358400000,1020
+133228,Dental caries,S,Standard,V,Valid,80967001,Condition,SNOMED,Disorder,1012435200000,4102358400000,1021
+377910,Deviated nasal septum,S,Standard,V,Valid,126660000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1022
+4213373,Dislocation of shoulder joint,S,Standard,V,Valid,417076003,Condition,SNOMED,Disorder,1122768000000,4102358400000,1023
+192367,Dysplasia of cervix,S,Standard,V,Valid,73391008,Condition,SNOMED,Disorder,1012435200000,4102358400000,1024
+433527,Endometriosis (clinical),S,Standard,V,Valid,129103003,Condition,SNOMED,Disorder,1012435200000,4102358400000,1025
+4249170,Epicondylitis,S,Standard,V,Valid,73583000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1026
+374801,Foreign body in ear,S,Standard,V,Valid,75441006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1027
+440674,Gout,S,Standard,V,Valid,90560007,Condition,SNOMED,Disorder,1012435200000,4102358400000,1028
+4163735,Hemochromatosis,S,Standard,V,Valid,399187006,Condition,SNOMED,Disorder,1059609600000,4102358400000,1029
+195562,Hemorrhoids,S,Standard,V,Valid,70153002,Condition,SNOMED,Disorder,1012435200000,4102358400000,1030
+43020475,High risk heterosexual behavior,S,Standard,V,Valid,288301000119101,Observation,SNOMED,Clinical Finding,1359590400000,4102358400000,1031
+4265426,Hordeolum,S,Standard,V,Valid,397513003,Condition,SNOMED,Disorder,1059609600000,4102358400000,1032
+4131791,Hydrocele of testis,S,Standard,V,Valid,26614003,Condition,SNOMED,Disorder,1012435200000,4102358400000,1033
+432867,Hyperlipidemia,S,Standard,V,Valid,55822004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1034
+441829,Hyperosmolality and or hypernatremia,S,Standard,V,Valid,267446004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1035
+4058388,Hypertrophic scar,S,Standard,V,Valid,19843006,Observation,SNOMED,Disorder,1012435200000,4102358400000,1036
+140362,Hypoparathyroidism,S,Standard,V,Valid,36976004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1037
+374375,Impacted cerumen,S,Standard,V,Valid,18070006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1038
+440276,"Infection AND/OR inflammatory reaction due to internal prosthetic device, implant AND/OR graft",S,Standard,V,Valid,31871009,Condition,SNOMED,Disorder,1012435200000,4102358400000,1039
+4266367,Influenza,S,Standard,V,Valid,6142004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1040
+139099,Ingrowing nail,S,Standard,V,Valid,400097005,Condition,SNOMED,Disorder,1059609600000,4102358400000,1041
+4152967,Laceration of perineum,S,Standard,V,Valid,283380005,Condition,SNOMED,Disorder,1012435200000,4102358400000,1042
+81379,Lateral epicondylitis,S,Standard,V,Valid,202855006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1043
+194133,Low back pain,S,Standard,V,Valid,279039007,Condition,SNOMED,Clinical Finding,1012435200000,4102358400000,1044
+79833,Ménière's disease,S,Standard,V,Valid,13445001,Condition,SNOMED,Disorder,1012435200000,4102358400000,1045
+436940,Metabolic syndrome X,S,Standard,V,Valid,237602007,Condition,SNOMED,Disorder,1012435200000,4102358400000,1046
+4209423,Nicotine dependence,S,Standard,V,Valid,56294008,Condition,SNOMED,Disorder,1012435200000,4102358400000,1047
+134898,Non-toxic uninodular goiter,S,Standard,V,Valid,190237002,Condition,SNOMED,Disorder,1012435200000,4102358400000,1048
+4318847,Obstruction of urethra,S,Standard,V,Valid,95588004,Condition,SNOMED,Disorder,1012435200000,4102358400000,1049
+140648,Onychomycosis due to dermatophyte,S,Standard,V,Valid,402134005,Condition,SNOMED,Disorder,1059609600000,4102358400000,1050
+4079750,Osteoarthritis of knee,S,Standard,V,Valid,239873007,Condition,SNOMED,Disorder,1012435200000,4102358400000,1051
+80502,Osteoporosis,S,Standard,V,Valid,64859006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1052
+37206607,Overactive urinary bladder,S,Standard,V,Valid,786457000,Condition,SNOMED,Disorder,1564531200000,4102358400000,1053
+381270,Parkinson's disease,S,Standard,V,Valid,49049000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1054
+375292,Perforation of tympanic membrane,S,Standard,V,Valid,60442001,Condition,SNOMED,Disorder,1012435200000,4102358400000,1055
+4002650,Plantar fasciitis,S,Standard,V,Valid,202882003,Condition,SNOMED,Disorder,1012435200000,4102358400000,1056
+194997,Prostatitis,S,Standard,V,Valid,9713002,Condition,SNOMED,Disorder,1012435200000,4102358400000,1057
+374044,Ptosis of eyelid,S,Standard,V,Valid,11934000,Condition,SNOMED,Disorder,1012435200000,4102358400000,1058
+73300,Radial styloid tenosynovitis,S,Standard,V,Valid,21794005,Condition,SNOMED,Disorder,1012435200000,4102358400000,1059
+372409,Sciatica,S,Standard,V,Valid,23056005,Condition,SNOMED,Disorder,1012435200000,4102358400000,1060
+4213628,Sickling disorder due to hemoglobin S,S,Standard,V,Valid,417357006,Condition,SNOMED,Disorder,1122768000000,4102358400000,1061
+313459,Sleep apnea,S,Standard,V,Valid,73430006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1062
+4142875,Solitary nodule of lung,S,Standard,V,Valid,427359005,Condition,SNOMED,Clinical Finding,1185840000000,4102358400000,1063
+133141,Tinea pedis,S,Standard,V,Valid,6020002,Condition,SNOMED,Disorder,1012435200000,4102358400000,1064
+443412,Type 1 diabetes mellitus without complication,N,Non-Standard,U,Invalid,313435000,Condition,SNOMED,Disorder,1012435200000,1717200000000,1065
+201916,Ureteric stone,S,Standard,V,Valid,31054009,Condition,SNOMED,Disorder,1012435200000,4102358400000,1066
+4092565,Uterine prolapse,S,Standard,V,Valid,24976005,Condition,SNOMED,Disorder,1012435200000,4102358400000,1067
+436070,Vitamin D deficiency,S,Standard,V,Valid,34713006,Condition,SNOMED,Disorder,1012435200000,4102358400000,1068

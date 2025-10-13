@@ -20,12 +20,14 @@ library(tibble)
 # Above the line - MODIFY ------------------------------
 ########################################################
 
-# Get the list of cohorts - NOTE: you should modify this for your
-# study to retrieve the cohorts you downloaded as part of
-# DownloadCohorts.R
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
   file = "inst/sampleStudy/negativeControlOutcomes.csv"
 )
+
+covariateConceptsToExclude <- CohortGenerator::readCsv(
+  file = "inst/sampleStudy/covariateConceptsToExclude.csv"
+) |>
+  dplyr::pull("conceptId")
 
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
   settingsFileName = "inst/sampleStudy/Cohorts.csv",
@@ -438,7 +440,7 @@ for (i in seq_along(tcis)) {
     targetId = targetId,
     comparatorId = comparatorId,
     outcomes = outcomeList,
-    excludedCovariateConceptIds = c(tci$excludedCovariateConceptIds)
+    excludedCovariateConceptIds = c(tci$excludedCovariateConceptIds, covariateConceptsToExclude)
   )
 }
 getDbCohortMethodDataArgs <- CohortMethod::createGetDbCohortMethodDataArgs(
@@ -803,6 +805,10 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecifications() |>
   Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
   Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
   Strategus::addModuleSpecifications(plpModuleSpecifications)
+
+if (!dir.exists(file.path("inst", "sampleStudy"))) {
+  dir.create(file.path("inst", "sampleStudy"))
+}
 
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 

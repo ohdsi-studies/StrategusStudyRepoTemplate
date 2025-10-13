@@ -14,7 +14,7 @@
 
 library(dplyr)
 baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
-# Use this if your WebAPI instance has security enables
+# Use this if your WebAPI instance has security enabled
 # ROhdsiWebApi::authorizeWebApi(
 #   baseUrl = baseUrl,
 #   authMethod = "windows"
@@ -49,26 +49,3 @@ CohortGenerator::saveCohortDefinitionSet(
   sqlFolder = "inst/sampleStudy/sql/sql_server",
 )
 
-
-# Download and save the negative control outcomes
-negativeControlOutcomeCohortSet <- ROhdsiWebApi::getConceptSetDefinition(
-  conceptSetId = 1885090,
-  baseUrl = baseUrl
-) %>%
-  ROhdsiWebApi::resolveConceptSet(
-    baseUrl = baseUrl
-  ) %>%
-  ROhdsiWebApi::getConcepts(
-    baseUrl = baseUrl
-  ) %>%
-  rename(outcomeConceptId = "conceptId",
-         cohortName = "conceptName") %>%
-  mutate(cohortId = row_number() + 100) %>%
-  select(cohortId, cohortName, outcomeConceptId)
-
-# NOTE: Update file location for your study.
-CohortGenerator::writeCsv(
-  x = negativeControlOutcomeCohortSet,
-  file = "inst/sampleStudy/negativeControlOutcomes.csv",
-  warnOnFileNameCaseMismatch = F
-)
