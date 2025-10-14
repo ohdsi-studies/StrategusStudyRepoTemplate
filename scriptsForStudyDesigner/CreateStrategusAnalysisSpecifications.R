@@ -51,34 +51,28 @@ tcis <- list(
   )
 )
 
-outcomes <- tibble::tibble(
-  cohortId = c(20129, 20130), # AMI, Angioedema
-  cleanWindow = c(365, 365)
+outcomes <- tibble::tribble(
+  ~cohortId, ~cleanWindow,
+  20129,    365,          # AMI
+  20130,    365           # Angioedema
 )
 
 # Time-at-risks (TARs) for the outcomes of interest in your study
-timeAtRisks <- tibble::tibble(
-  label = c("On treatment", "On treatment"),
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(0, 0),
-  endAnchor = c("cohort end", "cohort end")
+timeAtRisks <- tibble::tribble(
+  ~label,         ~riskWindowStart, ~startAnchor,   ~riskWindowEnd, ~endAnchor,
+  "On treatment", 1,                "cohort start", 0,              "cohort end"
 )
 # Try to avoid intent-to-treat TARs for SCCS, or then at least disable calendar time spline:
-sccsTimeAtRisks <- tibble::tibble(
-  label = c("On treatment", "On treatment"),
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(0, 0),
-  endAnchor = c("cohort end", "cohort end")
+sccsTimeAtRisks <- tibble::tribble(
+  ~label,         ~riskWindowStart, ~startAnchor,   ~riskWindowEnd, ~endAnchor,
+  "On treatment", 1,                "cohort start", 0,              "cohort end"
 )
 # Try to use fixed-time TARs for patient-level prediction:
-plpTimeAtRisks <- tibble::tibble(
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(365, 365),
-  endAnchor = c("cohort start", "cohort start"),
+plpTimeAtRisks <- tibble::tribble(
+  ~riskWindowStart, ~startAnchor,   ~riskWindowEnd, ~endAnchor,
+  1,                "cohort start", 365,            "cohort start"
 )
+
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
 studyStartDate <- "20200101" #YYYYMMDD
