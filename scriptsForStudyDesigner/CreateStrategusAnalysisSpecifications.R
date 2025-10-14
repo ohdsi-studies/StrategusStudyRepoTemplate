@@ -140,7 +140,14 @@ for (i in seq_len(nrow(dfUniqueSubsetCriteria))) {
   
   subsetOperators <- list()
   
-  # Indication restrict (always first if there is an indication)
+  # Always first restrict for CM/PLP - also if running annual IRs need to change limitTo = 'firstEver' to 'all'
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
+    priorTime = 365,
+    followUpTime = 1,
+    limitTo = "firstEver"
+  )
+  
+  # Indication restriction (always first if there is an indication)
   indicationName <- ""
   if (uniqueSubsetCriteria$indicationId != "") {
     subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubset(
@@ -165,13 +172,6 @@ for (i in seq_len(nrow(dfUniqueSubsetCriteria))) {
     # saving name for the cohort subset name
     indicationName <- cohortDefinitionSet$cohortName[cohortDefinitionSet$cohortId == uniqueSubsetCriteria$indicationId]
   }
-  
-  # Always first restrict for CM/PLP - also if running annual IRs need to change limitTo = 'firstEver' to 'all'
-  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
-    priorTime = 365,
-    followUpTime = 1,
-    limitTo = "firstEver"
-  )
   
   # Demo settings
   demoName <- ""
@@ -239,7 +239,7 @@ for (i in seq_len(nrow(dfUniqueSubsetCriteria))) {
       name = paste0("first time ", demoName, timeName),
       subsetCohortNameTemplate = "@baseCohortName - @subsetDefinitionName",
       definitionId = i + 100,
-      subsetOperators = subsetOperators[2:length(subsetOperators)] # indic removed
+      subsetOperators = subsetOperators[-2] # indic removed
     )
     cohortDefinitionSet <- cohortDefinitionSet |>
       CohortGenerator::addCohortSubsetDefinition(

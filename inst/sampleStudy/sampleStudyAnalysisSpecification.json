@@ -29,7 +29,7 @@
         }
       ],
       "subsetDefs": [
-        "{\n  \"name\": \"first time in Hypertensive disorder gender 8507,8532 from 20200101 until 20241231\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"in cohorts: (20128) where subset cohort start is within D: -99999 - D: 0 of target cohort start and subset cohort end is within D: 0 - D: 99999 of target cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"windows\": [\n        {\n          \"startDay\": -99999,\n          \"endDay\": 0,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortStart\",\n          \"negate\": false\n        },\n        {\n          \"startDay\": 0,\n          \"endDay\": 99999,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortEnd\",\n          \"negate\": false\n        }\n      ]\n    },\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"1.0.0.9000\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName\"\n}",
+        "{\n  \"name\": \"first time in Hypertensive disorder gender 8507,8532 from 20200101 until 20241231\",\n  \"definitionId\": 1,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"in cohorts: (20128) where subset cohort start is within D: -99999 - D: 0 of target cohort start and subset cohort end is within D: 0 - D: 99999 of target cohort start\",\n      \"subsetType\": \"CohortSubsetOperator\",\n      \"cohortIds\": [20128],\n      \"cohortCombinationOperator\": \"all\",\n      \"negate\": false,\n      \"windows\": [\n        {\n          \"startDay\": -99999,\n          \"endDay\": 0,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortStart\",\n          \"negate\": false\n        },\n        {\n          \"startDay\": 0,\n          \"endDay\": 99999,\n          \"targetAnchor\": \"cohortStart\",\n          \"subsetAnchor\": \"cohortEnd\",\n          \"negate\": false\n        }\n      ]\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"1.0.0.9000\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName\"\n}",
         "{\n  \"name\": \"first time  gender 8507,8532 from 20200101 until 20241231\",\n  \"definitionId\": 101,\n  \"subsetOperators\": [\n    {\n      \"name\": \"first ever occurence with at least 365 days prior observation and 1 days follow up observation\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 365,\n      \"followUpTime\": 1,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"firstEver\"\n    },\n    {\n      \"name\": \"males, females\",\n      \"subsetType\": \"DemographicSubsetOperator\",\n      \"ageMin\": 0,\n      \"ageMax\": 99999,\n      \"gender\": [8507, 8532]\n    },\n    {\n      \"name\": \"occurs after 2020-01-01 and before 2024-12-31\",\n      \"subsetType\": \"LimitSubsetOperator\",\n      \"priorTime\": 0,\n      \"followUpTime\": 0,\n      \"minimumCohortDuration\": 0,\n      \"limitTo\": \"all\",\n      \"calendarStartDate\": \"2020-01-01\",\n      \"calendarEndDate\": \"2024-12-31\"\n    }\n  ],\n  \"packageVersion\": \"1.0.0.9000\",\n  \"identifierExpression\": \"targetId * 1000 + definitionId\",\n  \"operatorNameConcatString\": \", \",\n  \"subsetCohortNameTemplate\": \"@baseCohortName - @subsetDefinitionName\"\n}"
       ],
       "cohortSubsets": [
@@ -3723,7 +3723,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 85978345,
+                  "seed": 5742892,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -3738,7 +3738,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 24393,
+              "seed": 41306,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -3841,7 +3841,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 55274260,
+                  "seed": 46867153,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -3856,7 +3856,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 6990,
+              "seed": 79166,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
