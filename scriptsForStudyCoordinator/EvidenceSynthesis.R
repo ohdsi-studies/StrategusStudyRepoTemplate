@@ -15,6 +15,7 @@ library(Strategus)
 
 config <- config::get()
 
+# EvidenceSynthesis Settings ---------------------------------------------------
 esModuleSettingsCreator = EvidenceSynthesisModule$new()
 evidenceSynthesisSourceCm <- esModuleSettingsCreator$createEvidenceSynthesisSource(
   sourceMethod = "CohortMethod",
@@ -47,7 +48,7 @@ ParallelLogger::saveSettingsToJson(
   esAnalysisSpecifications, 
   file.path("inst/sampleStudy/esAnalysisSpecification.json"))
 
-
+# Execute EvidenceSynthesis ----------------------------------------------------
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = file.path("results", "evidence_sythesis", "strategusOutput"),
@@ -60,6 +61,7 @@ Strategus::execute(
   connectionDetails = config$resultsConnectionDetails
 )
 
+# Upload Results ---------------------------------------------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = resultsExecutionSettings$resultsFolder,
@@ -77,4 +79,5 @@ Strategus::uploadResults(
   resultsConnectionDetails = config$resultsConnectionDetails
 )
 
-# TODO: Re-run table permissions
+# Set permissions & analyze tables ---------------------------------------------
+source("scriptsForStudyCoordinator/GrantPermissionsOnTables.R")
