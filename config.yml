@@ -1,0 +1,22 @@
+default:
+  studyName: "strategus_template"
+  resultsDatabaseSchema: "strategus_template"
+  projectRootFolder: !expr getwd() # Project root folder will hold the study settings
+  resultFolder: !expr getwd()  # Result folder will hold the study results and strategus internals
+  andromeda: !expr options(andromedaTempFolder = file.path(getwd(), "andromedaTemp"))
+  studySpecificationFileName: "analysisSpecifications.json"
+  resultsConnectionDetails: !expr |
+    DatabaseConnector::createConnectionDetails(
+     dbms = "postgresql", 
+     server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"), 
+     user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"), 
+     password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
+    )
+  # The following settings are for the secure OHDSI SFTP server and are
+  # provided to each network study coordinator
+  sftpDownloadFolder: !expr getwd()
+  sftpRemoteFolderName: "covid19"
+  sftpKeyFileName: "[location where you are storing: e.g. ~/keys/study-coordinator-covid19.dat]"
+  sftpUserName: "[user name provided by the study coordinator: eg: study-coordinator-covid19]"
+  # Shiny results viewer settings
+  shinyReadOnlyUserName: "shinyproxy"

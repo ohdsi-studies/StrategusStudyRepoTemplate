@@ -11,30 +11,31 @@
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
 
-# Code for creating the result schema and tables in a PostgreSQL database
-resultsDatabaseSchema <- "results"
+# Get the study configuration from the config.yml
+config <- config::get()
+
+# Need at least one results folder to know what table structure to create. 
+# resultsFolder should at least contain a 'strategusOutput' subfolder:
+# Use the 1st results folder to define the results data model
+# resultsFolder <- list.dirs(path = "results", full.names = T, recursive = F)[1]
+resultsFolder <- "/Users/schuemie/Data/ExampleStrategusStudy"#list.dirs(path = "/Users/schuemie/Data/ExampleStrategusStudy", full.names = T, recursive = F)[1]
+
+
+# Don't make changes below this line -------------------------------------------
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
   fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
 )
 
-resultsDatabaseConnectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
-  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
-  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
-)
-
 # Create results data model -------------------------
 
-# Use the 1st results folder to define the results data model
-resultsFolder <- list.dirs(path = "results", full.names = T, recursive = F)[1]
+
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
-  resultsDatabaseSchema = resultsDatabaseSchema,
+  resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = file.path(resultsFolder, "strategusOutput")
 )
 
 Strategus::createResultDataModel(
   analysisSpecifications = analysisSpecifications,
   resultsDataModelSettings = resultsDataModelSettings,
-  resultsConnectionDetails = resultsDatabaseConnectionDetails
+  resultsConnectionDetails = config$resultsConnectionDetails
 )

@@ -53,3 +53,6 @@ results/
 
 # VSCode
 .vscode/
+
+# JNJ Specific
+.jnj

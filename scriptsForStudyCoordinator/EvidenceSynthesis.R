@@ -13,15 +13,7 @@
 library(dplyr)
 library(Strategus)
 
-resultsDatabaseSchema <- "results"
-
-# Specify the connection to the results database
-resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
-  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
-  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
-)
+config <- config::get()
 
 esModuleSettingsCreator = EvidenceSynthesisModule$new()
 evidenceSynthesisSourceCm <- esModuleSettingsCreator$createEvidenceSynthesisSource(
@@ -57,7 +49,7 @@ ParallelLogger::saveSettingsToJson(
 
 
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
-  resultsDatabaseSchema = resultsDatabaseSchema,
+  resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = file.path("results", "evidence_sythesis", "strategusOutput"),
   workFolder = file.path("results", "evidence_sythesis", "strategusWork")
 )
@@ -65,22 +57,24 @@ resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
 Strategus::execute(
   analysisSpecifications = esAnalysisSpecifications,
   executionSettings = resultsExecutionSettings,
-  connectionDetails = resultsConnectionDetails
+  connectionDetails = config$resultsConnectionDetails
 )
 
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
-  resultsDatabaseSchema = resultsDatabaseSchema,
+  resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = resultsExecutionSettings$resultsFolder,
 )
 
 Strategus::createResultDataModel(
   analysisSpecifications = esAnalysisSpecifications,
   resultsDataModelSettings = resultsDataModelSettings,
-  resultsConnectionDetails = resultsConnectionDetails
+  resultsConnectionDetails = config$resultsConnectionDetails
 )
 
 Strategus::uploadResults(
   analysisSpecifications = esAnalysisSpecifications,
   resultsDataModelSettings = resultsDataModelSettings,
-  resultsConnectionDetails = resultsConnectionDetails
+  resultsConnectionDetails = config$resultsConnectionDetails
 )
+
+# TODO: Re-run table permissions
