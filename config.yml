@@ -1,6 +1,7 @@
 default:
   studyName: "strategus_template"
   resultsDatabaseSchema: "strategus_template"
+  webApiUrl: "https://atlas-demo.ohdsi.org/WebAPI"
   projectRootFolder: !expr getwd() # Project root folder will hold the study settings
   resultFolder: !expr getwd()  # Result folder will hold the study results and strategus internals
   andromeda: !expr options(andromedaTempFolder = file.path(getwd(), "andromedaTemp"))

@@ -283,6 +283,17 @@
       "RemoteRef": "v2.2.15",
       "RemoteSha": "81192a2d424c0589dd20febb0f904f02a9545032"
     },
+    "ProtocolGenerator": {
+      "Package": "ProtocolGenerator",
+      "Version": "1.0.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "ProtocolGenerator",
+      "RemoteRef": "main",
+      "RemoteSha": "fbd59b41e808e1ae09f6b05e8dc42e38c4900fbe"
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.6.1",

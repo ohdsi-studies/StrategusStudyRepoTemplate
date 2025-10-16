@@ -13,7 +13,8 @@
 # ##############################################################################
 
 library(dplyr)
-baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
+config <- config::get()
+baseUrl <- config$webApiUrl
 # Use this if your WebAPI instance has security enabled
 # ROhdsiWebApi::authorizeWebApi(
 #   baseUrl = baseUrl,
