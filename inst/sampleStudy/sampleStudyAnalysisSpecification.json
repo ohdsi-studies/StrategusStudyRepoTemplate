@@ -3723,7 +3723,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 5742892,
+                  "seed": 74256725,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -3738,7 +3738,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 41306,
+              "seed": 19826,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
@@ -3841,7 +3841,7 @@
                   "modelType": "logistic",
                   "addIntercept": true,
                   "useControl": true,
-                  "seed": 46867153,
+                  "seed": 97344936,
                   "name": "Lasso Logistic Regression",
                   "threads": -1,
                   "tolerance": 2e-06,
@@ -3856,7 +3856,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 79166,
+              "seed": 39464,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"
