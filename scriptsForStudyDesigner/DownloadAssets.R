@@ -45,8 +45,8 @@ cohortDefinitionSet[cohortDefinitionSet$cohortId == 1780946,]$cohortId <- 3
 # for your study.
 CohortGenerator::saveCohortDefinitionSet(
   cohortDefinitionSet = cohortDefinitionSet,
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server",
+  settingsFileName = file.path(config$projectRootFolder, "inst", "Cohorts.csv"),
+  jsonFolder = file.path(config$projectRootFolder, "inst", "cohorts"),
+  sqlFolder = file.path(config$projectRootFolder, "inst", "sql", "sql_server")
 )
 
