@@ -799,8 +799,8 @@ createSelfControlledCaseSeriesModuleSpecifications <- function(
     
     getDbSccsDataArgs <- SelfControlledCaseSeries::createGetDbSccsDataArgs(
       maxCasesPerOutcome = sccsMaxCasesPerOutcome,
-      studyStartDate = studyStartDate,
-      studyEndDate = studyEndDate,
+      studyStartDates = if (studyStartDate == "") NULL else studyStartDate,
+      studyEndDates = if (studyEndDate == "") NULL else studyEndDate,
       deleteCovariatesSmallCount = 0
     )
     createStudyPopulationArgs = SelfControlledCaseSeries::createCreateStudyPopulationArgs(
