@@ -40,8 +40,9 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 #DatabaseConnector::disconnect(conn)
 
 ##=========== END OF INPUTS ==========
+config <- config::get()
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
+  fileName = file.path(config$projectRootFolder, "inst", config$studySpecificationFileName)
 )
 
 executionSettings <- Strategus::createCdmExecutionSettings(
