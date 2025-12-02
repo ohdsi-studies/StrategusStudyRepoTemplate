@@ -10,7 +10,7 @@ userName <- "[user name provided by the study coordinator: eg: study-data-site-c
 ##################################
 # DO NOT MODIFY BELOW THIS POINT
 ##################################
-outputLocation <- file.path(outputLocation, "results", databaseName, "strategusOutput")
+outputLocation <- file.path(outputLocation, databaseName, "strategusOutput")
 zipFile <- file.path(outputLocation, paste0(databaseName, ".zip"))
 
 Strategus::zipResults(
