@@ -1,15 +1,16 @@
 ##=========== START OF INPUTS ==========
-outputLocation <- 'D:/git/ohdsi-studies/SemaglutideNaion'
-databaseName <- "MDCD"
-# For uploading the results. You should have received the key file from the study coordinator:
-keyFileName <- "[location where you are storing: e.g. ~/keys/study-data-site-covid19.dat]"
-userName <- "[user name provided by the study coordinator: eg: study-data-site-covid19]"
+
+# NOTE: These values must match the values used in ExecuteAnalyses.R
+outputLocation <- "e:/exampleStrategusStudy" # Where the intermediate and output files will be written
+databaseName <- "CCAE" # Only used as a folder name for results from the study
 
 ##=========== END OF INPUTS ==========
 
 ##################################
 # DO NOT MODIFY BELOW THIS POINT
 ##################################
+config <- config::get()
+
 outputLocation <- file.path(outputLocation, databaseName, "strategusOutput")
 zipFile <- file.path(outputLocation, paste0(databaseName, ".zip"))
 
@@ -19,8 +20,8 @@ Strategus::zipResults(
 )
 
 OhdsiSharing::sftpUploadFile(
-  privateKeyFileName = keyFileName, 
-  userName = userName,
-  remoteFolder = "/your-study/",
+  privateKeyFileName = config$sftpKeyFileName, 
+  userName = config$sftpUserName,
+  remoteFolder = config$sftpRemoteFolderName,
   fileName = zipFile
 )

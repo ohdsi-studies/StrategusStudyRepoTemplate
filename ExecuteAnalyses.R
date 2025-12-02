@@ -40,6 +40,10 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 #DatabaseConnector::disconnect(conn)
 
 ##=========== END OF INPUTS ==========
+
+##################################
+# DO NOT MODIFY BELOW THIS POINT
+##################################
 config <- config::get()
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
   fileName = file.path(config$projectRootFolder, "inst", config$studySpecificationFileName)
