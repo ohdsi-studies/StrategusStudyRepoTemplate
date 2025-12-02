@@ -18,17 +18,17 @@ config <- config::get()
 # resultsFolder should at least contain a 'strategusOutput' subfolder:
 # Use the 1st results folder to define the results data model
 # resultsFolder <- list.dirs(path = "results", full.names = T, recursive = F)[1]
-resultsFolder <- "/Users/schuemie/Data/ExampleStrategusStudy"#list.dirs(path = "/Users/schuemie/Data/ExampleStrategusStudy", full.names = T, recursive = F)[1]
-
+resultsFolder <- "/Users/schuemie/Data/ExampleStrategusStudy"
+if (!dir.exists(file.path(resultsFolder, "strategusOutput"))) {
+  stop(paste0(file.path(resultsFolder, "strategusOutput"), " folder must exist, with results, to create the results model."))
+}
 
 # Don't make changes below this line -------------------------------------------
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
+  fileName = file.path(config$projectRootFolder, "inst", config$studySpecificationFileName)
 )
 
 # Create results data model -------------------------
-
-
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = file.path(resultsFolder, "strategusOutput")

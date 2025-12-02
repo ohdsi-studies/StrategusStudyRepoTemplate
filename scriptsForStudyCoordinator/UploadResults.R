@@ -17,17 +17,11 @@
 # is found at:
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
-
+source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
 config <- config::get()
 
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
-  fileName = "inst/sampleStudy/sampleStudyAnalysisSpecification.json"
-)
-config$resultsConnectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
-  user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
-  password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
+  fileName = file.path(config$projectRootFolder, "inst", config$studySpecificationFileName)
 )
 
 # Setup logging ----------------------------------------------------------------
@@ -56,7 +50,8 @@ for (resultFolder in list.dirs(path = "results", full.names = T, recursive = F))
 }
 
 # Set permissions & analyze tables ---------------------------------------------
-source("scriptsForStudyCoordinator/GrantPermissionsOnTables.R")
+grantReadOnlyPermissions()
+analyzeAllTables()
 
 # Unregister loggers -----------------------------------------------------------
 ParallelLogger::unregisterLogger("RESULTS_FILE_LOGGER")

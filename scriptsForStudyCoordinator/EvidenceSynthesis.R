@@ -9,7 +9,7 @@
 # study is not using CohortMethod and/or SelfControlledCaseSeries you should
 # remove that from the evidenceSynthesisAnalysisList.
 # ##############################################################################
-
+source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
 library(dplyr)
 library(Strategus)
 
@@ -27,26 +27,27 @@ metaAnalysisCm <- esModuleSettingsCreator$createBayesianMetaAnalysis(
   evidenceSynthesisDescription = "Bayesian random-effects alpha 0.05 - adaptive grid",
   evidenceSynthesisSource = evidenceSynthesisSourceCm
 )
-evidenceSynthesisSourceSccs <- esModuleSettingsCreator$createEvidenceSynthesisSource(
+evidenceSynthesisSourceSccsGridWithGradients <- esModuleSettingsCreator$createEvidenceSynthesisSource(
   sourceMethod = "SelfControlledCaseSeries",
-  likelihoodApproximation = "adaptive grid"
+  likelihoodApproximation = "grid with gradients"
 )
 metaAnalysisSccs <- esModuleSettingsCreator$createBayesianMetaAnalysis(
   evidenceSynthesisAnalysisId = 2,
   alpha = 0.05,
-  evidenceSynthesisDescription = "Bayesian random-effects alpha 0.05 - adaptive grid",
-  evidenceSynthesisSource = evidenceSynthesisSourceSccs
+  evidenceSynthesisDescription = "Bayesian random-effects alpha 0.05 - grid with gradients",
+  evidenceSynthesisSource = evidenceSynthesisSourceSccsGridWithGradients
 )
 evidenceSynthesisAnalysisList <- list(metaAnalysisCm, metaAnalysisSccs)
 evidenceSynthesisAnalysisSpecifications <- esModuleSettingsCreator$createModuleSpecifications(
   evidenceSynthesisAnalysisList
 )
-esAnalysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
+esAnalysisSpecifications <- Strategus::createEmptyAnalysisSpecifications() |>
   Strategus::addModuleSpecifications(evidenceSynthesisAnalysisSpecifications)
 
 ParallelLogger::saveSettingsToJson(
   esAnalysisSpecifications, 
-  file.path("inst/sampleStudy/esAnalysisSpecification.json"))
+  file.path(config$projectRootFolder, "inst", config$evidenceSynthesisSpecificationFileName)
+)
 
 # Execute EvidenceSynthesis ----------------------------------------------------
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
@@ -61,7 +62,7 @@ Strategus::execute(
   connectionDetails = config$resultsConnectionDetails
 )
 
-# Upload Results ---------------------------------------------------------------
+# Create results data model and upload results ---------------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
   resultsFolder = resultsExecutionSettings$resultsFolder,
@@ -80,4 +81,6 @@ Strategus::uploadResults(
 )
 
 # Set permissions & analyze tables ---------------------------------------------
-source("scriptsForStudyCoordinator/GrantPermissionsOnTables.R")
+grantReadOnlyPermissions()
+analyzeAllTables()
+
