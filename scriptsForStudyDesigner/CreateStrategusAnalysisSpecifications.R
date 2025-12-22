@@ -15,7 +15,7 @@
 # ##############################################################################
 library(Strategus)
 library(tibble)
-source("scriptsForStudyDesigner/AnalysisSpecificationsFunctions.R")
+source("helperFunctions/AnalysisSpecificationsHelperFunctions.R")
 config <- config::get()
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(

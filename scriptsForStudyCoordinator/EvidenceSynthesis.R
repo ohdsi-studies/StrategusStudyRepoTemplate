@@ -9,7 +9,7 @@
 # study is not using CohortMethod and/or SelfControlledCaseSeries you should
 # remove that from the evidenceSynthesisAnalysisList.
 # ##############################################################################
-source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
+source("helperFunctions/ResultsSchemaHelperFunctions.R")
 library(dplyr)
 library(Strategus)
 
@@ -52,8 +52,8 @@ ParallelLogger::saveSettingsToJson(
 # Execute EvidenceSynthesis ----------------------------------------------------
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = file.path("results", "evidence_sythesis", "strategusOutput"),
-  workFolder = file.path("results", "evidence_sythesis", "strategusWork")
+  resultsFolder = file.path(config$resultFolder, "evidence_sythesis", "strategusResults"),
+  workFolder = file.path(config$workFolder, "evidence_sythesis", "strategusWork")
 )
 
 Strategus::execute(

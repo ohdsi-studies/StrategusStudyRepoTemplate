@@ -10,7 +10,7 @@
 # !!! PLEASE RESTART R AFTER RUNNING renv::restore() !!!
 #
 # -------------------------------------------------------
-#renv::restore()
+renv::restore()
 
 # ENVIRONMENT SETTINGS NEEDED FOR RUNNING STUDY ------------
 Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
@@ -54,8 +54,11 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   cdmDatabaseSchema = cdmDatabaseSchema,
   cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = cohortTableName),
   workFolder = file.path(outputLocation, databaseName, "strategusWork"),
-  resultsFolder = file.path(outputLocation, databaseName, "strategusOutput"),
-  minCellCount = minCellCount
+  resultsFolder = file.path(outputLocation, databaseName, "strategusResults"),
+  minCellCount = minCellCount,
+  # IF YOU NEED TO RE-RUN A STUDY BUT ONLY WANT TO 
+   # RUN SPECIFIC MODULES, USE modulesToExecute
+   # modulesToExecute = c("CohortGeneratorModule", "SelfControlledCaseSeriesModule")
 )
 
 if (!dir.exists(file.path(outputLocation, databaseName))) {

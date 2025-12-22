@@ -10,18 +10,23 @@
 # is found at:
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
+source("helperFunctions/ResultsSchemaHelperFunctions.R")
 
 # Get the study configuration from the config.yml
 config <- config::get()
 
 # Need at least one results folder to know what table structure to create. 
-# resultsFolder should at least contain a 'strategusOutput' subfolder:
+# resultsFolder should at least contain a 'strategusResults' subfolder:
 # Use the 1st results folder to define the results data model
-# resultsFolder <- list.dirs(path = "results", full.names = T, recursive = F)[1]
-resultsFolder <- "/Users/schuemie/Data/ExampleStrategusStudy"
-if (!dir.exists(file.path(resultsFolder, "strategusOutput"))) {
-  stop(paste0(file.path(resultsFolder, "strategusOutput"), " folder must exist, with results, to create the results model."))
+resultsFolder <- list.dirs(path = config$resultFolder, full.names = T, recursive = F)[1]
+if (!dir.exists(file.path(resultsFolder, "strategusResults"))) {
+  stop(paste0(file.path(resultsFolder, "strategusResults"), " folder must exist, with results, to create the results model."))
 }
+
+createResultsSchema(
+  resultsDatabaseConnectionDetails = config$resultsConnectionDetails,
+  resultsDatabaseSchema = config$resultsDatabaseSchema
+)
 
 # Don't make changes below this line -------------------------------------------
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
@@ -31,7 +36,7 @@ analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
 # Create results data model -------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = file.path(resultsFolder, "strategusOutput")
+  resultsFolder = file.path(resultsFolder, "strategusResults")
 )
 
 Strategus::createResultDataModel(

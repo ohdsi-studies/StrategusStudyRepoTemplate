@@ -11,7 +11,7 @@ databaseName <- "CCAE" # Only used as a folder name for results from the study
 ##################################
 config <- config::get()
 
-outputLocation <- file.path(outputLocation, databaseName, "strategusOutput")
+outputLocation <- file.path(outputLocation, databaseName, "strategusResults")
 zipFile <- file.path(outputLocation, paste0(databaseName, ".zip"))
 
 Strategus::zipResults(

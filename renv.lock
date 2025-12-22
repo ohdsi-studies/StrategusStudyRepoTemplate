@@ -22,7 +22,7 @@
     },
     "Andromeda": {
       "Package": "Andromeda",
-      "Version": "1.1.1",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -68,14 +68,9 @@
     },
     "CohortGenerator": {
       "Package": "CohortGenerator",
-      "Version": "1.0.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "CohortGenerator",
-      "RemoteRef": "develop",
-      "RemoteSha": "323ea6926a8ee9f36c018598fe16c61fb2407772"
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "CohortIncidence": {
       "Package": "CohortIncidence",
@@ -90,14 +85,14 @@
     },
     "CohortMethod": {
       "Package": "CohortMethod",
-      "Version": "5.5.1",
+      "Version": "5.5.2",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "CohortMethod",
-      "RemoteRef": "v5.5.1",
-      "RemoteSha": "2855e66b18f705b67f8c80d27eceaf6f07982682"
+      "RemoteRef": "v5.5.2",
+      "RemoteSha": "f797e97a71ff4f46dbf3c6d60bdabf6cc70c98b9"
     },
     "CommonDataModel": {
       "Package": "CommonDataModel",
@@ -262,7 +257,7 @@
     },
     "ParallelLogger": {
       "Package": "ParallelLogger",
-      "Version": "3.5.0",
+      "Version": "3.5.1",
       "Source": "Repository",
       "Repository": "CRAN"
     },
@@ -355,24 +350,13 @@
     },
     "ResultModelManager": {
       "Package": "ResultModelManager",
-      "Version": "0.6.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "OHDSI",
-      "RemoteRepo": "ResultModelManager",
-      "RemoteRef": "hotfix-0.6.1",
-      "RemoteSha": "208c9d9a9a3e062a87c811ba651b8af2c2355229"
-    },
-    "S7": {
-      "Package": "S7",
-      "Version": "0.2.0",
+      "Version": "0.6.2",
       "Source": "Repository",
       "Repository": "CRAN"
     },
     "SelfControlledCaseSeries": {
       "Package": "SelfControlledCaseSeries",
-      "Version": "6.1.0",
+      "Version": "6.1.1",
       "Source": "Repository",
       "Repository": "CRAN"
     },

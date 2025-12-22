@@ -10,6 +10,15 @@
 # is found at:
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
+options(java.parameters = "-Xss15m")
+Sys.setenv(DATABASECONNECTOR_JAR_FOLDER = './drivers')
+if(!dir.exists('./drivers')){
+  dir.create('./drivers')
+  DatabaseConnector::downloadJdbcDrivers(
+    dbms = 'postgresql',
+    pathToDriver = './drivers'
+  )
+}
 
 # Get the study configuration from the config.yml
 config <- config::get()
@@ -17,34 +26,38 @@ config <- config::get()
 library(OhdsiShinyAppBuilder)
 library(OhdsiShinyModules)
 
+themePackage <- "OhdsiShinyAppBuilder"
 # ADD OR REMOVE MODULES TAILORED TO YOUR STUDY
-shinyConfig <- initializeModuleConfig() |>
-  addModuleConfig(
-    createDefaultAboutConfig()
+shinyConfig <- OhdsiShinyAppBuilder::initializeModuleConfig() |>
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultAboutConfig()
   )  |>
-  addModuleConfig(
-    createDefaultDatasourcesConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultDatasourcesConfig()
   )  |>
-  addModuleConfig(
-    createDefaultCohortGeneratorConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultCohortGeneratorConfig()
   ) |>
-  addModuleConfig(
-    createDefaultCohortDiagnosticsConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultCohortDiagnosticsConfig()
   ) |>
-  addModuleConfig(
-    createDefaultCharacterizationConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultCharacterizationConfig()
   ) |>
-  addModuleConfig(
-    createDefaultPredictionConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultPredictionConfig()
   ) |>
-  addModuleConfig(
-    createDefaultEstimationConfig()
+  OhdsiShinyAppBuilder::addModuleConfig(
+    OhdsiShinyAppBuilder::createDefaultEstimationConfig()
   ) 
 
 # now create the shiny app based on the config file and view the results
 # based on the connection 
-ShinyAppBuilder::createShinyApp(
+OhdsiShinyAppBuilder::createShinyApp(
+  title = config$studyName, # Change this to something friendly for the title of the app
+  studyDescription = config$studyName, # Change this to something friendly for the description of the app
   config = shinyConfig, 
   connectionDetails = config$resultsConnectionDetails,
-  resultDatabaseSettings = createDefaultResultDatabaseSettings(schema = config$resultsDatabaseSchema)
+  resultDatabaseSettings = OhdsiShinyAppBuilder::createDefaultResultDatabaseSettings(schema = config$resultsDatabaseSchema),
+  themePackage = themePackage
 )

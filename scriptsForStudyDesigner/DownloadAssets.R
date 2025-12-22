@@ -12,37 +12,53 @@
 # of the UsingThisTemplate.md for more details.
 # ##############################################################################
 
+source("helperFunctions/WebApiHelperFunctions.R")
 library(dplyr)
 config <- config::get()
-baseUrl <- config$webApiUrl
-# Use this if your WebAPI instance has security enabled
-# ROhdsiWebApi::authorizeWebApi(
-#   baseUrl = baseUrl,
-#   authMethod = "windows"
-# )
+authWebApi()
+
+# Define the cohorts that you'd like to download for use in this 
+# study. Here is how the cohortsToDownload tribble is organized
+#  - atlasCohortId: must match the ATLAS cohort identifier
+#  - cohortId: a custom cohort ID or set to NA to use the ATLAS cohort identifier
+#  - cohortName: a custom cohort name or set to NA to the ATLAS cohort name
+cohortsToDownload <- tibble::tribble(
+  ~atlasCohortId, ~cohortId, ~cohortName,
+  1778211, 1, "celecoxib",
+  1790989, 2, "diclofenac",
+  1780946, 3, "GI Bleed"
+)
+
 cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
-  baseUrl = baseUrl,
-  cohortIds = c(
-    1778211, # All exposures - celecoxib
-    1790989, # All exposures - diclofenac
-    1780946 # GI Bleed
-  ),
+  baseUrl = config$webApiUrl,
+  cohortIds = cohortsToDownload$atlasCohortId,
   generateStats = TRUE
 )
 
 # Rename cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1778211,]$cohortName <- "celecoxib"
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1790989,]$cohortName <- "diclofenac"
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1780946,]$cohortName <- "GI Bleed"
-
+if(any(!is.na(cohortsToDownload$cohortName))) {
+  cohortDefinitionSet <- cohortDefinitionSet |>
+    left_join(cohortsToDownload |> select(atlasCohortId, cohortName), by = c("atlasId" = "atlasCohortId"), suffix = c("", ".fromCohortsToDownload")) |>
+    mutate(cohortName = coalesce(cohortName.fromCohortsToDownload, cohortName)) |>
+    select(-cohortName.fromCohortsToDownload)
+}
 # Re-number cohorts
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1778211,]$cohortId <- 1
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1790989,]$cohortId <- 2
-cohortDefinitionSet[cohortDefinitionSet$cohortId == 1780946,]$cohortId <- 3
+if(any(!is.na(cohortsToDownload$cohortId))) {
+  cohortDefinitionSet <- cohortDefinitionSet |>
+    left_join(cohortsToDownload |> select(atlasCohortId, cohortId), by = c("atlasId" = "atlasCohortId"), suffix = c("", ".fromCohortsToDownload")) |>
+    mutate(cohortId = coalesce(cohortId.fromCohortsToDownload, cohortId)) |>
+    select(-cohortId.fromCohortsToDownload)
+}
+
+# Remove any previous results
+if (file.exists(file.path(config$projectRootFolder, "inst", "Cohorts.csv"))) {
+  cli::cli_alert("Removing old assets.")
+  unlink(file.path(config$projectRootFolder, "inst", "Cohorts.csv"))
+  unlink(file.path(config$projectRootFolder, "inst", "cohorts"), recursive = TRUE)
+  unlink(file.path(config$projectRootFolder, "inst", "sql", "sql_server"), recursive = TRUE)
+}
 
 # Save the cohort definition set
-# NOTE: Update settingsFileName, jsonFolder and sqlFolder
-# for your study.
 CohortGenerator::saveCohortDefinitionSet(
   cohortDefinitionSet = cohortDefinitionSet,
   settingsFileName = file.path(config$projectRootFolder, "inst", "Cohorts.csv"),

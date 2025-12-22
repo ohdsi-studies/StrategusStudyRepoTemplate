@@ -67,7 +67,7 @@ createSubsets <- function(tcis, cohortDefinitionSet, negativeControlOutcomeCohor
     subsetOperators <- list()
     
     # Always first restrict for CM/PLP - also if running annual IRs need to change limitTo = 'firstEver' to 'all'
-    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
+    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubsetOperator(
       priorTime = 365,
       followUpTime = 1,
       limitTo = "firstEver"
@@ -104,7 +104,7 @@ createSubsets <- function(tcis, cohortDefinitionSet, negativeControlOutcomeCohor
     if (uniqueSubsetCriteria$genderConceptIds != "" ||
         uniqueSubsetCriteria$minAge != "" ||
         uniqueSubsetCriteria$maxAge != "") {
-      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubset(
+      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubsetOperator(
         ageMin = if(uniqueSubsetCriteria$minAge == "") 0 else as.integer(uniqueSubsetCriteria$minAge),
         ageMax = if(uniqueSubsetCriteria$maxAge == "") 99999 else as.integer(uniqueSubsetCriteria$maxAge),
         gender = if(uniqueSubsetCriteria$genderConceptIds == "") NULL else as.integer(strsplit(uniqueSubsetCriteria$genderConceptIds, ",")[[1]])
@@ -132,7 +132,7 @@ createSubsets <- function(tcis, cohortDefinitionSet, negativeControlOutcomeCohor
     # Time settings
     timeName <- ""
     if (studyStartDate != "" || studyEndDate != "") {
-      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
+      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubsetOperator(
         calendarStartDate = if (studyStartDate == "") NULL else as.Date(studyStartDate, "%Y%m%d"),
         calendarEndDate = if (studyEndDate == "") NULL else as.Date(studyEndDate, "%Y%m%d")
       )

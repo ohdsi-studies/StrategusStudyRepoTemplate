@@ -5,7 +5,7 @@ config <- config::get()
 ProtocolGenerator::generateProtocol(
   jsonLocation =   file.path(config$projectRootFolder, "inst", config$studySpecificationFileName),
   webAPI = config$webApiUrl, 
-  outputLocation = '../extras', 
+  outputLocation = file.path(config$projectRootFolder, "extras"), 
   outputName = 'protocol.html', 
   intermediateDir = tempdir()
 )

@@ -1,4 +1,5 @@
 # History files
+.Rproj.user
 .Rhistory
 .Rapp.history
 
@@ -48,11 +49,19 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Strategus results folder
+# HADES folders
+andromedaTemp/
+
+# Strategus folders
 results/
+strategusInternals/
+
+# Template folders
+/unitTest/
+!/extras/unitTest/
 
 # VSCode
 .vscode/
 
 # JNJ Specific
-.jnj/
+jnj/
