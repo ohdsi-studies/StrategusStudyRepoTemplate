@@ -1,6 +1,9 @@
+extras
 results
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 
+!config.yml
+!*/drivers

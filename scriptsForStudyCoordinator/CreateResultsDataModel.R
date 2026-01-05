@@ -15,13 +15,11 @@ source("helperFunctions/ResultsSchemaHelperFunctions.R")
 # Get the study configuration from the config.yml
 config <- config::get()
 
-# Need at least one results folder to know what table structure to create. 
-# resultsFolder should at least contain a 'strategusResults' subfolder:
 # Use the 1st results folder to define the results data model
-resultsFolder <- list.dirs(path = config$resultFolder, full.names = T, recursive = F)[1]
-if (!dir.exists(file.path(resultsFolder, "strategusResults"))) {
-  stop(paste0(file.path(resultsFolder, "strategusResults"), " folder must exist, with results, to create the results model."))
+if (length(list.dirs(path = config$resultFolder, full.names = T, recursive = F)) == 0) {
+  stop(paste0(config$resultFolder, " folder must exist, with results, to create the results model."))
 }
+firstResultsFolder <- list.dirs(path = config$resultFolder, full.names = T, recursive = F)[1]
 
 createResultsSchema(
   resultsDatabaseConnectionDetails = config$resultsConnectionDetails,
@@ -36,7 +34,7 @@ analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
 # Create results data model -------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = file.path(resultsFolder, "strategusResults")
+  resultsFolder = firstResultsFolder
 )
 
 Strategus::createResultDataModel(

@@ -76,7 +76,7 @@ createSubsets <- function(tcis, cohortDefinitionSet, negativeControlOutcomeCohor
     # Indication restriction (always first if there is an indication)
     indicationName <- ""
     if (uniqueSubsetCriteria$indicationId != "") {
-      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubset(
+      subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubsetOperator(
         cohortIds = uniqueSubsetCriteria$indicationId,
         negate = FALSE,
         cohortCombinationOperator = "all",

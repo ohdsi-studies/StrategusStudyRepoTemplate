@@ -67,7 +67,7 @@ analyzeAllTables <- function(config = config::get()) {
 }
 
 createResultsSchema <- function(resultsDatabaseConnectionDetails, resultsDatabaseSchema) {
-  # Connect to the database ------------------------------------------------------
+  # Connect to the database
   connection <- DatabaseConnector::connect(connectionDetails = resultsDatabaseConnectionDetails)
   opt <- options(show.error.messages = FALSE)
   on.exit({
@@ -75,7 +75,7 @@ createResultsSchema <- function(resultsDatabaseConnectionDetails, resultsDatabas
     on.exit(DatabaseConnector::disconnect(connection))
   })  
   
-  # Create the schema ------------------------------------------------------------
+  # Create the schema
   tryCatch(
     expr = {
       sql <- "CREATE SCHEMA @schema;"

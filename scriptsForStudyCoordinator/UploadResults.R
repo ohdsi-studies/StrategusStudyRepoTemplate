@@ -39,7 +39,7 @@ ParallelLogger::addDefaultErrorReportLogger(
 for (resultFolder in list.dirs(path = config$resultFolder, full.names = T, recursive = F)) {
   resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
     resultsDatabaseSchema = config$resultsDatabaseSchema,
-    resultsFolder = file.path(resultFolder, "strategusResults"),
+    resultsFolder = resultFolder
   )
   
   Strategus::uploadResults(

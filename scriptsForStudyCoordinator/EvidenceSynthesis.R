@@ -52,8 +52,8 @@ ParallelLogger::saveSettingsToJson(
 # Execute EvidenceSynthesis ----------------------------------------------------
 resultsExecutionSettings <- Strategus::createResultsExecutionSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = file.path(config$resultFolder, "evidence_sythesis", "strategusResults"),
-  workFolder = file.path(config$workFolder, "evidence_sythesis", "strategusWork")
+  resultsFolder = config$evidenceSynthesisResultFolder,
+  workFolder = config$evidenceSynthesisWorkFolder
 )
 
 Strategus::execute(
