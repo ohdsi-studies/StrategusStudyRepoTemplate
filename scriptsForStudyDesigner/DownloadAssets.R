@@ -15,7 +15,7 @@
 source("scriptsForStudyDesigner/WebApiHelperFunctions.R")
 library(dplyr)
 config <- config::get()
-authWebApi()
+authWebApi(authMethod = "none")
 
 # Define the cohorts that you'd like to download for use in this 
 # study. Here is how the cohortsToDownload tribble is organized
@@ -24,9 +24,9 @@ authWebApi()
 #  - cohortName: a custom cohort name or set to NA to the ATLAS cohort name
 cohortsToDownload <- tibble::tribble(
   ~atlasCohortId, ~cohortId, ~cohortName,
-  22492, 1, "celecoxib",
-  22493, 2, "diclofenac",
-  22494, 3, "GI Bleed"
+  1778211, 1, "celecoxib",
+  1790989, 2, "diclofenac",
+  1780946, 3, "GI Bleed"
 )
 
 downloadCohortDefinitionSet(
