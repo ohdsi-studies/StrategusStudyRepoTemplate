@@ -9,7 +9,7 @@
 # study is not using CohortMethod and/or SelfControlledCaseSeries you should
 # remove that from the evidenceSynthesisAnalysisList.
 # ##############################################################################
-source("helperFunctions/ResultsSchemaHelperFunctions.R")
+source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
 library(dplyr)
 library(Strategus)
 
@@ -62,16 +62,11 @@ Strategus::execute(
   connectionDetails = config$resultsConnectionDetails
 )
 
-# Create results data model and upload results ---------------------------------
+# Upload results ---------------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = resultsExecutionSettings$resultsFolder,
-)
-
-Strategus::createResultDataModel(
-  analysisSpecifications = esAnalysisSpecifications,
-  resultsDataModelSettings = resultsDataModelSettings,
-  resultsConnectionDetails = config$resultsConnectionDetails
+  resultsFolder = config$evidenceSynthesisResultFolder,
+  logFileName = file.path(config$evidenceSynthesisResultFolder, "strategus-upload-results-log.txt")
 )
 
 Strategus::uploadResults(

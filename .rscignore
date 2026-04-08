@@ -1,9 +1,12 @@
 extras
+PlPModels
 results
+strategusInternals
+template_resources
+unitTest
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-
 !config.yml
 !*/drivers

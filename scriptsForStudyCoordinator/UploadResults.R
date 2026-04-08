@@ -17,7 +17,7 @@
 # is found at:
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
-source("helperFunctions/ResultsSchemaHelperFunctions.R")
+source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
 config <- config::get()
 
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
@@ -39,7 +39,8 @@ ParallelLogger::addDefaultErrorReportLogger(
 for (resultFolder in list.dirs(path = config$resultFolder, full.names = T, recursive = F)) {
   resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
     resultsDatabaseSchema = config$resultsDatabaseSchema,
-    resultsFolder = resultFolder
+    resultsFolder = resultFolder,
+    logFileName = file.path(config$projectRootFolder, "strategus-upload-results-log.txt")
   )
   
   Strategus::uploadResults(

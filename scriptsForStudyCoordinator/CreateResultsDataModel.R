@@ -10,16 +10,10 @@
 # is found at:
 # https://ohdsi.github.io/Strategus/articles/WorkingWithResults.html
 # ##############################################################################
-source("helperFunctions/ResultsSchemaHelperFunctions.R")
+source("scriptsForStudyCoordinator/ResultsSchemaHelperFunctions.R")
 
 # Get the study configuration from the config.yml
 config <- config::get()
-
-# Use the 1st results folder to define the results data model
-if (length(list.dirs(path = config$resultFolder, full.names = T, recursive = F)) == 0) {
-  stop(paste0(config$resultFolder, " folder must exist, with results, to create the results model."))
-}
-firstResultsFolder <- list.dirs(path = config$resultFolder, full.names = T, recursive = F)[1]
 
 createResultsSchema(
   resultsDatabaseConnectionDetails = config$resultsConnectionDetails,
@@ -34,7 +28,8 @@ analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
 # Create results data model -------------------------
 resultsDataModelSettings <- Strategus::createResultsDataModelSettings(
   resultsDatabaseSchema = config$resultsDatabaseSchema,
-  resultsFolder = firstResultsFolder
+  resultsFolder = config$projectRootFolder, # NOTE: With Strategus v1.5, this parameter is ignored when creating the results data model
+  logFileName = file.path(config$projectRootFolder, "strategus-create-results-data-model-log.txt")
 )
 
 Strategus::createResultDataModel(
