@@ -1,12 +1,7 @@
 ################################################################################
 # INSTRUCTIONS: Make sure you have downloaded your cohorts and concept sets 
 # using DownloadAssets.R and that those are stored in the "inst" folder of the
-# of the project. This script is written to use the sample study cohorts
-# located in "inst/sampleStudy" so you will need to modify this in the code 
-# below. 
-# 
-# See the Create analysis specifications section
-# of the UsingThisTemplate.md for more details.
+# of the project. 
 # 
 # More information about Strategus HADES modules can be found at:
 # https://ohdsi.github.io/Strategus/reference/index.html#omop-cdm-hades-modules.
@@ -433,6 +428,7 @@ for (i in seq_along(tcis)) {
   )
 }
 getDbCohortMethodDataArgs <- CohortMethod::createGetDbCohortMethodDataArgs(
+  firstExposureOnly = TRUE,
   restrictToCommonPeriod = TRUE,
   studyStartDate = studyStartDate,
   studyEndDate = studyEndDate,

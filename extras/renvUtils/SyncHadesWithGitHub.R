@@ -11,7 +11,7 @@
 # The final step in this script will then update the renv.lock
 # file to use the latest versions of all HADES packages
 # ----------------------------------------------------------------
-source("extras/RenvUtils.R")
+source("extras/renvUtils/renvUtils.R")
 
 # Function to get the latest tag for a GitHub repository
 getLatestTag <- function(organization, repo) {
@@ -22,6 +22,7 @@ getLatestTag <- function(organization, repo) {
   response <- httr::GET(url)
   
   # Check if the request was successful
+  latest_tag <- NA
   if (httr::status_code(response) == 200) {
     # Parse the JSON response
     tags <- jsonlite::fromJSON(httr::content(response, as = "text"))
@@ -29,7 +30,6 @@ getLatestTag <- function(organization, repo) {
     # Extract the tag names
     tag_names <- tags$ref
     tag_names <- gsub("refs/tags/v", "", tag_names)
-    latest_tag <- NA
     
     if (length(tag_names > 0)) {
       # Get the latest tag by parsing to find the largest value
@@ -71,7 +71,8 @@ getLatestTag <- function(organization, repo) {
 
     return(latest_tag)
   } else {
-    stop("Failed to fetch tags: ", status_code(response))
+    warning(paste0(repo, "- failed to fetch tags: ", httr::status_code(response)))
+    return(latest_tag)
   }
 }
 
