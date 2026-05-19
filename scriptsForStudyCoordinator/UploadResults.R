@@ -26,10 +26,6 @@ analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
 
 # Setup logging ----------------------------------------------------------------
 ParallelLogger::clearLoggers()
-ParallelLogger::addDefaultFileLogger(
-  fileName = "upload-log.txt",
-  name = "RESULTS_FILE_LOGGER"
-)
 ParallelLogger::addDefaultErrorReportLogger(
   fileName = "upload-errorReport.txt",
   name = "RESULTS_ERROR_LOGGER"
@@ -55,5 +51,4 @@ grantReadOnlyPermissions()
 analyzeAllTables()
 
 # Unregister loggers -----------------------------------------------------------
-ParallelLogger::unregisterLogger("RESULTS_FILE_LOGGER")
 ParallelLogger::unregisterLogger("RESULTS_ERROR_LOGGER")
