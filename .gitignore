@@ -53,8 +53,11 @@ rsconnect/
 andromedaTemp/
 
 # Strategus folders
+evidenceSynthesis/
+PlPModels/
 results/
 strategusInternals/
+unitTest/
 
 # Template folders
 /unitTest/
