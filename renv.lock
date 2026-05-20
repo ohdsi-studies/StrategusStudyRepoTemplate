@@ -42,6 +42,17 @@
       "Version": "2.5.0",
       "Source": "Repository"
     },
+    "Capr": {
+      "Package": "Capr",
+      "Version": "2.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "Capr",
+      "RemoteRef": "v2.1.1",
+      "RemoteSha": "7d18310ab95f5e6203cfbf2b6c9e717f13c70228"
+    },
     "Characterization": {
       "Package": "Characterization",
       "Version": "3.0.1",
