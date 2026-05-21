@@ -1,0 +1,27 @@
+default:
+  studyName: "strategus_template"
+  resultsDatabaseSchema: "strategus_template"
+  webApiUrl: "https://atlas-demo.ohdsi.org/WebAPI"
+  projectRootFolder: !expr getwd() # Project root folder will hold the study settings
+  resultFolder: !expr file.path(getwd(), "results")  # Folder will hold the study results
+  workFolder: !expr file.path(getwd(), "strategusInternals")  # Folder will hold the strategus intermediate work files
+  evidenceSynthesisResultFolder: !expr file.path(getwd(), "evidenceSynthesis", "results")  # Folder will hold the evidence synthesis results
+  evidenceSynthesisWorkFolder: !expr file.path(getwd(), "evidenceSynthesis", "strategusInternals")  # Folder will hold the evidence synthesis intermediate work files
+  andromeda: !expr options(andromedaTempFolder = file.path(getwd(), "andromedaTemp"))
+  studySpecificationFileName: "analysisSpecifications.json"
+  evidenceSynthesisSpecificationFileName: "esAnalysisSpecification.json"
+  resultsConnectionDetails: !expr |
+    DatabaseConnector::createConnectionDetails(
+     dbms = "postgresql",
+     server = Sys.getenv("OHDSI_RESULTS_DATABASE_SERVER"),
+     user = Sys.getenv("OHDSI_RESULTS_DATABASE_USER"),
+     password = Sys.getenv("OHDSI_RESULTS_DATABASE_PASSWORD")
+    )
+  # Shiny results viewer settings
+  shinyReadOnlyUserName: "shinyproxy"
+  # The following settings are for the secure OHDSI SFTP server and are
+  # provided to each network study coordinator
+  sftpDownloadFolder: !expr getwd()
+  sftpRemoteFolderName: "covid19"
+  sftpKeyFileName: "[location where you are storing: e.g. ~/keys/study-coordinator-covid19.dat]"
+  sftpUserName: "[user name provided by the study coordinator: eg: study-coordinator-covid19]"
