@@ -21,7 +21,8 @@ options(sqlRenderTempEmulationSchema = "scratch.scratch_mschuemi") # For databas
 cdmDatabaseSchema <- "merative_ccae.cdm_merative_ccae_v3046" # The database / schema where the data in CDM format live
 workDatabaseSchema <- "scratch.scratch_mschuemi" # A database /schema where study tables can be written
 cohortTableName <- "example_strategus_study_ccae" # Where the cohorts will be written
-outputLocation <- "e:/exampleStrategusStudy" # Where the intermediate and output files will be written
+resultsFolder <- "e:/exampleStrategusStudy/results" # Where the output files will be written
+workFolder <- "e:/exampleStrategusStudy/strategusInternals" # Where the intermediate work files will be written
 databaseName <- "CCAE" # Only used as a folder name for results from the study
 minCellCount <- 5 # Minimum cell count for inclusion in output tables
 
@@ -45,6 +46,10 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 # DO NOT MODIFY BELOW THIS POINT
 ##################################
 config <- config::get()
+
+resultsFolder <- file.path(resultsFolder, databaseName)
+workFolder <- file.path(workFolder, databaseName)
+
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
   fileName = file.path(config$projectRootFolder, "inst", config$studySpecificationFileName)
 )
@@ -53,20 +58,25 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   workDatabaseSchema = workDatabaseSchema,
   cdmDatabaseSchema = cdmDatabaseSchema,
   cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = cohortTableName),
-  workFolder = file.path(outputLocation, databaseName, "strategusWork"),
-  resultsFolder = file.path(outputLocation, databaseName, "strategusResults"),
-  minCellCount = minCellCount,
-  # IF YOU NEED TO RE-RUN A STUDY BUT ONLY WANT TO 
-   # RUN SPECIFIC MODULES, USE modulesToExecute
-   # modulesToExecute = c("CohortGeneratorModule", "SelfControlledCaseSeriesModule")
+  workFolder = workFolder,
+  resultsFolder = resultsFolder,
+  minCellCount = minCellCount
+  # IF YOU NEED TO RE-RUN A STUDY BUT ONLY WANT TO RUN SPECIFIC MODULES,
+  # ADD A COMMA AFTER minCellCount AND USE modulesToExecute:
+  # modulesToExecute = c("CohortGeneratorModule", "SelfControlledCaseSeriesModule")
 )
 
-if (!dir.exists(file.path(outputLocation, databaseName))) {
-  dir.create(file.path(outputLocation, databaseName), recursive = T)
+if (!dir.exists(resultsFolder)) {
+  dir.create(resultsFolder, recursive = T)
 }
+
+if (!dir.exists(workFolder)) {
+  dir.create(workFolder, recursive = T)
+}
+
 ParallelLogger::saveSettingsToJson(
   object = executionSettings,
-  fileName = file.path(outputLocation, databaseName, "executionSettings.json")
+  fileName = file.path(resultsFolder, "executionSettings.json")
 )
 
 Strategus::execute(
