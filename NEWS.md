@@ -1,3 +1,11 @@
+StrategusStudyRepoTemplate 2.0.1
+===============
+- Move Characterization package to develop branch to address issue with character length problem.
+
+StrategusStudyRepoTemplate 2.0.0
+===============
+- Reorganize project template and update to use 2026Q1 HADES-wide lock file (#28)
+
 StrategusStudyRepoTemplate 1.1.1
 ===============
 - Revise sample study to reduce execution time (#18)
