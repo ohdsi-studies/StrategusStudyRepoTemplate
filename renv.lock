@@ -56,8 +56,13 @@
     "Characterization": {
       "Package": "Characterization",
       "Version": "3.0.1",
-      "Source": "Repository",
-      "Repository": "CRAN"
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "Characterization",
+      "RemoteRef": "develop",
+      "RemoteSha": "e051e6543eb9457a70dd2621dd8bdd76556f597e"
     },
     "CirceR": {
       "Package": "CirceR",
