@@ -62,8 +62,8 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   resultsFolder = resultsFolder,
   minCellCount = minCellCount
   # IF YOU NEED TO RE-RUN A STUDY BUT ONLY WANT TO RUN SPECIFIC MODULES,
-  # ADD A COMMA AFTER minCellCount AND USE modulesToExecute:
-  # modulesToExecute = c("CohortGeneratorModule", "SelfControlledCaseSeriesModule")
+  # USE modulesToExecute:
+  # , modulesToExecute = c("CohortGeneratorModule", "SelfControlledCaseSeriesModule")
 )
 
 if (!dir.exists(resultsFolder)) {
