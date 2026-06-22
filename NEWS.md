@@ -1,3 +1,7 @@
+StrategusStudyRepoTemplate 2.0.2
+===============
+- Revise `ExecuteAnalyses.R` to avoid error when uncommenting the `modulesToExecute` parameter (#30)
+
 StrategusStudyRepoTemplate 2.0.1
 ===============
 - Move Characterization package to develop branch to address issue with character length problem.
