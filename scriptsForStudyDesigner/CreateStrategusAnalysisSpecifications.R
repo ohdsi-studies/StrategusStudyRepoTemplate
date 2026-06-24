@@ -30,8 +30,8 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 tcis <- list(
   #standard analyses that would be performed during routine signal detection
   list(
-    targetId = 1, # Celecoxib
-    comparatorId = 2, # diclofenac
+    targetId = 11, # Celecoxib
+    comparatorId = 21, # diclofenac
     indicationId = NULL, # When desired, you can use this to subset the target & comparator to an indication cohort that overlaps the target/comparator start date. Can be NULL.
     genderConceptIds = c(8507, 8532), # use valid genders (remove unknown)
     minAge = NULL, # All ages In years. Can be NULL
@@ -45,7 +45,7 @@ tcis <- list(
 
 outcomes <- tibble::tribble(
   ~cohortId, ~cleanWindow,
-  3,    365,          # GI Bleed
+  31,    365,          # GI Bleed
 )
 
 # Time-at-risks (TARs) for the outcomes of interest in your study
@@ -237,7 +237,7 @@ for (i in seq_len(nrow(dfUniqueSubsetCriteria))) {
 # Check to make sure there are no duplicated cohort IDs between 
 # the cohortDefintionSet and negative control outcome cohorts.
 if (!is.null(negativeControlOutcomeCohortSet)) {
-  if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
+  if (length(intersect(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId)) > 0) {
     dupedCohortIds <- intersect(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId)
     dupedCohorts <- cohortDefinitionSet |>
       dplyr::filter(cohortId %in% dupedCohortIds) |>
@@ -247,7 +247,7 @@ if (!is.null(negativeControlOutcomeCohortSet)) {
       dplyr::filter(cohortId %in% dupedCohortIds) |>
       dplyr::select(cohortId, cohortName) |>
       dplyr::mutate(source = "negativeControlOutcomeCohortSet")
-    allDupedCohorts <- cohortDefinitionSet |>
+    allDupedCohorts <- dupedCohorts |>
       dplyr::bind_rows(dupedNcs)
     cli::cli_alert_danger("Duplicate cohort IDs found in the cohortDefinitionSet and the negativeControlOutcomeCohortSet!")
     print.data.frame(allDupedCohorts)

@@ -3,17 +3,17 @@
     {
       "cohortDefinitions": [
         {
-          "cohortId": 1,
+          "cohortId": 11,
           "cohortName": "celecoxib",
           "cohortDefinition": "{\r\n\t\"cdmVersionRange\" : \">=5.0.0\",\r\n\t\"PrimaryCriteria\" : {\r\n\t\t\"CriteriaList\" : [\r\n\t\t\t{\r\n\t\t\t\t\"DrugEra\" : {\r\n\t\t\t\t\t\"CodesetId\" : 0\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"ObservationWindow\" : {\r\n\t\t\t\"PriorDays\" : 0,\r\n\t\t\t\"PostDays\" : 0\r\n\t\t},\r\n\t\t\"PrimaryCriteriaLimit\" : {\r\n\t\t\t\"Type\" : \"All\"\r\n\t\t}\r\n\t},\r\n\t\"ConceptSets\" : [\r\n\t\t{\r\n\t\t\t\"id\" : 0,\r\n\t\t\t\"name\" : \"Celecoxib\",\r\n\t\t\t\"expression\" : {\r\n\t\t\t\t\"items\" : [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"concept\" : {\r\n\t\t\t\t\t\t\t\"CONCEPT_ID\" : 1118084,\r\n\t\t\t\t\t\t\t\"CONCEPT_NAME\" : \"celecoxib\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT\" : \"S\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT_CAPTION\" : \"Standard\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON\" : \"V\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON_CAPTION\" : \"Valid\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CODE\" : \"140587\",\r\n\t\t\t\t\t\t\t\"DOMAIN_ID\" : \"Drug\",\r\n\t\t\t\t\t\t\t\"VOCABULARY_ID\" : \"RxNorm\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CLASS_ID\" : \"Ingredient\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"isExcluded\" : false,\r\n\t\t\t\t\t\t\"includeDescendants\" : false,\r\n\t\t\t\t\t\t\"includeMapped\" : false\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"QualifiedLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"ExpressionLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"InclusionRules\" : [],\r\n\t\"EndStrategy\" : {\r\n\t\t\"CustomEra\" : {\r\n\t\t\t\"DrugCodesetId\" : 0,\r\n\t\t\t\"GapDays\" : 30,\r\n\t\t\t\"Offset\" : 0\r\n\t\t}\r\n\t},\r\n\t\"CensoringCriteria\" : [],\r\n\t\"CollapseSettings\" : {\r\n\t\t\"CollapseType\" : \"ERA\",\r\n\t\t\"EraPad\" : 0\r\n\t},\r\n\t\"CensorWindow\" : {}\r\n}"
         },
         {
-          "cohortId": 2,
+          "cohortId": 21,
           "cohortName": "diclofenac",
           "cohortDefinition": "{\r\n\t\"cdmVersionRange\" : \">=5.0.0\",\r\n\t\"PrimaryCriteria\" : {\r\n\t\t\"CriteriaList\" : [\r\n\t\t\t{\r\n\t\t\t\t\"DrugEra\" : {\r\n\t\t\t\t\t\"CodesetId\" : 0\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"ObservationWindow\" : {\r\n\t\t\t\"PriorDays\" : 0,\r\n\t\t\t\"PostDays\" : 0\r\n\t\t},\r\n\t\t\"PrimaryCriteriaLimit\" : {\r\n\t\t\t\"Type\" : \"All\"\r\n\t\t}\r\n\t},\r\n\t\"ConceptSets\" : [\r\n\t\t{\r\n\t\t\t\"id\" : 0,\r\n\t\t\t\"name\" : \"Diclofenac\",\r\n\t\t\t\"expression\" : {\r\n\t\t\t\t\"items\" : [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"concept\" : {\r\n\t\t\t\t\t\t\t\"CONCEPT_ID\" : 1124300,\r\n\t\t\t\t\t\t\t\"CONCEPT_NAME\" : \"diclofenac\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT\" : \"S\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT_CAPTION\" : \"Standard\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON\" : \"V\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON_CAPTION\" : \"Valid\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CODE\" : \"3355\",\r\n\t\t\t\t\t\t\t\"DOMAIN_ID\" : \"Drug\",\r\n\t\t\t\t\t\t\t\"VOCABULARY_ID\" : \"RxNorm\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CLASS_ID\" : \"Ingredient\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"isExcluded\" : false,\r\n\t\t\t\t\t\t\"includeDescendants\" : false,\r\n\t\t\t\t\t\t\"includeMapped\" : false\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"QualifiedLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"ExpressionLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"InclusionRules\" : [],\r\n\t\"EndStrategy\" : {\r\n\t\t\"CustomEra\" : {\r\n\t\t\t\"DrugCodesetId\" : 0,\r\n\t\t\t\"GapDays\" : 30,\r\n\t\t\t\"Offset\" : 0\r\n\t\t}\r\n\t},\r\n\t\"CensoringCriteria\" : [],\r\n\t\"CollapseSettings\" : {\r\n\t\t\"CollapseType\" : \"ERA\",\r\n\t\t\"EraPad\" : 0\r\n\t},\r\n\t\"CensorWindow\" : {}\r\n}"
         },
         {
-          "cohortId": 3,
+          "cohortId": 31,
           "cohortName": "GI Bleed",
           "cohortDefinition": "{\r\n\t\"cdmVersionRange\" : \">=5.0.0\",\r\n\t\"PrimaryCriteria\" : {\r\n\t\t\"CriteriaList\" : [\r\n\t\t\t{\r\n\t\t\t\t\"ConditionOccurrence\" : {\r\n\t\t\t\t\t\"CodesetId\" : 0\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"ObservationWindow\" : {\r\n\t\t\t\"PriorDays\" : 0,\r\n\t\t\t\"PostDays\" : 0\r\n\t\t},\r\n\t\t\"PrimaryCriteriaLimit\" : {\r\n\t\t\t\"Type\" : \"All\"\r\n\t\t}\r\n\t},\r\n\t\"ConceptSets\" : [\r\n\t\t{\r\n\t\t\t\"id\" : 0,\r\n\t\t\t\"name\" : \"GI bleed\",\r\n\t\t\t\"expression\" : {\r\n\t\t\t\t\"items\" : [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"concept\" : {\r\n\t\t\t\t\t\t\t\"CONCEPT_ID\" : 192671,\r\n\t\t\t\t\t\t\t\"CONCEPT_NAME\" : \"Gastrointestinal hemorrhage\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT\" : \"S\",\r\n\t\t\t\t\t\t\t\"STANDARD_CONCEPT_CAPTION\" : \"Standard\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON\" : \"V\",\r\n\t\t\t\t\t\t\t\"INVALID_REASON_CAPTION\" : \"Valid\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CODE\" : \"74474003\",\r\n\t\t\t\t\t\t\t\"DOMAIN_ID\" : \"Condition\",\r\n\t\t\t\t\t\t\t\"VOCABULARY_ID\" : \"SNOMED\",\r\n\t\t\t\t\t\t\t\"CONCEPT_CLASS_ID\" : \"Clinical Finding\"\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"isExcluded\" : false,\r\n\t\t\t\t\t\t\"includeDescendants\" : true,\r\n\t\t\t\t\t\t\"includeMapped\" : false\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"QualifiedLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"ExpressionLimit\" : {\r\n\t\t\"Type\" : \"First\"\r\n\t},\r\n\t\"InclusionRules\" : [],\r\n\t\"EndStrategy\" : {\r\n\t\t\"DateOffset\" : {\r\n\t\t\t\"DateField\" : \"StartDate\",\r\n\t\t\t\"Offset\" : 0\r\n\t\t}\r\n\t},\r\n\t\"CensoringCriteria\" : [],\r\n\t\"CollapseSettings\" : {\r\n\t\t\"CollapseType\" : \"ERA\",\r\n\t\t\"EraPad\" : 0\r\n\t},\r\n\t\"CensorWindow\" : {}\r\n}"
         }
@@ -23,14 +23,14 @@
       ],
       "cohortSubsets": [
         {
-          "cohortId": 1001,
+          "cohortId": 11001,
           "subsetId": 1,
-          "targetCohortId": 1
+          "targetCohortId": 11
         },
         {
-          "cohortId": 2001,
+          "cohortId": 21001,
           "subsetId": 1,
-          "targetCohortId": 2
+          "targetCohortId": 21
         }
       ],
       "attr_class": ["CohortDefinitionSharedResources", "SharedResources"]
@@ -1076,7 +1076,7 @@
     {
       "module": "CohortDiagnosticsModule",
       "settings": {
-        "cohortIds": [1, 2, 3, 1001, 2001],
+        "cohortIds": [11, 21, 31, 11001, 21001],
         "runInclusionStatistics": true,
         "runIncludedSourceConcepts": true,
         "runOrphanConcepts": true,
@@ -1140,15 +1140,15 @@
         "analysis": {
           "timeToEventSettings": [
             {
-              "targetIds": [1, 2, 1001, 2001],
-              "outcomeIds": 3,
+              "targetIds": [11, 21, 11001, 21001],
+              "outcomeIds": 31,
               "attr_class": "timeToEventSettings"
             }
           ],
           "dechallengeRechallengeSettings": [
             {
-              "targetCohortDefinitionIds": [1, 2, 1001, 2001],
-              "outcomeCohortDefinitionIds": 3,
+              "targetCohortDefinitionIds": [11, 21, 11001, 21001],
+              "outcomeCohortDefinitionIds": 31,
               "dechallengeStopInterval": 30,
               "dechallengeEvaluationWindow": 30,
               "attr_class": "dechallengeRechallengeSettings"
@@ -1156,7 +1156,7 @@
           ],
           "targetBaselineSettings": [
             {
-              "targetIds": [1, 2, 1001, 2001],
+              "targetIds": [11, 21, 11001, 21001],
               "limitToFirstInNDays": 99999,
               "minPriorObservation": 365,
               "covariateSettings": [
@@ -1206,10 +1206,10 @@
           ],
           "riskFactorSettings": [
             {
-              "targetIds": [1, 2, 1001, 2001],
+              "targetIds": [11, 21, 11001, 21001],
               "limitToFirstInNDays": 99999,
               "minPriorObservation": 365,
-              "outcomeIds": 3,
+              "outcomeIds": 31,
               "outcomeWashoutDays": 365,
               "riskWindowStart": 1,
               "startAnchor": "cohort_start",
@@ -1264,10 +1264,10 @@
           ],
           "caseSeriesSettings": [
             {
-              "targetIds": [1, 2, 1001, 2001],
+              "targetIds": [11, 21, 11001, 21001],
               "limitToFirstInNDays": 99999,
               "minPriorObservation": 365,
-              "outcomeIds": 3,
+              "outcomeIds": 31,
               "outcomeWashoutDays": 365,
               "riskWindowStart": 1,
               "startAnchor": "cohort_start",
@@ -1314,11 +1314,11 @@
         "irDesign": {
           "targetDefs": [
             {
-              "id": 1001,
+              "id": 11001,
               "name": "celecoxib - first time  gender 8507,8532"
             },
             {
-              "id": 2001,
+              "id": 21001,
               "name": "diclofenac - first time  gender 8507,8532"
             }
           ],
@@ -1326,7 +1326,7 @@
             {
               "id": 1,
               "name": "GI Bleed",
-              "cohortId": 3,
+              "cohortId": 31,
               "cleanWindow": 365
             }
           ],
@@ -1345,7 +1345,7 @@
           ],
           "analysisList": [
             {
-              "targets": [1001, 2001],
+              "targets": [11001, 21001],
               "outcomes": 1,
               "tars": 1
             }
@@ -1390,7 +1390,7 @@
                   "priorOutcomeLookback": 99999,
                   "trueEffectSize": null,
                   "outcomeOfInterest": true,
-                  "outcomeId": 3
+                  "outcomeId": 31
                 },
                 {
                   "endAnchor": null,
@@ -2073,8 +2073,8 @@
                   "outcomeId": 1068
                 }
               ],
-              "comparatorId": 2,
-              "targetId": 1
+              "comparatorId": 21,
+              "targetId": 11
             }
           ],
           "cmAnalysisList": [
@@ -2296,10 +2296,10 @@
                 {
                   "trueEffectSize": null,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
-              "outcomeId": 3
+              "outcomeId": 31
             },
             {
               "nestingCohortId": null,
@@ -2307,7 +2307,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1001
@@ -2318,7 +2318,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1002
@@ -2329,7 +2329,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1003
@@ -2340,7 +2340,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1004
@@ -2351,7 +2351,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1005
@@ -2362,7 +2362,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1006
@@ -2373,7 +2373,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1007
@@ -2384,7 +2384,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1008
@@ -2395,7 +2395,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1009
@@ -2406,7 +2406,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1010
@@ -2417,7 +2417,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1011
@@ -2428,7 +2428,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1012
@@ -2439,7 +2439,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1013
@@ -2450,7 +2450,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1014
@@ -2461,7 +2461,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1015
@@ -2472,7 +2472,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1016
@@ -2483,7 +2483,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1017
@@ -2494,7 +2494,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1018
@@ -2505,7 +2505,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1019
@@ -2516,7 +2516,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1020
@@ -2527,7 +2527,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1021
@@ -2538,7 +2538,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1022
@@ -2549,7 +2549,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1023
@@ -2560,7 +2560,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1024
@@ -2571,7 +2571,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1025
@@ -2582,7 +2582,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1026
@@ -2593,7 +2593,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1027
@@ -2604,7 +2604,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1028
@@ -2615,7 +2615,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1029
@@ -2626,7 +2626,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1030
@@ -2637,7 +2637,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1031
@@ -2648,7 +2648,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1032
@@ -2659,7 +2659,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1033
@@ -2670,7 +2670,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1034
@@ -2681,7 +2681,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1035
@@ -2692,7 +2692,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1036
@@ -2703,7 +2703,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1037
@@ -2714,7 +2714,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1038
@@ -2725,7 +2725,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1039
@@ -2736,7 +2736,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1040
@@ -2747,7 +2747,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1041
@@ -2758,7 +2758,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1042
@@ -2769,7 +2769,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1043
@@ -2780,7 +2780,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1044
@@ -2791,7 +2791,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1045
@@ -2802,7 +2802,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1046
@@ -2813,7 +2813,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1047
@@ -2824,7 +2824,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1048
@@ -2835,7 +2835,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1049
@@ -2846,7 +2846,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1050
@@ -2857,7 +2857,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1051
@@ -2868,7 +2868,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1052
@@ -2879,7 +2879,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1053
@@ -2890,7 +2890,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1054
@@ -2901,7 +2901,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1055
@@ -2912,7 +2912,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1056
@@ -2923,7 +2923,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1057
@@ -2934,7 +2934,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1058
@@ -2945,7 +2945,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1059
@@ -2956,7 +2956,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1060
@@ -2967,7 +2967,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1061
@@ -2978,7 +2978,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1062
@@ -2989,7 +2989,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1063
@@ -3000,7 +3000,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1064
@@ -3011,7 +3011,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1065
@@ -3022,7 +3022,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1066
@@ -3033,7 +3033,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1067
@@ -3044,7 +3044,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 1
+                  "exposureId": 11
                 }
               ],
               "outcomeId": 1068
@@ -3055,10 +3055,10 @@
                 {
                   "trueEffectSize": null,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
-              "outcomeId": 3
+              "outcomeId": 31
             },
             {
               "nestingCohortId": null,
@@ -3066,7 +3066,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1001
@@ -3077,7 +3077,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1002
@@ -3088,7 +3088,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1003
@@ -3099,7 +3099,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1004
@@ -3110,7 +3110,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1005
@@ -3121,7 +3121,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1006
@@ -3132,7 +3132,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1007
@@ -3143,7 +3143,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1008
@@ -3154,7 +3154,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1009
@@ -3165,7 +3165,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1010
@@ -3176,7 +3176,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1011
@@ -3187,7 +3187,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1012
@@ -3198,7 +3198,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1013
@@ -3209,7 +3209,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1014
@@ -3220,7 +3220,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1015
@@ -3231,7 +3231,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1016
@@ -3242,7 +3242,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1017
@@ -3253,7 +3253,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1018
@@ -3264,7 +3264,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1019
@@ -3275,7 +3275,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1020
@@ -3286,7 +3286,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1021
@@ -3297,7 +3297,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1022
@@ -3308,7 +3308,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1023
@@ -3319,7 +3319,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1024
@@ -3330,7 +3330,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1025
@@ -3341,7 +3341,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1026
@@ -3352,7 +3352,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1027
@@ -3363,7 +3363,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1028
@@ -3374,7 +3374,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1029
@@ -3385,7 +3385,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1030
@@ -3396,7 +3396,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1031
@@ -3407,7 +3407,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1032
@@ -3418,7 +3418,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1033
@@ -3429,7 +3429,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1034
@@ -3440,7 +3440,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1035
@@ -3451,7 +3451,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1036
@@ -3462,7 +3462,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1037
@@ -3473,7 +3473,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1038
@@ -3484,7 +3484,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1039
@@ -3495,7 +3495,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1040
@@ -3506,7 +3506,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1041
@@ -3517,7 +3517,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1042
@@ -3528,7 +3528,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1043
@@ -3539,7 +3539,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1044
@@ -3550,7 +3550,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1045
@@ -3561,7 +3561,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1046
@@ -3572,7 +3572,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1047
@@ -3583,7 +3583,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1048
@@ -3594,7 +3594,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1049
@@ -3605,7 +3605,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1050
@@ -3616,7 +3616,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1051
@@ -3627,7 +3627,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1052
@@ -3638,7 +3638,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1053
@@ -3649,7 +3649,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1054
@@ -3660,7 +3660,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1055
@@ -3671,7 +3671,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1056
@@ -3682,7 +3682,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1057
@@ -3693,7 +3693,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1058
@@ -3704,7 +3704,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1059
@@ -3715,7 +3715,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1060
@@ -3726,7 +3726,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1061
@@ -3737,7 +3737,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1062
@@ -3748,7 +3748,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1063
@@ -3759,7 +3759,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1064
@@ -3770,7 +3770,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1065
@@ -3781,7 +3781,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1066
@@ -3792,7 +3792,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1067
@@ -3803,7 +3803,7 @@
                 {
                   "trueEffectSize": 1,
                   "exposureIdRef": "exposureId",
-                  "exposureId": 2
+                  "exposureId": 21
                 }
               ],
               "outcomeId": 1068
@@ -3927,8 +3927,8 @@
       "settings": {
         "modelDesignList": [
           {
-            "targetId": 1001,
-            "outcomeId": 3,
+            "targetId": 11001,
+            "outcomeId": 31,
             "restrictPlpDataSettings": {
               "studyStartDate": "",
               "studyEndDate": "",
@@ -4016,7 +4016,7 @@
                 "crossValidationInPrior": true,
                 "addIntercept": true,
                 "useControl": true,
-                "seed": 87552694,
+                "seed": 24093933,
                 "threads": -1,
                 "tolerance": 2e-06,
                 "cvRepetitions": 1,
@@ -4029,7 +4029,7 @@
             "splitSettings": {
               "test": 0.25,
               "train": 0.75,
-              "seed": 1526,
+              "seed": 4639,
               "nfold": 3,
               "attr_class": "splitSettings",
               "attr_fun": "randomSplitter"

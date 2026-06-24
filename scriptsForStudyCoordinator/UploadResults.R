@@ -39,6 +39,7 @@ for (resultFolder in list.dirs(path = config$resultFolder, full.names = T, recur
     logFileName = file.path(config$projectRootFolder, "strategus-upload-results-log.txt")
   )
   
+  cli::cli_h2("Uploading {resultFolder}")
   Strategus::uploadResults(
     analysisSpecifications = analysisSpecifications,
     resultsDataModelSettings = resultsDataModelSettings,
