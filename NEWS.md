@@ -1,3 +1,8 @@
+StrategusStudyRepoTemplate 2.0.3
+===============
+- Fix check for duplicated cohort IDs in `scriptsForStudyDesigner/CreateStrategusAnalysisSpecifications.R`
+- Add better logging for upload
+
 StrategusStudyRepoTemplate 2.0.2
 ===============
 - Revise `ExecuteAnalyses.R` to avoid error when uncommenting the `modulesToExecute` parameter (#30)
